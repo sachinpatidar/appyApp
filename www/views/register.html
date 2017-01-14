@@ -1,0 +1,52 @@
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+    <ion-content class="has-subheader has-header has-footer has-subfooter">
+        <!-- <a class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></a>-->
+
+        <div class="cntArea">
+            <div class="cntTitle">
+
+                <h1>Registration</h1>
+            </div>
+            <div class="cntOpt">
+                <div class="list formReg">
+                    <label>
+                        <input class="yourName" type="text" placeholder="Name">
+                    </label>
+                    <label>
+                        <input class="emailID" type="email" placeholder="Email Address">
+                    </label>
+                    <label>
+                        <div class="list optNums">
+                            <label class="item item-input item-select">
+                                <label class="numOpt">
+                                    <input class="mobNum" type="text" placeholder="Phone Number">
+                                </label>
+                                <select>
+                                    <option selected>(IN)+91</option>
+                                    <option>(PK)+92</option>
+                                </select>
+                            </label>
+                        </div>
+                    </label>
+                    <label>
+                        <input class="passWord2" type="password" placeholder="Password">
+                    </label>
+                    <label>
+                        <input class="passWord2" type="password" placeholder="Confirm Password">
+                    </label>
+
+                    <ion-checkbox ng-model="filter.remember" class="checkBox regBox">Terms & Conditions<span><a href="#">Read Terms</a></span></ion-checkbox>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-footer registerFooter">
+        <button class="proBtn">Register</button>
+    </ion-footer-bar><!--ion-Footer-->
+</ion-view>

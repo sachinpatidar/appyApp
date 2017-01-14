@@ -1,0 +1,16 @@
+﻿
+<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+
+    <ion-content class="has-subheader has-header">      
+        <div>
+            <h1>{{ 'TITLE' | translate }}</h1>
+            <p>{{ 'MESSAGE' | translate }}</p>
+                <select ng-model="lang">
+                    <option value="en">english</option>
+                    <option value="sv">sv</option>
+                   
+                </select>
+            <button ng-click="changeLanguage(lang)">procced</button>
+      </div>
+        </ion-content>
+</ion-view>

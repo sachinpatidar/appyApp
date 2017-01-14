@@ -1,0 +1,34 @@
+﻿
+    <ion-view hide-nav-bar="true">
+    <ion-content>
+        <a class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></a>
+
+        <div class="loginPage">
+            <div class="LogoInr">
+                <img src="img/logo.png" alt="Logo" />
+            </div>
+            <div class="list formLogin">
+                <label>
+                    <input class="emailID" type="email" placeholder="Email Address">
+                </label>
+                <label>
+                    <input class="passWord" type="password" placeholder="Password">
+                </label>
+                <ion-checkbox ng-model="filter.remember" class="checkBox">Remember Me</ion-checkbox>
+                <button class="button button-full button-signin" ui-sref="dashboard">Sign In</button>
+                <div class="button-bar forUp">
+                    <a class="button" ui-sref="forgetPassword">Forget Password?</a>
+                    <a class="button">Sign Up</a>
+                </div>
+                <div class="sepRator">OR</div>
+                <div class="socialCnt">
+                    <a href="#"><img src="img/fb_bt.png" /></a>
+                    <a href="#"><img src="img/gmail_bt.png" /></a>
+                    <a href="#"><img src="img/tw_bt.png" /></a>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
