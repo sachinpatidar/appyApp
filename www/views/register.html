@@ -4,22 +4,24 @@
 
         <div class="cntArea">
             <div class="cntTitle">
-
                 <h1>Registration</h1>
             </div>
             <div class="cntOpt">
                 <div class="list formReg">
                     <label>
-                        <input class="yourName" type="text" placeholder="Name">
+                        <ion-md-input class="yourName" placeholder="Your Name" type="name"></ion-md-input>
+                        <!-- <input class="yourName" type="text" placeholder="Name"> -->
                     </label>
                     <label>
-                        <input class="emailID" type="email" placeholder="Email Address">
+                        <ion-md-input class="emailID" placeholder="Email Address" type="email"></ion-md-input>
+                        <!-- <input class="emailID" type="email" placeholder="Email Address"> -->
                     </label>
                     <label>
                         <div class="list optNums">
                             <label class="item item-input item-select">
                                 <label class="numOpt">
-                                    <input class="mobNum" type="text" placeholder="Phone Number">
+                                    <ion-md-input class="mobNum" placeholder="Phone Number" type="text"></ion-md-input>
+                                    <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
                                 </label>
                                 <select>
                                     <option selected>(IN)+91</option>
@@ -29,10 +31,12 @@
                         </div>
                     </label>
                     <label>
-                        <input class="passWord2" type="password" placeholder="Password">
+                        <ion-md-input class="passWord2" placeholder="Password" type="password"></ion-md-input>
+                        <!-- <input class="passWord2" type="password" placeholder="Password"> -->
                     </label>
                     <label>
-                        <input class="passWord2" type="password" placeholder="Confirm Password">
+                        <!-- <input class="passWord2" type="password" placeholder="Confirm Password"> -->
+                        <ion-md-input class="passWord2" placeholder="Password" type="password"></ion-md-input>
                     </label>
 
                     <ion-checkbox ng-model="filter.remember" class="checkBox regBox">Terms & Conditions<span><a href="#">Read Terms</a></span></ion-checkbox>
@@ -43,6 +47,7 @@
 
 
         </div>
+
 
     </ion-content>
 
