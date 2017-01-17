@@ -7,27 +7,29 @@
             <div class="LogoInr">
                 <img src="img/logo.png" alt="Logo" />
             </div>
-            <div class="list formLogin">
-                <label>
-                    <ion-md-input class="emailID" placeholder="Email" type="email"></ion-md-input>
-                </label>
-                <label>
-                    <ion-md-input class="passWord" placeholder="Password" type="password"></ion-md-input>
-                </label>
-                <ion-checkbox ng-model="filter.remember" class="checkBox">Remember Me</ion-checkbox>
-                <button class="button button-full button-signin" ui-sref="dashboard">Sign In</button>
-                <div class="button-bar forUp">
-                    <a class="button" ui-sref="forgetPassword">Forget Password?</a>
-                    <a class="button">Sign Up</a>
-                </div>
-                <div class="sepRator">OR</div>
-                <div class="socialCnt">
-                    <a href="#"><img src="img/fb_bt.png" /></a>
-                    <a href="#"><img src="img/gmail_bt.png" /></a>
-                    <a href="#"><img src="img/tw_bt.png" /></a>
-                </div>
+            <form>
+                <div class="list formLogin">
+                    <label>
+                        <ion-md-input class="emailID" placeholder="Email" type="email" data-ng-model="data.email"></ion-md-input>
+                    </label>
+                    <label>
+                        <ion-md-input class="passWord" placeholder="Password" type="password" data-ng-model="data.password"></ion-md-input>
+                    </label>
+                    <ion-checkbox ng-model="filter.remember" class="checkBox">Remember Me</ion-checkbox>
+                    <button class="button button-full button-signin" data-ng-click="authenticateUser(data)">Sign In</button>
+                    <div class="button-bar forUp">
+                        <a class="button" ui-sref="forgetPassword">Forget Password?</a>
+                        <a class="button">Sign Up</a>
+                    </div>
+                    <div class="sepRator">OR</div>
+                    <div class="socialCnt">
+                        <a href="#"><img src="img/fb_bt.png" /></a>
+                        <a href="#"><img src="img/gmail_bt.png" /></a>
+                        <a href="#"><img src="img/tw_bt.png" /></a>
+                    </div>
 
-            </div>
+                </div>
+            </form>
 
         </div>
 

@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'dashboard.module', 'login.module','pascalpr
 }).config(function ($urlRouterProvider, $ionicConfigProvider,$translateProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $ionicConfigProvider.navBar.alignTitle('center');
-    $urlRouterProvider.otherwise('loginRegister');
+    $urlRouterProvider.otherwise('translator');
     $translateProvider.translations('en', {
         TITLE: 'Welcome!',
         MESSAGE: 'This app supports your lanaguage!'
