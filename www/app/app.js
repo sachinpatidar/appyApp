@@ -3,7 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'dashboard.module', 'login.module','pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module','ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module'])
+angular.module('starter', ['ionic', 'dashboard.module', 'login.module', 'pascalprecht.translate', 'http.service.module',
+    'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module',
+    'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
+, 'AboutUs.module', 'HowtouseAppy.module', 'MakeSomeoneAppy.module', 'toolTechniques.module', 'ContactUs.module'
+
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,7 +29,7 @@ angular.module('starter', ['ionic', 'dashboard.module', 'login.module','pascalpr
 }).config(function ($urlRouterProvider, $ionicConfigProvider,$translateProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $ionicConfigProvider.navBar.alignTitle('center');
-    $urlRouterProvider.otherwise('translator');
+    $urlRouterProvider.otherwise('loginRegister');
     $translateProvider.translations('en', {
         TITLE: 'Welcome!',
         MESSAGE: 'This app supports your lanaguage!'

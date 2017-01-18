@@ -16,7 +16,7 @@ img{ vertical-align:middle; max-width:100%;}
 .SplashLogo img { max-width: 300px; width: 100%; padding: 0 30px;}
 .LogoInr img {max-width: 300px; width: 100%; padding: 0 30px; margin-bottom: 20px;}
 .LogoInr {text-align: center;}
-.loginPage, .cntArea{margin-top: 20px; margin:0 auto; max-width: 1024px; padding-top: 15px;}
+.loginPage, .cntArea{margin-top: 20px; margin:0 auto; max-width: 1024px; }
 .formLogin label{width: 100%;}
 .formLogin button{margin: 0 !important;}
 .formLogin input{ color: #0b8ba0;font-size: 16px;height: 50px;line-height: 50px;padding-left: 10px; width: 100%;background-color: #dcf9fe;background-repeat: no-repeat;}
@@ -50,6 +50,7 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
 .cntOpt {padding: 30px 15px;}
 .splashMain .scroll { height: 100%}
 .formReg input{ border: 0;color: #0b8ba0;font-size: 16px;height: 50px;line-height: 50px;padding-left: 10px; width: 100%;background-color: #dcf9fe;background-repeat: no-repeat;}
+.formReg .messageArea{ border: 0;margin-top:8px; color: #0b8ba0;font-size: 16px;line-height: 50px;padding-left: 10px; width: 100%;background-color: #dcf9fe;background-repeat: no-repeat;}
 .formReg .emailID {background-image: url("../img/ic_register_email.png")!important; }
 .formReg .passWord2 {background-image: url("../img/ic_register_confirm.png")!important;}
 .formReg .yourName {background-image: url("../img/ic_register_name.png")!important;}
@@ -251,3 +252,20 @@ ion-md-input input:focus ~ .md-highlight {
     padding: 13px 25px 15px 0px;
     direction: ltr;
 }
+.ptitle, .psubtitle {
+    text-align:center;
+    color:#fff; padding-bottom:10px;
+}
+.view-title.ptitle {
+    font-size:16px;
+   
+}
+.subTitle.psubtitle {
+    font-size:18px;
+}
+.submitMnu {
+  text-align:center;
+    
+  
+}
+   

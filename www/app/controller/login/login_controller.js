@@ -3,16 +3,15 @@
         
             
    
-        httpServices.get("GetUser/" + data.email + "/" + data.password).then(function (response) {
-            debugger;
-            if (response.data.GetUserResult.length > 0)
-            {
+        //httpServices.get("GetUser/" + data.email + "/" + data.password).then(function (response) {            
+        //    if (response.data.GetUserResult.length > 0)
+        //    {
                 $state.go('dashboard');
-            }
-            }, function (error) {
-               // ionicToast.show('Login failed', 'top', false, 2500);
+            //}
+            //}, function (error) {
+            //   // ionicToast.show('Login failed', 'top', false, 2500);
 
-            })
+            //})
 
         
     }
