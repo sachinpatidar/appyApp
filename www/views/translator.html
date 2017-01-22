@@ -6,9 +6,8 @@
             <h1>{{ 'TITLE' | translate }}</h1>
             <p>{{ 'MESSAGE' | translate }}</p>
                 <select ng-model="lang">
-                    <option value="en">english</option>
-                    <option value="sv">sv</option>
-                   
+                    <option ng-repeat="lang in languages" value="{{lang.LId}}">{{lang.Language}}</option>
+                    
                 </select>
             <button ng-click="changeLanguage(lang)">procced</button>
       </div>

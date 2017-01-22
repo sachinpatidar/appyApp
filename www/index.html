@@ -22,7 +22,6 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
       <script src="js/ion-md-input.js"></script>
@@ -31,15 +30,18 @@
 
     <!-- your app's js -->
     <script src="app/app.js"></script>
+      <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
       <script src="lib/angular-translate/angular-translate.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.1/angular-messages.min.js" ></script>
   </head>
   <body ng-app="starter">
        <ion-nav-bar class="bar bar-header bar-clear">
             <!-- <button class="button button-icon ion-arrow-left-c"></button> -->
-           <ion-nav-buttons side="left">
-               <button class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></button>
-               </ion-nav-buttons>
-              
+        
+               <ion-nav-back-button>
+               </ion-nav-back-button>
+             
+          
 </ion-nav-bar><!--ion-header-bar-->
       <ion-nav-view>
 
@@ -62,6 +64,20 @@
       <script src="app/services/httpservice.js"></script>
       <script src="app/controller/translator/translator_controller.js"></script>
       <script src="app/controller/translator/translator_module.js"></script>
+      <script src="app/controller/OwnAppyMessage/OwnAppyMessage_controller.js"></script>
+      <script src="app/controller/OwnAppyMessage/OwnAppyMessage_module.js"></script>
+      <script src="app/controller/AboutUs/AboutUs_module.js"></script>
+      <script src="app/controller/AboutUs/AboutUs_controller.js"></script>
+      <script src="app/controller/HowtouseAppy/HowtouseAppy_controller.js"></script>
+      <script src="app/controller/HowtouseAppy/HowtouseAppy_module.js"></script>
+      <script src="app/controller/MakeSomeoneAppy/MakeSomeoneAppy_controller.js"></script>
+      <script src="app/controller/MakeSomeoneAppy/MakeSomeoneAppy_module.js"></script>
+      <script src="app/controller/toolTechniques/toolTechniques_controller.js"></script>
+      <script src="app/controller/toolTechniques/toolTechniques_module.js"></script>
+      <script src="app/controller/ContactUs/ContactUs_controller.js"></script>
+      <script src="app/controller/ContactUs/ContactUs_module.js"></script>
+      <script src="app/controller/AddOwnAppyMessage/AddOwnAppyMessage_controller.js"></script>
+      <script src="app/controller/AddOwnAppyMessage/AddOwnAppyMessage_module.js"></script>
   </body>
 
 </html>

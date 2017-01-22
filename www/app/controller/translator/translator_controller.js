@@ -1,6 +1,44 @@
-﻿angular.module('translator.module.controller', []).controller('translator.controller', function ($scope, $translate, $ionicLoading, $ionicPopup, $ionicHistory, $state) {
+﻿angular.module('translator.module.controller', []).controller('translator.controller', function ($scope,httpServices, $translate, $ionicLoading, $ionicPopup, $ionicHistory, $state) {
     // $scope.images = ["img/classprofile.png"];
-    if (localStorage.getItem('value') == "null" || localStorage.getItem('value') == null) {
+    
+    httpServices.get("GetLanguages").then(function (response) {
+        console.log(response);
+        if (response.data.GetLanguagesResult.length > 0) {
+            $scope.languages = response.data.GetLanguagesResult;
+            // $state.go('dashboard');
+        }
+    }, function (error) {
+        ionicToast.show('Login failed', 'top', false, 2500);
+    }
+
+
+    )
+    if (localStorage.getItem('value') == "null" || localStorage.getItem('value') == null || localStorage.getItem('value') == '') {
+        popup();
+    }
+    else {
+        if (localStorage.getItem('eauid') == "null" || localStorage.getItem('eauid') == null || localStorage.getItem('eauid') == '') {
+            $state.go('loginRegister');
+        }
+        else {
+            $state.go('dashboard');
+        }
+        
+    }
+    $scope.changeLanguage = function (lang) {
+        if (localStorage.getItem('value') == 'showAgreement') {
+            $translate.use(lang);
+            console.log('called');
+            localStorage.setItem('languageSelected', lang);
+            $state.go('loginRegister')
+        }
+        else {
+            popup();
+        }
+        
+    }
+    function popup()
+    {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Agreement',
             template: 'Are you sure you want to eat this ice cream? asfasdf adsf  asdf  asdf  asd f asd f asdf  asdf  asdf  asdf ',
@@ -14,7 +52,7 @@
         confirmPopup.then(function (res) {
             if (res) {
                 localStorage.setItem('value', 'showAgreement');
-                $state.go('loginRegister');
+               
             } else {
 
                 $state.go('translator')
@@ -22,14 +60,6 @@
         });
 
     }
-    else {
-        $state.go('loginRegister');
-    }
-    $scope.changeLanguage = function (lang) {
-        $translate.use(lang);
-        $state.go('loginRegister')
-    }
-    
 
 })
 

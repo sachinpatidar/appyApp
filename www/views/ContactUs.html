@@ -1,0 +1,62 @@
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+        <ion-content class="has-subheader has-header has-footer has-subfooter">
+        <!-- <a class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></a>-->
+
+        <div class="cntArea">
+            <div class="cntTitle">
+                <h1>Contact Us</h1>
+            </div>
+            <div class="cntOpt">
+                <div class="list formReg">
+                    <form>
+
+
+                        <label>
+                            <ion-md-input class="yourName" placeholder="Your Name" type="name" data-ng-model="data.Name"></ion-md-input>
+                            <!-- <input class="yourName" type="text" placeholder="Name"> -->
+                        </label>
+                        <label>
+                            <ion-md-input class="emailID" placeholder="Email Address" type="email" data-ng-model="data.email"></ion-md-input>
+                            <!-- <input class="emailID" type="email" placeholder="Email Address"> -->
+                        </label>
+                        <label>
+                            <div class="list optNums">
+                                <input type="text" data-ng-model="data.countryCode" ng-click="openPopup()" />
+                                <label class="item item-input item-select">
+                                    <label class="numOpt">
+                                        <ion-md-input class="mobNum" placeholder="Phone Number" type="tel" data-ng-model="data.phoneNo"></ion-md-input>
+                                        <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
+                                    </label>
+                                   
+                                </label>
+                            </div>
+                        </label>
+                        <label>
+                            <!--<ion-md-input class="passWord2" placeholder="subject" type="text" data-ng-model="data.subject"></ion-md-input>-->
+                            <input type="text" placeholder="Subject" data-ng-model="data.subject">
+
+
+                        </label>
+                        <label>
+                            <!-- <input class="passWord2" type="password" placeholder="Confirm Password"> -->
+                            <!--<ion-md-textarea class="passWord2" placeholder="Message" data-ng-model="data.Password" type="text-area"></ion-md-textarea>-->
+
+                            <textarea id="TextArea1" class="messageArea" rows="3" placeholder="Message" cols="44" data-ng-model="data.message"></textarea>
+
+                        </label>
+                        <ion-footer-bar align-title="center" class="bar-assertive">
+                            <div class="title">
+                                <button class="btn-update" ng-click="contactDetails(data)">Submit</button>
+                            </div>
+                        </ion-footer-bar>
+
+
+                    </form>
+
+              </div>
+            </div>
+        </div>
+
+      
+    </ion-content>      
+    </ion-view>
