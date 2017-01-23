@@ -9,33 +9,19 @@
                 </div><div class="subTitle psubtitle">What would you like?</div>
             </div>
             <div class="appMenuList">
-                <ion-list>
-                    <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                    <ion-list class="subCheck">
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
+                <ion-list ng-repeat="s in val">
+
+                    <ion-checkbox  class="checkBox" ng-model="s.enableCat" ng-change="selectAllSub(s.enableCat,$index)">{{s.category}}</ion-checkbox>
+                   <!-- <ion-checkbox ng-if="$index==0" ng-model="filter.red" class="checkBox">{{s.category}}</ion-checkbox>-->
+                    <ion-list class="subCheck" ng-repeat="sub in s.subcategory">
+                        <ion-checkbox class="checkBox" ng-model="sub.enableSub">{{sub.subcategory}}</ion-checkbox>
+
                     </ion-list>
                 </ion-list>
-                <ion-list>
-                    <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                    <ion-list class="subCheck">
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                    </ion-list>
-                </ion-list>
-                <ion-list>
-                    <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                    <ion-list class="subCheck">
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                        <ion-checkbox ng-model="filter.red" class="checkBox">Academics</ion-checkbox>
-                    </ion-list>
-                </ion-list>
+
             </div>
- 
-             
+
+
         </div>
 
     </ion-content>
@@ -48,6 +34,6 @@
         <div class="buttons" ng-click="doSomething()">
             <button class="button">Right Button</button>
         </div>-->
-        <div class="title">Go Get IT</div>
+        <div class="title" ng-click="submitMenuOptions()">Go Get IT</div>
     </ion-footer-bar>
 </ion-view>

@@ -5,6 +5,16 @@
 
             <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
                 <div class="subTitle psubtitle">More tools and techniques</div>
+                <select ng-model="toolTechnique1">
+                    <option ng-repeat="toolTechnique in techniques" value={{toolTechnique.description}}>{{toolTechnique.title}}</option>
+
+                </select>
+               
+                    <div> 
+                 {{toolTechnique1}}
+                </div>
+
+              
             </div>
         </div>
 

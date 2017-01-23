@@ -1,0 +1,53 @@
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+
+    <ion-content class="has-subheader has-header">
+        <div class="cntArea">
+
+            <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
+<<<<<<< HEAD
+                <div class="subTitle psubtitle">Make Someone Appy</div>
+            </div>
+       </div>    
+
+    </ion-content>
+=======
+                <div class="subTitle psubtitle">Make someone Appy</div>
+                <div class="loginPage">
+                    <form name="loginForm" ng-submit="authenticateUser(data)">
+                        <div class="list formLogin">
+
+                            <div class="list optNums">
+    <label class="item item-input item-select">
+        <label class="numOpt">
+            <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
+            <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
+        </label>
+
+
+    
+    </label>
+                                <input type="text" ng-model="data.countryCode" ng-click="openPopup()"/>
+</div>
+
+
+                            <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
+                                <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
+                               
+                            </select>
+                            <textarea>{{msgDetail}}</textarea>
+                            <label>
+                                <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
+                            </label>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</ion-content>
+>>>>>>> 5ed49f11f07f31f1a15764016e177343560a7085
+
+
+</ion-view>

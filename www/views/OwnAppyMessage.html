@@ -6,20 +6,35 @@
             <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
                 <div class="subTitle psubtitle">My Own Appy Messages</div>
             </div>
+            <button class="button button-full" ui-sref="AddOwnAppyMessage({eauid:'null',sub:'null',text:'null',msgId:'null'})">Add Message</button>
             <div class="appMenuList">
-                <ion-list>
+                <!--<ion-list>
                     <div class="row ">
-                        <div class="col-90">text subject Message</div>
+                        <div class="col-90" ng-repeat="msg in UserMessages">{{msg}}</div>
                         <div class="col-10">Edit</div>
                     </div>
-                </ion-list>
-                <ion-list>
-                    <div class="row">
-                        <div class="col-90">Another Subject</div>
-                        <div class="col-10">Edit</div>
-                    </div>
-                </ion-list>
+                </ion-list>-->
+                <ul class="list" >
 
+                    <li class="item" ng-repeat="msg in UserMessages">
+                        <div>{{msg.sub}}</div>
+                        <div>{{msg.desc}}</div>
+                        <div><button type="button" ui-sref="AddOwnAppyMessage({eauid:'{{msg.eid}}',sub:'{{msg.sub}}',text:'{{msg.desc}}',msgId:'{{msg.msgid}}'})">Edit</button> </div>
+
+                        <div><button type="button" ng-click="DeleteOwnAppyMessage({{msg.msgid}},{{msg.eid}})"><i class="icon ion-trash-a"></i></button></div>
+
+                        <label class="toggle toggle-assertive">
+                            
+                            <input type="checkbox" ng-model="msg.enable" ng-change="enableDisable(msg.enable,msg.msgid)">
+                            
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                       
+                    </li>                  
+
+                </ul>
             </div>
 
     </ion-content>

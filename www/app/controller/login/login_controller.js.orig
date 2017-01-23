@@ -1,0 +1,41 @@
+﻿angular.module('login.module.controller', []).controller('login.controller', function ($scope, $state, httpServices, $rootScope, $ionicHistory,ionicToast) {
+    $scope.authenticateUser = function (data) { 
+        
+            
+   
+<<<<<<< HEAD
+        //httpServices.get("GetUser/" + data.email + "/" + data.password).then(function (response) {            
+        //    if (response.data.GetUserResult.length > 0)
+        //    {
+                $state.go('dashboard');
+            //}
+            //}, function (error) {
+            //   // ionicToast.show('Login failed', 'top', false, 2500);
+
+            //})
+=======
+        httpServices.get("GetUser/" + data.email + "/" + data.password).then(function (response) {
+           
+            if (response.data.GetUserResult.length > 0) {
+                localStorage.setItem('email', response.data.GetUserResult[0].email);
+                localStorage.setItem('eauid', response.data.GetUserResult[0].eauid);
+                localStorage.setItem('password', data.password);
+                $state.go('dashboard');
+            }
+            else {
+                ionicToast.show('please enter valid email and password', 'top', false, 2500);
+            }
+        }
+            , function (error) {
+            ionicToast.show('Login failed', 'top', false, 2500);
+
+            }
+            )
+>>>>>>> 5ed49f11f07f31f1a15764016e177343560a7085
+
+        
+    }
+
+
+
+})
