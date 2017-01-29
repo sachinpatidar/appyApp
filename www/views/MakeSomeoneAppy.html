@@ -1,33 +1,46 @@
-﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span><p>
+  Make someone Appy
+</p>'>
 
-    <ion-content class="has-subheader has-header">
+    <ion-content class="has-subheader has-header ptoolstech">
         <div class="cntArea">
 
             <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
-                <div class="subTitle psubtitle">Make someone Appy</div>
-                <div class="loginPage">
+                <div class="loginPage makeSome">
                     <form name="loginForm" ng-submit="authenticateUser(data)">
                         <div class="list formLogin">
 
-                            <div class="list optNums">
-    <label class="item item-input item-select">
-        <label class="numOpt">
-            <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
-            <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
-        </label>
+                            <div class="list formReg">
 
 
-    
-    </label>
-                                <input type="text" ng-model="data.countryCode" ng-click="openPopup()"/>
-</div>
+                                <div class="row">
+                                    <div class="col col-10 arrowsDown">
+                                        <input type="text" ng-model="data.countryCode" ng-click="openPopup()" class="selNum" />
+                                    </div>
+                                    <div class="col col-90">
+                                        <label class="item item-input item-select">
+                                            <label class="numOpt">
+                                                <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
+                                                <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
+                                            </label>
 
 
-                            <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
-                                <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
-                               
-                            </select>
-                            <textarea>{{msgDetail}}</textarea>
+
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="secOpt">
+                                <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
+                                    <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
+
+                                </select>
+                            </div>
+                            <textarea rows="15">{{msgDetail}}</textarea>
                             <label>
                                 <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
                             </label>
@@ -39,7 +52,7 @@
             </div>
         </div>
 
-</ion-content>
+    </ion-content>
 
 
 </ion-view>

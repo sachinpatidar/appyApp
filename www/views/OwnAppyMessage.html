@@ -1,12 +1,15 @@
-﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span><p>
+  My Own Appy Messages
+</p>
+
+
+'>
 
     <ion-content class="has-subheader has-header">
         <div class="cntArea">
 
-            <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
-                <div class="subTitle psubtitle">My Own Appy Messages</div>
             </div>
-            <button class="button button-full" ui-sref="AddOwnAppyMessage({eauid:'null',sub:'null',text:'null',msgId:'null'})">Add Message</button>
+            <a class="button button-full pOwnappy" ui-sref="AddOwnAppyMessage({eauid:'null',sub:'null',text:'null',msgId:'null'})"></a>
             <div class="appMenuList">
                 <!--<ion-list>
                     <div class="row ">
@@ -19,20 +22,22 @@
                     <li class="item" ng-repeat="msg in UserMessages">
                         <div>{{msg.sub}}</div>
                         <div>{{msg.desc}}</div>
-                        <div><button type="button" ui-sref="AddOwnAppyMessage({eauid:'{{msg.eid}}',sub:'{{msg.sub}}',text:'{{msg.desc}}',msgId:'{{msg.msgid}}'})">Edit</button> </div>
 
-                        <div><button type="button" ng-click="DeleteOwnAppyMessage({{msg.msgid}},{{msg.eid}})"><i class="icon ion-trash-a"></i></button></div>
+                        <label class="toggle toggle-assertive pcheckwol">
 
-                        <label class="toggle toggle-assertive">
-                            
                             <input type="checkbox" ng-model="msg.enable" ng-change="enableDisable(msg.enable,msg.msgid)">
-                            
+
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
-                        </label>
-                       
-                    </li>                  
+                        </label> 
+
+  <div class="leftbtns" ><button type="button" class="edbtns" ui-sref="AddOwnAppyMessage({eauid:'{{msg.eid}}',sub:'{{msg.sub}}',text:'{{msg.desc}}',msgId:'{{msg.msgid}}'})"><i class="icon ion-compose"></i></button> </div>
+
+                        <div class="rightbtns"><button type="button" class="edbtns" ng-click="DeleteOwnAppyMessage({{msg.msgid}},{{msg.eid}})"><i class="icon ion-trash-a"></i></button></div>
+
+
+                    </li>
 
                 </ul>
             </div>

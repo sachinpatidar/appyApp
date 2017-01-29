@@ -1,13 +1,10 @@
-﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span> <p>Registration</p>'>
     <form name="registerForm" ng-submit="registerUser(data)">
         <ion-content class="has-subheader has-header has-footer has-subfooter">
             <!-- <a class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></a>-->
 
 
             <div class="cntArea">
-                <div class="cntTitle">
-                    <h1>Registration</h1>
-                </div>
                 <div class="cntOpt">
                     <div class="list formReg">
                         <label>
@@ -28,7 +25,14 @@
                             <div ng-message="email" style="color:red">Your email address is invalid</div>
                         </div>
 
-
+                      <div class="row">
+                        <div class = "col col-10 arrowsDown">
+                          <input type="text" ng-click="openPopup()" ng-model="data.countryCode"class="selNum" />
+                          <div ng-messages for="registerForm.phone.$error" ng-if="registerForm.phone.$dirty">
+                              <ng-message when="required" style="color:red"> Phone no is required</ng-message>
+                          </div>
+                        </div>
+                        <div class = "col col-90">
                         <label>
                             <div class="list optNums">
                                 <label class="item item-input item-select">
@@ -36,16 +40,14 @@
                                         <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
                                         <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
                                     </label>
-
-
-                                   
                                 </label>
                             </div>
                         </label>
-                        <input type="text" ng-click="openPopup()" ng-model="data.countryCode" />
-                        <div ng-messages for="registerForm.phone.$error" ng-if="registerForm.phone.$dirty">
-                            <ng-message when="required" style="color:red"> Phone no is required</ng-message>
-                        </div>
+                      </div>
+
+                      </div>
+
+
                         <label>
                             <ion-md-input class="passWord2" placeholder="Password" name="Newpassword" type="password" ng-model="data.password" required="true" ></ion-md-input>
                             <!-- <input class="passWord2" type="password" placeholder="Password"> -->
