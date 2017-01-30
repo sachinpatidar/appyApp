@@ -1,0 +1,56 @@
+.item-md-label {
+    display: block;
+    background-color: transparent;
+    box-shadow: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 50px;
+    border: 0;
+}
+
+.item-md-label .input-label {
+    position: absolute;
+    padding: 0 0 0;
+    z-index: 2;
+    -webkit-transform: translate3d(0, -30px, 0) scale(1);
+    transform: translate3d(0, -30px, 0) scale(1);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    color: #444;
+    opacity: 0.5;
+    -webkit-transform-origin: 0;
+    transform-origin: 0;
+    margin-left: 10px;
+    margin-top: -5px;
+}
+
+.item-md-label input {
+    z-index: 1;
+    position: relative;
+    bottom: 0;
+}
+
+.item-md-label .highlight {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+.item-md-label input:focus ~ .input-label,
+.item-md-label input.used ~ .input-label {
+    -webkit-transform: translate3d(0, -40px, 0) scale(0.9);
+    transform: translate3d(0, -40px, 0) scale(0.9);
+    opacity: 1;
+    font-size: 13px;
+}
+
+.item-md-label input:focus ~ .highlight {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}

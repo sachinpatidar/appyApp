@@ -1,0 +1,47 @@
+﻿   
+    <ion-view hide-nav-bar="true">
+    <ion-content>
+        <a class="btnBck" onclick="window.history.go(-1)"><img src="img/ic_arrow_back.png" /></a>
+
+        <div class="loginPage">
+            <div class="LogoInr">
+                <img src="img/logo.png" alt="Logo" />
+            </div>
+            <form name="loginForm" ng-submit="authenticateUser(data)" >
+                <div class="list formLogin">
+                    <label>
+                        <ion-md-input class="emailID" placeholder="Email" name="email" type="email" data-ng-model="data.email" required></ion-md-input>
+
+                    </label>
+                    <div ng-messages="loginForm.email.$error">
+                        <div ng-message="required"style="color:red">Email is required</div>
+                        <div ng-message="email"style="color:red">Your email address is invalid</div>
+                    </div>
+
+                    <label>
+                        <ion-md-input class="passWord" placeholder="Password" name="password" type="password" ng-model="data.password" required="true"></ion-md-input>
+                    </label>
+                      <div ng-messages for="loginForm.password.$error" ng-if="loginForm.password.$dirty">
+                            <ng-message when="required"style="color:red">Password is required</ng-message>
+                        </div>                 
+                         
+                    <ion-checkbox ng-model="filter.remember" class="checkBox">Remember Me</ion-checkbox>
+                    <button class="button button-full button-signin"  type="submit">Sign In</button>
+                    <div class="button-bar forUp">
+                        <a class="button" ui-sref="forgetPassword">Forget Password?</a>
+                        <a class="button">Sign Up</a>
+                    </div>
+                    <div class="sepRator">OR</div>
+                    <div class="socialCnt">
+                        <a href="#"><img src="img/fb_bt.png" /></a>
+                        <a href="#"><img src="img/gmail_bt.png" /></a>
+                        <a href="#"><img src="img/tw_bt.png" /></a>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+    </ion-content>
+</ion-view>
