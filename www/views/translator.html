@@ -11,10 +11,10 @@
             <!--<h1>{{ 'TITLE' | translate }}</h1>
         <p>{{ 'MESSAGE' | translate }}</p>-->
             <select ng-model="lang">
-                <option ng-repeat="lang in languages" value="{{lang.LId}}">{{lang.Language}}</option>
+                <option ng-repeat="lang in languages" ng-selected="{{ lang.LId == 1 }}" value="{{lang.LId}}">{{lang.Language}}</option>
 
             </select>
-
+             
         </div>
         </ion-content>
     <ion-footer-bar align-title="center" class="bar-assertive">
