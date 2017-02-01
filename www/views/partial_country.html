@@ -1,1 +1,6 @@
-﻿<div><input type="text" ng-model="selectCountry" placeholder="choose country..." /><ul><li ng-repeat="s in country |filter: selectCountry | orderBy : 'countryName'" ng-click="selectedCountry(s.countryName,s.countryCode)">({{s.countryCode}})&nbsp;&nbsp;&nbsp;   {{s.countryName}}</li></ul></div>
+﻿<div>
+    <input type="text" ng-model="selectCountry" class="Pcountrys" placeholder="choose country..." />
+    <ul class="pcunty">
+        <li ng-repeat="s in country |filter: selectCountry | orderBy : 'countryName'" ng-click="selectedCountry(s.countryName,s.countryCode)">({{s.countryCode}})&nbsp;&nbsp;&nbsp;{{s.countryName}}</li>
+    </ul>
+</div>

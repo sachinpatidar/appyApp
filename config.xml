@@ -45,4 +45,16 @@
   <plugin name="phonegap-plugin-push" spec="~1.8.2">
     <variable name="SENDER_ID" value="370585387255" />
   </plugin>
+
+<!-- for Android (you will find one in res/xml) -->
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+</feature>
+
+  <!-- for iOS -->
+<feature name="SocialSharing">
+  <param name="ios-package" value="SocialSharing" />
+</feature>
+
+
 </widget>

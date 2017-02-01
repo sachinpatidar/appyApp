@@ -22,7 +22,7 @@ img{ vertical-align:middle; max-width:100%;}
 .formLogin input{ color: #0b8ba0;font-size: 16px;height: 50px;line-height: 50px;padding-left: 10px; width: 100%;background-color: #dcf9fe;background-repeat: no-repeat;}
 .formLogin .emailID {background-image: url("../img/massage_icon.png")!important; margin-bottom:5px;	}
 .formLogin .passWord {background-image: url("../img/password_icon.png")!important;}
-.checkBox{background: #34c1d9 none repeat scroll 0 0;color: #0b8ba0;height: 50px;line-height: 50px;padding-bottom: 0;padding-top: 0;font-size: 18px;border: 0;}
+.checkBox{background: #34c1d9 none repeat scroll 0 0;color: #0b8ba0;height: 50px;line-height: 50px;padding-bottom: 0;padding-top: 0;font-size: 14px;border: 0;}
 .checkBox input::before, .checkBox .checkbox-icon::before {border-color: #185a64;}
 .checkBox input::before, .checkBox .checkbox-icon::before {background: transparent;border-radius: 3px;border-width: 3px;width: 25px;height: 25px;margin-top: 3px;}
 .checkBox input:checked::before, .checkBox input:checked + .checkbox-icon::before {background: #185a64;border-color: #185a64;}
@@ -143,7 +143,7 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
     width: 130px !important;
 }
 .splashMain .scroll { height: 100%}
-.formReg input{ width: 100%;border: 0;color: #0b8ba0;font-size: 16px;height: 50px;line-height: 50px;padding-left: 10px;background-color: #dcf9fe;background-repeat: no-repeat;}
+.formReg input{ width: 100%;border: 0;color: #0b8ba0;font-size: 16px;height: 50px;line-height: 50px;padding-left: 10px;background-color: #dcf9fe;background-repeat: no-repeat;padding-top:12px; }
 .formReg .messageArea{ border: 0;margin-top:8px; color: #0b8ba0;font-size: 16px;line-height: 50px;padding-left: 10px; width: 100%;background-color: #dcf9fe;background-repeat: no-repeat;}
 .formReg .emailID {background-image: url("../img/ic_register_email.png")!important; }
 .formReg .passWord2 {background-image: url("../img/ic_register_confirm.png")!important;}
@@ -398,3 +398,5 @@ ion-md-input input:focus ~ .md-highlight {
 .ptoolstech{top:95px !important;}
 .ng-valid.ng-dirty.ng-valid-parse.ng-empty.ng-touched {    padding-left: 5px;}
 .pcountrycod{text-align:right;padding-right: 20px !important;}
+.Pcountrys{padding-left:10px !important;}
+.pcunty{padding-left:5px !important;margin-top:5px;}
