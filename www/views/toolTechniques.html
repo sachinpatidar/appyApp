@@ -4,7 +4,7 @@
         <div class="cntArea ownAppy">
 
                 <select ng-model="toolTechnique1">
-                    <option ng-repeat="toolTechnique in techniques" value={{toolTechnique.description}}>{{toolTechnique.title}}</option>
+                    <option ng-repeat="toolTechnique in techniques" ng-selected="{{toolTechnique.description}}" value={{toolTechnique.description}}>{{toolTechnique.title}}</option>
 
                 </select>
 

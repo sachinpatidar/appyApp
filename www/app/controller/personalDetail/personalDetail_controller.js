@@ -52,5 +52,12 @@
             }
         })
     }
+
+    $scope.changeLanguage = function (lang) {
+     
+            localStorage.setItem('languageSelected', lang);
+    }
+
+
     
 });
