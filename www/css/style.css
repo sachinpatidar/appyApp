@@ -91,7 +91,7 @@ select {
 .resultBind{margin: 17px;}
 
 .formReg .col-10 {
-    max-width: 35% !important;
+    max-width: 40% !important;
 }
 .formReg .col-90 {
     max-width: 87% !important;
@@ -101,7 +101,7 @@ select {
 
 @media only screen and (max-width:400px){
   body .formReg .col-90 {
-      max-width: 65% !important;
+      max-width: 60% !important;
   }
 }
 
@@ -148,7 +148,7 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
 .formReg .emailID {background-image: url("../img/ic_register_email.png")!important; }
 .formReg .passWord2 {background-image: url("../img/ic_register_confirm.png")!important;}
 .formReg .yourName {background-image: url("../img/ic_register_name.png")!important;}
-.selNum{background-image: url("../img/ic_register_phone.png")!important; padding-left: 50px !important;}
+.selNum{background-image: url("../img/ic_register_phone.png")!important; padding-left: 55px !important;}
 .list.optNums label {
     padding-left: 0 !important;
 }
@@ -397,3 +397,4 @@ ion-md-input input:focus ~ .md-highlight {
 .pcheckwol {position: absolute;right: 10px; top:10px;}
 .ptoolstech{top:95px !important;}
 .ng-valid.ng-dirty.ng-valid-parse.ng-empty.ng-touched {    padding-left: 5px;}
+.pcountrycod{text-align:right;padding-right: 20px !important;}

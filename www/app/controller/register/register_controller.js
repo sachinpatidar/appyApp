@@ -10,6 +10,7 @@
 
     $scope.data = {};
     var myPopup = '';
+    $scope.data.countryCode = "+1";
     $scope.country = httpServices.getCountry();
     $scope.selectedCountry = function (name, code) {
         $scope.data.countryCode = code;

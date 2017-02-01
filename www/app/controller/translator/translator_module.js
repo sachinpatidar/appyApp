@@ -3,6 +3,6 @@
     $stateProvider.state('translator', {
         url: '/translator',
         templateUrl: 'views/translator.html',
-        controller: 'translator.controller',
+        controller: 'translator.controller as trans',
     })
 });

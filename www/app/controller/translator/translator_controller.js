@@ -1,11 +1,12 @@
-﻿angular.module('translator.module.controller', []).controller('translator.controller', function ($scope,httpServices, $translate, $ionicLoading, $ionicPopup, $ionicHistory, $state) {
+﻿angular.module('translator.module.controller', []).controller('translator.controller', function ($scope, httpServices, $translate, $ionicLoading, $ionicPopup, $ionicHistory, $state, ionicToast) {
     // $scope.images = ["img/classprofile.png"];
-    alert("dfasd");
 
+    $scope.selectedlanguage = 1;
     httpServices.get("GetLanguages").then(function (response) {
-        console.log(response);
+      //  alert(JSON.stringify(response));
         if (response.data.GetLanguagesResult.length > 0) {
             $scope.languages = response.data.GetLanguagesResult;
+
             // $state.go('dashboard');
         }
     }, function (error) {
@@ -13,9 +14,12 @@
     }
 
 
-    )
+    );
     if (localStorage.getItem('value') == "null" || localStorage.getItem('value') == null || localStorage.getItem('value') == '') {
         popup();
+    }
+    else if (localStorage.getItem('languageSelected') == "null" || localStorage.getItem('languageSelected') == null || localStorage.getItem('languageSelected') == '') {
+        $state.go('translator');
     }
     else {
         if (localStorage.getItem('eauid') == "null" || localStorage.getItem('eauid') == null || localStorage.getItem('eauid') == '') {
@@ -24,23 +28,35 @@
         else {
             $state.go('dashboard');
         }
-        
+
     }
     $scope.changeLanguage = function (lang) {
         if (localStorage.getItem('value') == 'showAgreement') {
-            $translate.use(lang);
-            console.log('called');
-            localStorage.setItem('languageSelected', lang);
-            $state.go('loginRegister')
+          //  alert(lang);
+            if (lang != undefined) {
+            //    alert("sdfsad");
+                //     $translate.use(lang);
+                console.log('called');
+                localStorage.setItem('languageSelected', lang);
+                $state.go('loginRegister')
+            }
+            else {
+                ionicToast.show('Please select language', 'top', false, 2500);
+            }
         }
         else {
             popup();
         }
-        
+
     }
-    function popup()
-    {
-        alert("pawanasdfs");
+
+    $scope.getvalue = function (data) {
+        $scope.selectedlanguage = data;
+        //alert(data);
+    }
+
+    function popup() {
+
         var confirmPopup = $ionicPopup.confirm({
             title: 'Agreement',
             template: 'This app stores your valuable data in your mobile SD card only in a database. So it is advisable that you that the backup of your data(be sure to have one copy in your email inbox) at regular interval to avoid any circumstances that causes data loses. <br/> <br/> It is also advisable to take proper backup of your data before updating android OS or this app. <br/> <br/> Developer of this app will not be responsible for any data losses under any circumstances. It"s user responsible to keep proper backupd of data at regular intervals. <br/> <br/> Please accept to proceed.',
@@ -54,7 +70,7 @@
         confirmPopup.then(function (res) {
             if (res) {
                 localStorage.setItem('value', 'showAgreement');
-               
+
             } else {
 
                 $state.go('translator')

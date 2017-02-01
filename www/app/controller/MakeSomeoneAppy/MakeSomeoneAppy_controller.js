@@ -2,6 +2,7 @@
     function ($scope,$ionicPopup, $ionicLoading, $ionicHistory,httpServices, $state) {
         //  $scope.images = ["img/classprofile.png"];
         $scope.data = [];
+        $scope.data.countryCode = "+1";
         $scope.country = httpServices.getCountry();
         // $scope.data = {};
         var myPopup = '';

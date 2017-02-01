@@ -1,6 +1,7 @@
 ﻿angular.module('ContactUs.module.controller', []).controller('ContactUs.controller', function ($scope, $rootScope, $ionicPopover, $state, $ionicLoading, httpServices, $ionicPopup) {
     $scope.country = httpServices.getCountry();
     $scope.data = {};
+    $scope.data.countryCode = "+1";
     $scope.selectedCountry = function (name, code) {
         $scope.data.countryCode = code;
         myPopup.close();

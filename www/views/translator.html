@@ -10,15 +10,17 @@
         <div style="background: transparent; margin: 43% 18%; ">
             <!--<h1>{{ 'TITLE' | translate }}</h1>
         <p>{{ 'MESSAGE' | translate }}</p>-->
-            <select ng-model="lang">
-                <option ng-repeat="lang in languages" ng-selected="{{ lang.LId == 1 }}" value="{{lang.LId}}">{{lang.Language}}</option>
+            <!--<select ng-model="selectedlanguage">
+                <option value="" selected="selected">--Select Language--</option>
+                <option ng-repeat="lang in languages"  value="{{lang.LId}}">{{lang.Language}}</option>
 
-            </select>
+            </select>-->
+            <select ng-options="item.LId as item.Language for item in languages" ng-model="selectedlanguage" data-ng-change="getvalue(selectedlanguage)"></select>
              
         </div>
         </ion-content>
     <ion-footer-bar align-title="center" class="bar-assertive">
        
-        <div class="title" ng-click="changeLanguage(lang)">Continue</div>
+        <div class="title" ng-click="changeLanguage(selectedlanguage)">Continue</div>
     </ion-footer-bar>
 </ion-view>

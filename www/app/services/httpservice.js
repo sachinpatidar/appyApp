@@ -12,7 +12,8 @@
           $ionicLoading.hide();
       }, function (error) {
           q.reject(error);
-          alert(JSON.stringify(error));
+          alert(JSON.stringify(error + " URL ------> " + url + urlres));
+          $ionicLoading.hide();
       })
       return q.promise;
   }
@@ -25,7 +26,8 @@
           q.resolve(result);
       }, function (error) {
           q.reject(error);
-          alert(JSON.stringify(error));
+          alert(JSON.stringify(error + " URL ------> " + url + urlres));
+          $ionicLoading.hide();
       });
       return q.promise;
   }
