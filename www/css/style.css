@@ -401,3 +401,4 @@ ion-md-input input:focus ~ .md-highlight {
 .Pcountrys{padding-left:10px !important;}
 .pcunty{padding-left:5px !important;margin-top:5px;}
 .pprsoninfo{top:100px !important;}
+.input-label.active {transform: translate3d(0, -42px , 0);font-size: 11px; color:#5b5454;}
