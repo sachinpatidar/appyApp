@@ -5,6 +5,15 @@
         if (response.data.GetGFTUserResult.length > 0) {
             $scope.details = response.data.GetGFTUserResult[0];
             // $state.go('dashboard');
+            setTimeout(function () {
+
+                $('.md-input').each(function () {
+                    if ($(this).val() != '') {
+                        $('#' + $(this).next('span').attr('id')).addClass('active');
+                    }
+                });
+            }, 500);
+            
         }
     })
     httpServices.get("GetLanguages").then(function (response) {

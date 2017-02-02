@@ -2,12 +2,13 @@
     $scope.country = httpServices.getCountry();
     $scope.data = {};
     $scope.data.countryCode = "+1";
+    var myPopup = '';
     $scope.selectedCountry = function (name, code) {
         $scope.data.countryCode = code;
         myPopup.close();
     }
     $scope.openPopup = function () {
-        var myPopup = $ionicPopup.show({
+          myPopup = $ionicPopup.show({
             templateUrl: 'views/partial_country.html',
             title: 'select country',
 
@@ -24,8 +25,6 @@
             qdescription: data.message, cid: '91'
         }
 
-
-        
         httpServices.post("UserDataQuery", a).then(function (response) {
             console.log(response);
             if (response.data == "success") {
