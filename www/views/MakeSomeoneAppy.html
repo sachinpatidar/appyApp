@@ -2,7 +2,7 @@
   Make someone Appy
 </p>'>
 
-    <ion-content class="has-subheader has-header ptoolstech">
+    <ion-content class="has-subheader has-header  cntLarge">
         <div class="cntArea">
 
             <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
@@ -36,23 +36,31 @@
 
                             <div class="secOpt">
                                 <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
+<option value="">--Select Message--</option>
                                     <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
+                                
 
                                 </select>
+                                <!--<select ng-options="item.mid as item.smsdetails for item in detailSomeone track by item.mid" ng-model="data.mid" ></select>-->
                             </div>
-                            <textarea rows="15">{{msgDetail}}</textarea>
-                            <label>
-                                <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
-                            </label>
+                            <!--<textarea rows="15" ng-bind-html="msgDetail"></textarea>-->
+                            <div class="resultBind" ng-bind-html="msgDetail">
 
-                        </div>
-
+                            </div>
+ <label>
+        <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
+    </label> 
                     </form>
                 </div>
             </div>
         </div>
 
     </ion-content>
+   
 
+    <!--<ion-footer-bar align-title="center" class="bar-assertive">
+        
+        <div class="title" ng-click="makeSomeoneAppy(data,msgDetail)"> Send Message</div>
+    </ion-footer-bar>-->
 
 </ion-view>

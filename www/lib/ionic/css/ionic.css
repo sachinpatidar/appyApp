@@ -3504,7 +3504,7 @@ ion-infinite-scroll {
 
 /* If you change these, change platform.scss as well */
 .has-header {
-  top: 44px; }
+  top: 90px; }
 
 .no-header {
   top: 0; }
@@ -3571,7 +3571,7 @@ ion-infinite-scroll {
  * --------------------------------------------------
  */
 p {
-  margin: 0 0 10px; }
+  margin: 10px 0 10px; }
 
 small {
   font-size: 85%; }
@@ -7984,8 +7984,8 @@ input:checked + .checkbox-icon:before {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   position: absolute;
-  top: 33%;
-  left: 25%;
+  top: 25%;
+  left: 15%;
   display: table;
   width: 14px;
   height: 6px;

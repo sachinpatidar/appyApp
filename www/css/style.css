@@ -24,7 +24,7 @@ img{ vertical-align:middle; max-width:100%;}
 .formLogin .passWord {background-image: url("../img/password_icon.png")!important;}
 .checkBox{background: #34c1d9 none repeat scroll 0 0;color: #0b8ba0;height: 50px;line-height: 50px;padding-bottom: 0;padding-top: 0;font-size: 14px;border: 0;}
 .checkBox input::before, .checkBox .checkbox-icon::before {border-color: #185a64;}
-.checkBox input::before, .checkBox .checkbox-icon::before {background: transparent;border-radius: 3px;border-width: 3px;width: 25px;height: 25px;margin-top: 3px;}
+.checkBox input::before, .checkBox .checkbox-icon::before {background: transparent;border-radius: 3px;border-width: 2px;width: 20px;height: 20px;margin-top: 10px;}
 .checkBox input:checked::before, .checkBox input:checked + .checkbox-icon::before {background: #185a64;border-color: #185a64;}
 .button-signin {background: #0293ca;color: #fff;font-size: 18px;text-transform: uppercase;border: 0;}
 .button-signin:hover, .button-signin.activated{color: #fff; background:#0293ca }
@@ -37,7 +37,7 @@ img{ vertical-align:middle; max-width:100%;}
 .sepRator {color: #fff;font-size: 18px;padding: 15px 0 11px;text-align: center;}
 .btnReg {background: transparent;border: 3px solid #fff;border-radius: 5px;color: #fff;font-size: 20px;margin: 0 auto !important;max-width: 280px;}
 .btnReg:hover, .btnReg.activated{background: #fff; color: #34bad9; border: 3px solid #fff;}
-.has-subheader.cntLarge{top: 130px;}
+.has-subheader.cntLarge{top: 110px;}
 .has-subheader{top: 75px;}
 .makeSome .item-md-label .input-label {
     margin-left: 0;
@@ -129,7 +129,7 @@ right: 10px;;
 top: 23px;}
 
 ion-header-bar .title {font-size: 25px !important;height: auto !important;}
-ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-right: 0 none;border-top: 0 none;height: 60px !important; border-bottom:2px solid #fff !important; }
+ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-right: 0 none;border-top: 0 none;height: 70px !important; border-bottom:2px solid #fff !important; }
 .subTitle{display: block;font-size: 12px !important;line-height: 22px;}
 .cntTitle > h1 {color: #fff;font-size: 20px;margin: 0;padding-top: 15px;text-align: center;}
 .proBtn {background: transparent;border: 0 none;color: #fff;font-size: 14px;font-weight: 600;text-align: center;text-transform: uppercase;width: 100%;}
@@ -138,7 +138,7 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
 .optNums .item-select:after{left: 80px;}
 .optNums select{font-size: 17px;}
 .cntOpt p {color: #186164;font-size: 17px;line-height: 22px;margin-bottom: 20px;text-align: center;}
-.cntOpt {padding: 30px 15px;}
+.cntOpt {padding: 0 15px 30px 15px;}
 .selNum{
     width: 130px !important;
 }
@@ -212,14 +212,14 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
 }
 .appMenuList .checkBox {
     background: rgba(0, 0, 0, 0) url("../img/smiley_white.png") no-repeat scroll 10px center / 36px auto;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: #fff;
     border-bottom: 2px solid #fff;
 }
 .appMenuList .subCheck .checkBox{
   background: rgba(0, 0, 0, 0) url("../img/next_white.png") no-repeat scroll 36px center / 20px auto;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   color: #fff;
   border-bottom: 2px solid #fff;
@@ -397,6 +397,7 @@ ion-md-input input:focus ~ .md-highlight {
 .pcheckwol {position: absolute;right: 10px; top:10px;}
 .ptoolstech{top:95px !important;}
 .ng-valid.ng-dirty.ng-valid-parse.ng-empty.ng-touched {    padding-left: 5px;}
-.pcountrycod{text-align:right;padding-right: 20px !important;}
+.pcountrycod{text-align:right;padding-right: 27px !important; padding-top: 3px !important;}
 .Pcountrys{padding-left:10px !important;}
 .pcunty{padding-left:5px !important;margin-top:5px;}
+.pprsoninfo{top:100px !important;}
