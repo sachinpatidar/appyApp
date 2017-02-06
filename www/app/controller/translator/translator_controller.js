@@ -34,6 +34,42 @@
         if (localStorage.getItem('value') == 'showAgreement') {
           //  alert(lang);
             if (lang != undefined) {
+                var trans = '';
+                switch (lang) {
+                    case 1:
+                        {
+                            trans = 'en';
+                            break;
+                        };
+                    case 2:
+                        {
+                            trans = 'fr';
+                            break;
+                        };
+                    case 3:
+                        {
+                            trans = 'ru';
+                            break;
+                        }
+                    case 4:
+                        {
+                            trans = 'iw';
+                            break;
+                        }
+                    case 5:
+                        {
+                            trans = 'ar';
+                            break;
+                        }
+                    case 6:
+                        {
+                            trans = 'fe';
+                            break;
+                        }
+                }
+                console.log(trans);
+                $translate.use(trans);
+
             //    alert("sdfsad");
                 //     $translate.use(lang);
                 console.log('called');

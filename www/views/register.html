@@ -8,7 +8,7 @@
                 <div class="cntOpt">
                     <div class="list formReg">
                         <label>
-                            <ion-md-input class="yourName" type="text" placeholder="Your Name" name="yourName" ng-model="data.yourName" required="true"></ion-md-input>
+                            <ion-md-input class="yourName" type="text" placeholder="{{'txt_enter_email' | translate}}" name="yourName" ng-model="data.yourName" required="true"></ion-md-input>
                             <!-- <input class="yourName" type="text" placeholder="Name"> -->
 
                         </label>
@@ -83,10 +83,11 @@
             </div>
 
 
-
+           
         </ion-content>
         <ion-footer-bar class="bar bar-footer registerFooter">
-            <button class="proBtn" ng-click="registerUser(data)" type="submit">Register</button>
+           
+            <button class="proBtn"  type="submit">Register</button>
         </ion-footer-bar><!--ion-Footer-->
     </form>
 </ion-view>

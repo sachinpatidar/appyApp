@@ -29,13 +29,13 @@
                     <button class="button button-full button-signin"  type="submit">Sign In</button>
                     <div class="button-bar forUp">
                         <a class="button" ui-sref="forgetPassword">Forget Password?</a>
-                        <a class="button" ui-sref="loginRegister">Sign Up</a>
+                        <a class="button" ui-sref="register({yourName:'null',email:'null',countryCode:'null',phoneNo:'null', password:'null'})">Sign Up</a>
                     </div>
                     <div class="sepRator">OR</div>
                     <div class="socialCnt">
-                        <a href="#"><img src="img/fb_bt.png" /></a>
-                        <a href="#"><img src="img/gmail_bt.png" /></a>
-                        <a href="#"><img src="img/tw_bt.png" /></a>
+                        <a ng-click="loginFacebook()"><img src="img/fb_bt.png" /></a>
+                        <a ng-click="googleplusLogin()"><img src="img/gmail_bt.png" /></a>
+                        <a ng-click="loginTwitter()"><img src="img/tw_bt.png" /></a>
                     </div>
 
                 </div>

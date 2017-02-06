@@ -10,10 +10,10 @@
             $scope.data.countryCode = code;
             myPopup.close();
         }
-        $scope.openPopup = function () {
+        $scope.openPopup = function (view,title) {
              myPopup = $ionicPopup.show({
-                templateUrl: 'views/partial_country.html',
-                title: 'select country',
+                templateUrl: 'views/'+view,
+                title: title,
 
                 scope: $scope,
 
@@ -60,5 +60,29 @@
             })
         }
 
+        function onSuccess(contacts) {
+           
+          
+            $scope.contacts = contacts;
+        };
+        $scope.selectedContact = function (number) {
+            $scope.data.phoneNo = number[0].value;
 
+            myPopup.close();
+        }
+        function onError(contactError) {
+            alert('onError!');
+        };
+
+        // find all contacts with 'Bob' in any name field
+       
+            var options = new ContactFindOptions();
+          //  options.filter = "";
+            options.multiple = true;
+            options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
+            //options.hasPhoneNumber = true;
+            var fields = ['displayName'];
+            navigator.contacts.find(fields, onSuccess, onError, options);
+        
+        
     });
