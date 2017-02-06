@@ -403,3 +403,4 @@ ion-md-input input:focus ~ .md-highlight {
 .pprsoninfo{top:100px !important;}
 .input-label.active { transform: translate3d(0, -42px , 0) !important;font-size: 13px;color: #271b1b !important;}
 .plogpg{padding:25% 0;}
+.list.formReg { margin: 26px 0;}
