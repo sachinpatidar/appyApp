@@ -14,7 +14,7 @@
 
     if ($stateParams.phoneNo != 'null')
     {
-        alert('called');
+       
             var a = {
                 name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "get lost sachin",
                 type: "R", promocode: "4655", country: "ind", city: "ind", Language: "English", DType: "A", user: $stateParams.email, pwd: $stateParams.password,

@@ -8,7 +8,7 @@
                 <div class="cntOpt">
                     <div class="list formReg">
                         <label>
-                            <ion-md-input class="yourName" type="text" placeholder="{{'txt_enter_email' | translate}}" name="yourName" ng-model="data.yourName" required="true"></ion-md-input>
+                            <ion-md-input class="yourName" type="text" placeholder="{{'txt_enter_name' | translate}}" name="yourName" ng-model="data.yourName" required="true"></ion-md-input>
                             <!-- <input class="yourName" type="text" placeholder="Name"> -->
 
                         </label>
@@ -17,7 +17,7 @@
                         </div>
 
                         <label>
-                            <ion-md-input class="emailID" placeholder="Email Address" name="email" type="email" data-ng-model="data.email" required></ion-md-input>
+                            <ion-md-input class="emailID" placeholder="{{'txt_enter_email' | translate}}" name="email" type="email" data-ng-model="data.email" required></ion-md-input>
                             <!-- <input class="emailID" type="email" placeholder="Email Address"> -->
                         </label>
                         <div ng-messages="registerForm.email.$error">
@@ -37,7 +37,7 @@
                             <div class="list optNums">
                                 <label class="item item-input item-select">
                                     <label class="numOpt">
-                                        <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
+                                        <ion-md-input class="mobNum" name="phone" placeholder="{{'txt_enter_phone' | translate}}" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
                                         <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
                                     </label>
                                 </label>
@@ -49,7 +49,7 @@
 
 
                         <label>
-                            <ion-md-input class="passWord2" placeholder="Password" name="Newpassword" type="password" ng-model="data.password" required="true" ></ion-md-input>
+                            <ion-md-input class="passWord2" placeholder="{{'txt_enter_pass' | translate}}" name="Newpassword" type="password" ng-model="data.password" required="true" ></ion-md-input>
                             <!-- <input class="passWord2" type="password" placeholder="Password"> -->
                         </label>
                         <div ng-messages for="registerForm.Newpassword.$error" ng-if="registerForm.Newpassword.$dirty">
@@ -65,7 +65,7 @@
                             <div ng-message="noMatch">Passwords do not match.</div>
                         </div>-->
                         <label>
-                            <ion-md-input class="passWord2" placeholder="confirm Password" name="confirmPassword" ng-model="data.Password" type="password" required="true" compare-to="data.password" ></ion-md-input>
+                            <ion-md-input class="passWord2" placeholder="{{'txt_confirm_pass' | translate}}" name="confirmPassword" ng-model="data.Password" type="password" required="true" compare-to="data.password" ></ion-md-input>
                         </label>
 
                         <div ng-messages for="registerForm.confirmPassword.$error" >
@@ -73,7 +73,7 @@
                             <span class="error" ng-show="registerForm.confirmPassword.$error.required">Please confirm your password.</span>
                             <span class="error" ng-show="registerForm.confirmPassword.$error.pwcheck">Your passwords don't match.</span>
                         </div>
-                        <ion-checkbox ng-model="data.remember" class="checkBox regBox">Terms & Conditions<span><a href="#">Read Terms</a></span></ion-checkbox>
+                        <ion-checkbox ng-model="data.remember" class="checkBox regBox">{{'txt_terms' | translate}}<span><a href="#">{{'txt_read_terms' | translate}}</a></span></ion-checkbox>
 
 
                     </div>

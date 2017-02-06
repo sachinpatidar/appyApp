@@ -93,7 +93,7 @@
 
     function popup() {
 
-        var confirmPopup = $ionicPopup.confirm({
+         var confirmPopup = $ionicPopup.confirm({
             title: 'Agreement',
             template: 'This app stores your valuable data in your mobile SD card only in a database. So it is advisable that you that the backup of your data(be sure to have one copy in your email inbox) at regular interval to avoid any circumstances that causes data loses. <br/> <br/> It is also advisable to take proper backup of your data before updating android OS or this app. <br/> <br/> Developer of this app will not be responsible for any data losses under any circumstances. It"s user responsible to keep proper backupd of data at regular intervals. <br/> <br/> Please accept to proceed.',
             cancelText: 'Decline',
