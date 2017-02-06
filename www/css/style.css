@@ -158,7 +158,7 @@ ion-header-bar {border-bottom-width: 2px !important;border-left: 0 none;border-r
     border-right: 5px solid transparent;
     content: "";
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 23px;
 }
 .arrowsDown {position: relative;}
@@ -404,3 +404,8 @@ ion-md-input input:focus ~ .md-highlight {
 .input-label.active { transform: translate3d(0, -42px , 0) !important;font-size: 13px;color: #271b1b !important;}
 .plogpg{padding:25% 0;}
 .list.formReg { margin: 26px 0;}
+.cneterOtp{margin:40% 0;}
+.yourNameotp{    background-color: skyblue !important;    height: 45px;    padding: 20px !important;}
+.yourNameotp input {    text-align: center;}
+.cntArea.ownAppy.Tool.arrowsDown::after {    right: 30px;}
+.col.col-10.MSA.arrowsDown::after{right:0px !important;}

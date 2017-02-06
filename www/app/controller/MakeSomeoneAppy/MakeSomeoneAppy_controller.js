@@ -76,13 +76,13 @@
 
         // find all contacts with 'Bob' in any name field
        
-            var options = new ContactFindOptions();
-          //  options.filter = "";
-            options.multiple = true;
-            options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
-            //options.hasPhoneNumber = true;
-            var fields = ['displayName'];
-            navigator.contacts.find(fields, onSuccess, onError, options);
+          //  var options = new ContactFindOptions();
+          ////  options.filter = "";
+          //  options.multiple = true;
+          //  options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
+          //  //options.hasPhoneNumber = true;
+          //  var fields = ['displayName'];
+          //  navigator.contacts.find(fields, onSuccess, onError, options);
         
         
     });

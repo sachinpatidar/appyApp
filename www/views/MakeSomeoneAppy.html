@@ -5,56 +5,85 @@
     <ion-content class="has-subheader has-header  cntLarge">
         <div class="cntArea">
 
-            <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
-                <div class="loginPage makeSome">
+            <div class="cntOpt">
+
+                <div class="list formReg infoInner">
                     <form name="loginForm" ng-submit="authenticateUser(data)">
                         <div class="list formLogin">
 
-                          
+
                             <p>
-                            <a ng-click="openPopup('partial_UserPhoneNumbers.html','Address Book')">choose contact</a></p><p>--------or--------</p>
+                                <a ng-click="openPopup('partial_UserPhoneNumbers.html','Address Book')">choose contact</a>
+                            </p><p>--------or--------</p>
 
-                                <div class="row">
-                                    <div class="col col-10 arrowsDown">
-                                        <input type="text" ng-model="data.countryCode" ng-click="openPopup('partial_country.html','select country')" class="selNum pcountrycod" />
-                                    </div>
-                                    <div class="col col-90">
-                                        <label class="item item-input item-select">
-                                            <label class="numOpt">
-                                                <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
-                                                <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
+
+                             
+                            <label>
+                                <div class="list optNums">
+                                    <div class="row">
+                                        <div class="col col-10 MSA arrowsDown">
+                                            <input type="text" ng-model="data.countryCode" ng-click="openPopup('partial_country.html','select country')" class="selNum pcountrycod" />
+
+                                        </div>
+                                        <div class="col col-90">
+                                            <label class="item item-input item-select">
+                                                <label class="numOpt">
+                                                    <ion-md-input class="mobNum" name="phone" placeholder="Phone Number" type="text" ng-model="data.phoneNo" required="true"></ion-md-input>
+                                                    <!-- <input class="mobNum" type="text" placeholder="Phone Number"> -->
+                                                </label>
+
                                             </label>
-
-
-
-                                        </label>
+                                        </div>
                                     </div>
+
+                                      
                                 </div>
+                            </label>
 
 
-                            </div>
+
+                        </div>
 
 
-                            <div class="secOpt">
-                                <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
-<option value="">--Select Message--</option>
-                                    <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
-                                
+                        <div class="secOpt arrowsDown">
+                            <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
+                                <option value="">--Select Message--</option>
+                                <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
 
-                                </select>
-                                <!--<select ng-options="item.mid as item.smsdetails for item in detailSomeone track by item.mid" ng-model="data.mid" ></select>-->
-                            </div>
-                            <!--<textarea rows="15" ng-bind-html="msgDetail"></textarea>-->
-                            <div class="resultBind" ng-bind-html="msgDetail">
 
-                            </div>
- <label>
-        <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
-    </label> 
+                            </select>
+                            <!--<select ng-options="item.mid as item.smsdetails for item in detailSomeone track by item.mid" ng-model="data.mid" ></select>-->
+                        </div>
+                        <!--<textarea rows="15" ng-bind-html="msgDetail"></textarea>-->
+
+                        <div class="resultBind " ng-bind-html="msgDetail">
+
+                        </div>
+
                     </form>
+
+                </div>
+
+
+                <div class="">
+                 
+                    <div class="">
+                        <div class="loginPage makeSome">
+                            
+                        </div>      
+                         
+                    </div>
+
+                </div>
+</div>
+
+
+                <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
+                    <label>
+                        <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">Send</button>
+                    </label>
                 </div>
             </div>
-        </div>
 
     </ion-content>
    
