@@ -8,10 +8,11 @@ What would you like?
         <div class="cntArea">
             <div class="appMenuList">
                 <ion-list ng-repeat="s in val">
-
+           
                     <ion-checkbox  class="checkBox" ng-model="s.enableCat" ng-change="selectAllSub(s.enableCat,$index)">{{s.category}}</ion-checkbox>
                    <!-- <ion-checkbox ng-if="$index==0" ng-model="filter.red" class="checkBox">{{s.category}}</ion-checkbox>-->
                     <ion-list class="subCheck" ng-repeat="sub in s.subcategory">
+              
                         <ion-checkbox class="checkBox" ng-model="sub.enableSub">{{sub.subcategory}}</ion-checkbox>
 
                     </ion-list>

@@ -9,6 +9,7 @@
                 localStorage.setItem('email', response.data.GetUserResult[0].email);
                 localStorage.setItem('eauid', response.data.GetUserResult[0].eauid);
                 localStorage.setItem('password', data.password);
+              //  localStorage.setItem('languageSelected', 1);
                 $state.go('dashboard');
             }
             else {
@@ -24,7 +25,7 @@
         
     }
     $scope.loginFacebook = function () {
-        alert('called facebook login');
+       
         $cordovaOauth.facebook('137744153404879', ["email"]).then(function (result) {
             alert(JSON.stringify(result));
         }, function (error) {
@@ -33,7 +34,7 @@
     }
 
     $scope.loginTwitter= function () {
-        alert('called twitter login');
+        
         try {
             $cordovaOauth.twitter('ToeIguHX2euUTLoPVvTqmpAXb', 'ONaap2o25ZnoE90JTcETcu8Xky0UtYgZE6DjRuUUrKYKdpj2yZ').then(function (result) {
                 alert(JSON.stringify(result));
@@ -59,5 +60,32 @@
         }
     );
     }
+
+    function thirdParyLogin()
+    {
+        var a = {
+            name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "R",
+            type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelected'), DType: "A", user: $stateParams.email, pwd: $stateParams.password,
+            Messages: "5", CountryCode: $stateParams.countryCode,
+            GCMId: localStorage.getItem("GCMID")
+        }
+
+        httpServices.post("RegisterAppy", a).then(function (response) {
+            console.log(response);
+            if (response.data == "success") {
+                $state.go('login');
+            }
+            else {
+                ionicToast.show('Register failed', 'top', false, 2500);
+            }
+
+        }, function (error) {
+            ionicToast.show('Login failed', 'top', false, 2500);
+
+        })
+
+    }
+
+
     
 })

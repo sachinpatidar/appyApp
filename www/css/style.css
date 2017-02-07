@@ -383,14 +383,21 @@ ion-md-input input:focus ~ .md-highlight {
     top:-25px !important;  
 }
 .pOwnappy {
-    position:absolute;
-    top:5px;
-    right:5px;
-  background-image: url("../img/ic_plus.png")!important;   
-  background-repeat: no-repeat;
- background-color:transparent; 
-  background-size:50px;
+    position: fixed;
+    top: -109px;
+    right: 0;
+    background-image: url(../img/ic_plus.png)!important;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 30px;
+    background-position: center center;
+    z-index: 999;
 }
+.cntLarge.overflow-scroll {
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
 .edbtns {background-color:transparent; border:none; font-size:20px;  position:absolute;top:-15px;right:15px;color:#fff;}
 .rightbtns {position: absolute;right: 0px;}
 .leftbtns{position: absolute;right: 20px;}
@@ -405,7 +412,9 @@ ion-md-input input:focus ~ .md-highlight {
 .plogpg{padding:25% 0;}
 .list.formReg { margin: 26px 0;}
 .cneterOtp{margin:40% 0;}
-.yourNameotp{    background-color: skyblue !important;    height: 45px;    padding: 20px !important;}
+.yourNameotp{    background-color: skyblue !important;    height: 45px;    padding: 20px 0 0 35px !important;}
 .yourNameotp input {    text-align: center;}
 .cntArea.ownAppy.Tool.arrowsDown::after {    right: 30px;}
 .col.col-10.MSA.arrowsDown::after{right:0px !important;}
+
+
