@@ -61,6 +61,10 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
     $ionicConfigProvider.views.maxCache(0);
     $ionicConfigProvider.navBar.alignTitle('center');
     $urlRouterProvider.otherwise('translator');
+    if (!ionic.Platform.isIOS()) {
+        $ionicConfigProvider.scrolling.jsScrolling(true);
+    }
+
     //   $translateProvider.translations('en', {
     //       TITLE: 'Welcome!',
     //       MESSAGE: 'This app supports your lanaguage!'

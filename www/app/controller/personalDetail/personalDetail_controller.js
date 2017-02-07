@@ -1,5 +1,8 @@
 ﻿angular.module('personalDetail.module.controller', []).controller('personalDetail.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state) {
     //  $scope.images = ["img/classprofile.png"];
+    setTimeout(function () {
+        $scope.language = localStorage.getItem('languageSelected');
+    }, 200);
     httpServices.get("GetGFTUser/" + localStorage.getItem('email')).then(function (response) {
         console.log(response);
         if (response.data.GetGFTUserResult.length > 0) {
@@ -11,7 +14,7 @@
                     if ($(this).val() != '') {
                         $('#' + $(this).next('span').attr('id')).addClass('active');
                     }
-                });
+                }); 
             }, 500);
             
         }
@@ -63,8 +66,14 @@
     }
 
     $scope.changeLanguage = function (lang) {
-     
+        $ionicLoading.show();
+        setTimeout(function () {
             localStorage.setItem('languageSelected', lang);
+            $scope.language = localStorage.getItem('languageSelected');
+            $scope.apply;
+            $ionicLoading.hide();
+        }, 2000);
+          
     }
 
 

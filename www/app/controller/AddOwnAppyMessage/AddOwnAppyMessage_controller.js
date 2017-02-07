@@ -3,8 +3,18 @@
     $scope.data = {};
     if ($stateParams.msgId != null || $stateParams.msgId != 'null') {
        
-        $scope.data.MessageSubject = $stateParams.sub;
-        $scope.data.MessageDetail = $stateParams.text;
+        $scope.data.MessageSubject = ($stateParams.sub!="null"?$stateParams.sub:"");
+        $scope.data.MessageDetail = ($stateParams.text != "null" ? $stateParams.text : "");
+        setTimeout(function () {
+
+            $('.md-input').each(function () {
+                if ($(this).val() != '') {
+                    $('#' + $(this).next('span').attr('id')).addClass('active');
+                }
+                else { $('#' + $(this).next('span').attr('id')).addClass('addOwnpayylbls'); }
+            });
+          
+        }, 500);
 
     }
     $scope.AddOwnAppyMessages = function (data) {
@@ -22,8 +32,6 @@
                 if (response.data == "success"||response.data=="Success") {
                     $state.go('OwnAppyMessage');
                 }
-
-
             }, function (error) {
                 ionicToast.show('Login failed', 'top', false, 2500);
 

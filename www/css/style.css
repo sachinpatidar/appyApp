@@ -313,7 +313,7 @@ ion-md-input input:focus ~ .md-highlight {
 }
 .infoInner h3 {
     color: #7a7a7a;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
     padding-bottom: 40px;
 }
@@ -383,15 +383,15 @@ ion-md-input input:focus ~ .md-highlight {
     top:-25px !important;  
 }
 .pOwnappy {
-    position: fixed;
-    top: -109px;
-    right: 0;
+       position: absolute;
+    top: 8px;
+    right: 10px;
     background-image: url(../img/ic_plus.png)!important;
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: 30px;
-    background-position: center center;
-    z-index: 999;
+    background-position: 57% 87%;
+    z-index: 999 !import
 }
 .cntLarge.overflow-scroll {
     overflow-x: visible;
@@ -416,5 +416,5 @@ ion-md-input input:focus ~ .md-highlight {
 .yourNameotp input {    text-align: center;}
 .cntArea.ownAppy.Tool.arrowsDown::after {    right: 30px;}
 .col.col-10.MSA.arrowsDown::after{right:0px !important;}
-
+.addOwnpayylbls {    margin: -21px 0 0 0 !important;}
 

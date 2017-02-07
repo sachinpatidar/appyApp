@@ -1,6 +1,7 @@
 ﻿angular.module('OwnAppyMessage.module.controller', []).controller('OwnAppyMessage.controller',
     function ($scope, $ionicLoading,httpServices, $ionicHistory, $state) {
         //  $scope.images = ["img/classprofile.png"];
+        setTimeout(function(){   $('.title.title-center.header-item').css('right', '0').css('left', '0');},200);
         httpServices.get("GetUserMessage/" + localStorage.getItem('eauid')).then(function (response) {
             console.log(response);
             if (response.data.GetUserMessageResult.length > 0) {
@@ -8,7 +9,8 @@
                 $scope.UserMessages = response.data.GetUserMessageResult;
                 // $state.go('dashboard');
             }
-        })
+        });
+      
         $scope.enableDisable = function (data,msgId) {
             var a = {
                
@@ -50,20 +52,20 @@
                     
                     $scope.UserMessages.map((i, j) => {
                         console.log(i);
-                        console.log(j);
-                        if (i.msgid == msgId)
-                        {
-                            $scope.UserMessages.splice(j, 1);
-                        }
-                    })
+                    console.log(j);
+                    if (i.msgid == msgId)
+                    {
+                        $scope.UserMessages.splice(j, 1);
+                    }
+                });
                     $state.go('OwnAppyMessage');
-                }
+            }
 
 
             }, function (error) {
                 ionicToast.show('Login failed', 'top', false, 2500);
 
-            })
+            });
 
 
         }
