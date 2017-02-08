@@ -47,26 +47,42 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         var now = new Date().getTime(),
      _5_sec_from_now = new Date(now + 5 * 1000);
         try {
-            cordova.plugins.notification.local.schedule({
-                text: "Delayed Notification",
-                at: _5_sec_from_now,
-                every: 'minute',
+            cordova.plugins.notification.local.schedule([{
+                id:1,
+                text: "audi message",
+                at: new Date(now + 5 * 1000),
+               every:'minute',
                 led: "FF0000",
                 sound: null
-            });
+            },{
+                id: 2,
+                text: "car message",
+                at: new Date(now + 10 * 1000),
+                   every: 'minute',
+                    led: "FF0000",
+                    sound: null
+                },{
+                    
+                    id: 3,
+                    text: "sports message",
+                    at:new Date(now + 15 * 1000),
+                   every: 'minute',
+                        led: "FF0000",
+                        sound: null
+                    }]);
 
         }
         catch (e) {
-            alert(JSON.stringify(e));
+            
         }
         cordova.plugins.notification.local.on("trigger", function (notification) {
-            alert("triggered: " + notification.id);
+            
         });
         cordova.plugins.notification.local.on("schedule", function (notification) {
-            alert("scheduled: " + notification.id);
+            
         });
         cordova.plugins.notification.local.on("click", function (notification) {
-            alert("clicked: " + notification.id);
+            
         });
 
         if (window.cordova && window.cordova.plugins.Keyboard) {

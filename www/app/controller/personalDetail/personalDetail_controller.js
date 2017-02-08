@@ -66,7 +66,6 @@
     }
 
     $scope.changeLanguage = function (lang) {
-<<<<<<< HEAD
         if (lang != undefined) {
             var trans = '';
             switch (lang) {
@@ -111,7 +110,6 @@
 
 
         }
-=======
         $ionicLoading.show();
         setTimeout(function () {
             localStorage.setItem('languageSelected', lang);
@@ -120,7 +118,6 @@
             $ionicLoading.hide();
         }, 2000);
           
->>>>>>> 0b52ee52efb32b7223b5011198445699cc777c96
     }
 
 
