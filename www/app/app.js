@@ -43,6 +43,32 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         });
 
 
+
+        var now = new Date().getTime(),
+     _5_sec_from_now = new Date(now + 5 * 1000);
+        try {
+            cordova.plugins.notification.local.schedule({
+                text: "Delayed Notification",
+                at: _5_sec_from_now,
+                every: 'minute',
+                led: "FF0000",
+                sound: null
+            });
+
+        }
+        catch (e) {
+            alert(JSON.stringify(e));
+        }
+        cordova.plugins.notification.local.on("trigger", function (notification) {
+            alert("triggered: " + notification.id);
+        });
+        cordova.plugins.notification.local.on("schedule", function (notification) {
+            alert("scheduled: " + notification.id);
+        });
+        cordova.plugins.notification.local.on("click", function (notification) {
+            alert("clicked: " + notification.id);
+        });
+
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -59,6 +85,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
     });
 }).config(function ($urlRouterProvider, $ionicConfigProvider, $translateProvider) {
     $ionicConfigProvider.views.maxCache(0);
+    $translateProvider.useSanitizeValueStrategy('escapeParameters');
     $ionicConfigProvider.navBar.alignTitle('center');
     $urlRouterProvider.otherwise('translator');
     //   $translateProvider.translations('en', {

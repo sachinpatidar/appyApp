@@ -10,7 +10,7 @@
             <form name="loginForm" ng-submit="authenticateUser(data)" >
                 <div class="list formLogin">
                     <label>
-                        <ion-md-input class="emailID" placeholder="Email" name="email" type="email" data-ng-model="data.email" required></ion-md-input>
+                        <ion-md-input class="emailID" placeholder="{{'txt_email'|translate}}" name="email" type="email" data-ng-model="data.email" required></ion-md-input>
 
                     </label>
                     <div ng-messages="loginForm.email.$error">
@@ -19,19 +19,19 @@
                     </div>
 
                     <label>
-                        <ion-md-input class="passWord" placeholder="Password" name="password" type="password" ng-model="data.password" required="true"></ion-md-input>
+                        <ion-md-input class="passWord" placeholder="{{'txt_pass'|translate}}" name="password" type="password" ng-model="data.password" required="true"></ion-md-input>
                     </label>
                       <div ng-messages for="loginForm.password.$error" ng-if="loginForm.password.$dirty">
                             <ng-message when="required"style="color:red">Password is required</ng-message>
                         </div>                 
                          
-                    <ion-checkbox ng-model="filter.remember" class="checkBox">Remember Me</ion-checkbox>
-                    <button class="button button-full button-signin"  type="submit">Sign In</button>
+                    <ion-checkbox ng-model="filter.remember" class="checkBox">{{'txt_remember'|translate}}</ion-checkbox>
+                    <button class="button button-full button-signin"  type="submit">{{"txt_sign_in"|translate}}</button>
                     <div class="button-bar forUp">
-                        <a class="button" ui-sref="forgetPassword">Forget Password?</a>
-                        <a class="button" ui-sref="register({yourName:'null',email:'null',countryCode:'null',phoneNo:'null', password:'null'})">Sign Up</a>
+                        <a class="button" ui-sref="forgetPassword">{{'txt_forgot_pass'|translate}}?</a>
+                        <a class="button" ui-sref="register({yourName:'null',email:'null',countryCode:'null',phoneNo:'null', password:'null'})">{{"txt_sign_up"|translate}}</a>
                     </div>
-                    <div class="sepRator">OR</div>
+                    <div class="sepRator">{{'txt_or'|translate}}</div>
                     <div class="socialCnt">
                         <a ng-click="loginFacebook()"><img src="img/fb_bt.png" /></a>
                         <a ng-click="googleplusLogin()"><img src="img/gmail_bt.png" /></a>

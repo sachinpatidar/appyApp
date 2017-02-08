@@ -1,4 +1,4 @@
-﻿<ion-view view-title='<span class="view-title">Way to Appy </span>	<span class="subTitle">Dream your life, Live your dreams</span>'>
+﻿<ion-view view-title='<span class="view-title">{{"app_name"|translate}} </span>	<span class="subTitle">{{"slogen"|translate}}</span>'>
 
     <ion-content class="has-subheader has-header">
 
@@ -6,18 +6,18 @@
             <form>
                 <div class="list formLogin">
                     <label>
-                        <ion-md-input class="yourName" type="text" placeholder="Message Subject" ng-model="data.MessageSubject"></ion-md-input>
+                        <ion-md-input class="yourName" type="text" placeholder="{{'txt_msg_subject'|translate}}" ng-model="data.MessageSubject"></ion-md-input>
                         <!-- <input class="yourName" type="text" placeholder="Name"> -->
 
                     </label>
                     <label>
                         <!--<ion-md-input class="yourName" type="text" placeholder="Message Detail" ng-model="data.MessageDetail"></ion-md-input>-->
-                        <textarea class="yourName" type="text" placeholder="Message Detail" ng-model="data.MessageDetail"></textarea>
+                        <textarea class="yourName" type="text" placeholder="{{'txt_msg_detail'|translate}}" ng-model="data.MessageDetail"></textarea>
 
                         <!-- <input class="yourName" type="text" placeholder="Name"> -->
 
                     </label>
-                    <button class="button button-full btnReg" type="submit" ng-click="AddOwnAppyMessages(data)">Submit</button>
+                    <button class="button button-full btnReg" type="submit" ng-click="AddOwnAppyMessages(data)">{{"txt_submit"|translate}}</button>
                 </div>
             </form>
 

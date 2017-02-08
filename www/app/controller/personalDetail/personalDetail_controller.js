@@ -1,4 +1,4 @@
-﻿angular.module('personalDetail.module.controller', []).controller('personalDetail.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state) {
+﻿angular.module('personalDetail.module.controller', []).controller('personalDetail.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, $translate) {
     //  $scope.images = ["img/classprofile.png"];
     httpServices.get("GetGFTUser/" + localStorage.getItem('email')).then(function (response) {
         console.log(response);
@@ -20,7 +20,7 @@
         console.log(response);
         if (response.data.GetLanguagesResult.length > 0) {
             $scope.languages = response.data.GetLanguagesResult;
-            $scope.language = localStorage.getItem('languageSelected');
+            $scope.selectedlanguage = localStorage.getItem('languageSelected');
             // $state.go('dashboard');
         }
     })   
@@ -63,8 +63,50 @@
     }
 
     $scope.changeLanguage = function (lang) {
-     
+        if (lang != undefined) {
+            var trans = '';
+            switch (lang) {
+                case 1:
+                    {
+                        trans = 'en';
+                        break;
+                    };
+                case 2:
+                    {
+                        trans = 'fr';
+                        break;
+                    };
+                case 3:
+                    {
+                        trans = 'ru';
+                        break;
+                    }
+                case 4:
+                    {
+                        trans = 'iw';
+                        break;
+                    }
+                case 5:
+                    {
+                        trans = 'ar';
+                        break;
+                    }
+                case 6:
+                    {
+                        trans = 'fe';
+                        break;
+                    }
+            }
+            console.log(trans);
+            $translate.use(trans);
+
+            //    alert("sdfsad");
+            //     $translate.use(lang);
+            console.log('called');
             localStorage.setItem('languageSelected', lang);
+
+
+        }
     }
 
 

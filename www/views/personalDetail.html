@@ -1,21 +1,22 @@
 ﻿
 
-<ion-view view-title='<span class="view-title">Way to Appy </span>	
-    <span class="subTitle">Dream your life, Live your dreams</span><p> 
- Personal Info  
-</p>' > 
+<ion-view view-title='<span class="view-title">{{"app_name"|translate}}</span>	<span class="subTitle">{{"slogen"|translate}}</span><p>
+  {{"menu_profile"|translate}}</p>
+
+
+'>
     <ion-content class="pprsoninfo" >
 
         <div class="cntArea">
             <div class="cntOpt">
                 <div class="infoInner">
-                  
+                    <h3>{{"txt_personal_info"|translate}}</h3>
                     <div class="infoForm">
                         <label>
-                            <ion-md-input class="yourName" ng-model="details.name" placeholder="Name" type="name"></ion-md-input>
+                            <ion-md-input class="yourName" ng-model="details.name" placeholder="{{'txt_name'|translate}}" type="name"></ion-md-input>
                         </label>
                         <label>
-                            <ion-md-input class="emailID" ng-model="details.email" placeholder="Email" name="email" type="email"></ion-md-input>
+                            <ion-md-input class="emailID" ng-model="details.email" placeholder="{{'txt_email'|translate}}" name="email" type="email"></ion-md-input>
                         </label>
                         <label class="numOptN">
                             <!-- <ion-md-input class="mobNum"ng-model="details.mobile" placeholder="Phone Number" type="text"></ion-md-input>
@@ -26,7 +27,7 @@
 
                         </label>
                         <label>
-                            <button class="btn-update">Update</button>
+                            <button class="btn-update">{{"txt_update"|translate}}</button>
                         </label>
                     </div>
 
@@ -34,20 +35,20 @@
                 <form>
 
                     <div class="infoInner">
-                        <h3>Password</h3>
+                        <h3>{{"txt_pass"|translate}}</h3>
                         <div class="infoForm">
                             <label>
-                                <ion-md-input class="passWord" placeholder="Current Password" name="Currentpassword" type="password" ng-model="data.currentPassword"></ion-md-input>
+                                <ion-md-input class="passWord" placeholder="{{'txt_current_pass'|translate}}" name="Currentpassword" type="password" ng-model="data.currentPassword"></ion-md-input>
                             </label>
                             <label>
-                                <ion-md-input class="passWord" placeholder="New Password" name="Newpassword" type="password" ng-model="data.newPassword"></ion-md-input>
+                                <ion-md-input class="passWord" placeholder="{{'txt_new_pass'|translate}}" name="Newpassword" type="password" ng-model="data.newPassword"></ion-md-input>
                             </label>
                             <label>
-                                <ion-md-input class="passWord" placeholder=" Conform Password" name="Conformpassword" type="password"></ion-md-input>
+                                <ion-md-input class="passWord" placeholder="{{'txt_confirm_pass'|translate}}" name="Conformpassword" type="password"></ion-md-input>
 
                             </label>
                             <label>
-                                <button class="btn-update" ng-click="updatePassword(data)">Update</button>
+                                <button class="btn-update" ng-click="updatePassword(data)">{{"txt_update"|translate}}</button>
                             </label>
                         </div>
 
@@ -55,21 +56,21 @@
                 </form>
                 <form>
                     <div class="infoInner">
-                        <h3>Max appy messages per day</h3>
+                        <h3>{{'txt_appy_msg_per_day'|translate}}</h3>
                         <div class="infoForm">
                             <label>
                                 <ion-md-input type="text" placeholder="Max messages" ng-model="messageDetail"></ion-md-input>
                             </label>
 
                             <label>
-                                <button class="btn-update" ng-click="updateMaxMessage(messageDetail)">Update</button>
+                                <button class="btn-update" ng-click="updateMaxMessage(messageDetail)">{{"txt_update"|translate}}</button>
                             </label>
                         </div>
 
                     </div>
                 </form>
                 <div class="infoInner">
-                    <h3>Language</h3>
+                    <h3>{{"txt_language"|translate}}</h3>
                     <div class="infoForm">
                         <div class="arrowsDown">
                             <!--<h1>{{ 'TITLE' | translate }}</h1>
@@ -79,14 +80,14 @@
                                         <option ng-repeat="lang in languages" ng-selected="{{lang.LId}}" value="{{lang.LId}}">{{lang.Language}}</option>
 
                             </select>
-                            
+
                             <!--<button ng-click="changeLanguage(lang)">procced</button>-->
                         </div>
 
 
 
                         <label>
-                            <button class="btn-update" ng-click="changeLanguage(language)">Update</button>
+                            <button class="btn-update" ng-click="changeLanguage(language)">{{"txt_update"|translate}}</button>
                         </label>
                     </div>
 
