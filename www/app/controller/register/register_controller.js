@@ -16,8 +16,8 @@
     {
        
             var a = {
-                name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "get lost sachin",
-                type: "R", promocode: "4655", country: "ind", city: "ind", Language: "English", DType: "A", user: $stateParams.email, pwd: $stateParams.password,
+                name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "R",
+                type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelected'), DType: "A", user: $stateParams.email, pwd: $stateParams.password,
                 Messages: "5", CountryCode: $stateParams.countryCode,
                 GCMId: localStorage.getItem("GCMID")
         }
@@ -51,8 +51,43 @@
         });
     }
 
-        $scope.registerUser = function (data) {
-            
+    $scope.registerUser = function (data) {
+           
+      //  alert(JSON.stringify(data.remember));
+        if (data.yourName == '' || data.yourName == undefined) {
+            ionicToast.show('Please enter name', 'top', false, 2500);
+            return;
+        }
+        if (data.email == '' || data.email == undefined) {
+            ionicToast.show('Please enter email', 'top', false, 2500);
+            return;
+        }
+        if (data.countryCode == '' || data.countryCode == undefined) {
+            ionicToast.show('Please enter country Code', 'top', false, 2500);
+            return;
+        }
+         if (data.phoneNo == '' || data.phoneNo == undefined) {
+            ionicToast.show('Please enter phone number', 'top', false, 2500);
+            return;
+        }
+        if (data.password == '' || data.password == undefined) {
+            ionicToast.show('Please enter Password', 'top', false, 2500);
+            return;
+        }
+
+        if (data.ConfirmPassword == '' || data.ConfirmPassword == undefined) {
+            ionicToast.show('Please enter confirm password', 'top', false, 2500);
+            return;
+        }
+        if (data.password !=  data.ConfirmPassword) {
+            ionicToast.show('Password not matched', 'top', false, 2500);
+            return;
+        }
+
+        if (data.remember == false || data.remember == undefined) {
+            ionicToast.show('Please Agree the term & condition', 'top', false, 2500);
+            return;
+        }   
             console.log(data);
             $state.go('verifyUserOtp', { yourName: data.yourName, email: data.email, countryCode: data.countryCode, phoneNo: data.phoneNo, password: data.password });
    

@@ -1,4 +1,4 @@
-﻿angular.module('ContactUs.module.controller', []).controller('ContactUs.controller', function ($scope, $rootScope, $ionicPopover, $state, $ionicLoading, httpServices, $ionicPopup) {
+﻿angular.module('ContactUs.module.controller', []).controller('ContactUs.controller', function ($scope, $rootScope, $ionicPopover, $state, $ionicLoading, httpServices, $ionicPopup, ionicToast) {
     $scope.country = httpServices.getCountry();
     $scope.data = {};
     $scope.data.countryCode = "+1";
@@ -18,6 +18,33 @@
     }
     
     $scope.contactDetails = function (data) {
+       // alert(JSON.stringify(data.Name));
+
+
+        if (data.Name == '' || data.Name == undefined) {
+            ionicToast.show('Please enter name', 'top', false, 2500);
+            return;
+        }
+        if (data.email == '' || data.email == undefined) {
+            ionicToast.show('Please enter email', 'top', false, 2500);
+            return;
+        }
+        if (data.phoneNo == '' || data.phoneNo == undefined) {
+            ionicToast.show('Please enter phone number', 'top', false, 2500);
+            return;
+        }
+        if (data.subject == '' || data.subject == undefined) {
+            ionicToast.show('Please enter subject', 'top', false, 2500);
+            return;
+        }
+
+        if (data.message == '' || data.message == undefined) {
+            ionicToast.show('Please enter message', 'top', false, 2500);
+            return;
+        }
+
+
+
 
         console.log(data);
         var a = {
@@ -28,10 +55,18 @@
         httpServices.post("UserDataQuery", a).then(function (response) {
             console.log(response);
             if (response.data == "success") {
-                $state.go('dashboard');
+                //    $state.go('dashboard');
+                ionicToast.show('Message sent successfully', 'top', false, 2500);
+                $("input[type='text']").val('');
+                $("input[type='name']").val('');
+                $("input[type='email']").val('');
+                $("input[type='tel']").val('');
+                $scope.data.countryCode = "+1";
             }
 
 
+        }, function (error) {
+            ionicToast.show('Message not sent successfully', 'top', false, 2500);
         })
 
 

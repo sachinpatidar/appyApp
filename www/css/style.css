@@ -313,7 +313,7 @@ ion-md-input input:focus ~ .md-highlight {
 }
 .infoInner h3 {
     color: #7a7a7a;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
     padding-bottom: 40px;
 }
@@ -383,14 +383,21 @@ ion-md-input input:focus ~ .md-highlight {
     top:-25px !important;  
 }
 .pOwnappy {
-    position:absolute;
-    top:5px;
-    right:5px;
-  background-image: url("../img/ic_plus.png")!important;   
-  background-repeat: no-repeat;
- background-color:transparent; 
-  background-size:50px;
+       position: absolute;
+    top: 8px;
+    right: 10px;
+    background-image: url(../img/ic_plus.png)!important;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 30px;
+    background-position: 57% 87%;
+    z-index: 999 !import
 }
+.cntLarge.overflow-scroll {
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
 .edbtns {background-color:transparent; border:none; font-size:20px;  position:absolute;top:-15px;right:15px;color:#fff;}
 .rightbtns {position: absolute;right: 0px;}
 .leftbtns{position: absolute;right: 20px;}
@@ -405,7 +412,9 @@ ion-md-input input:focus ~ .md-highlight {
 .plogpg{padding:25% 0;}
 .list.formReg { margin: 26px 0;}
 .cneterOtp{margin:40% 0;}
-.yourNameotp{    background-color: skyblue !important;    height: 45px;    padding: 20px !important;}
+.yourNameotp{    background-color: skyblue !important;    height: 45px;    padding: 20px 0 0 35px !important;}
 .yourNameotp input {    text-align: center;}
 .cntArea.ownAppy.Tool.arrowsDown::after {    right: 30px;}
 .col.col-10.MSA.arrowsDown::after{right:0px !important;}
+.addOwnpayylbls {    margin: -21px 0 0 0 !important;}
+

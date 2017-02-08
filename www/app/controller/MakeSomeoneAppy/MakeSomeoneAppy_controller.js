@@ -1,5 +1,5 @@
 ﻿angular.module('MakeSomeoneAppy.module.controller', []).controller('MakeSomeoneAppy.controller',
-    function ($scope,$ionicPopup, $ionicLoading, $ionicHistory,httpServices, $state) {
+    function ($scope, $ionicPopup, $ionicLoading, $ionicHistory, httpServices, $state, ionicToast) {
         //  $scope.images = ["img/classprofile.png"];
         $scope.data = [];
         $scope.data.countryCode = "+1";
@@ -19,14 +19,14 @@
 
             });
         }
-        httpServices.get("GetMessages/" + 1).then(function (response) {
+        httpServices.get("GetMessages/" + localStorage.getItem('languageSelected')).then(function (response) {
             console.log(response);
             if (response.data.GetMessagesResult.length > 0) {
                 $scope.detailSomeone = response.data.GetMessagesResult;
                 // $state.go('dashboard');
             }
         }, function (error) {
-            ionicToast.show('Login failed', 'top', false, 2500);
+            ionicToast.show('Please check your network connection', 'top', false, 2500);
         }
 
 
@@ -55,7 +55,12 @@
             httpServices.post("SendUserMessage", a).then(function (response) {
                 console.log(response);
                 if (response.data == "success") {
-                    $state.go('dashboard');
+                    //  $state.go('dashboard');
+                    ionicToast.show('Message sent successfully', 'top', false, 2500);
+                    $("input[type='text']").val('');
+                    $("input[type='name']").val('');
+                    $("input[type='email']").val('');
+                    $("input[type='tel']").val('');
                 }
             })
         }
@@ -69,6 +74,14 @@
             $scope.data.phoneNo = number[0].value;
 
             myPopup.close();
+            setTimeout(function () {
+
+                $('.md-input').each(function () {
+                    if ($(this).val() != '') {
+                        $('#' + $(this).next('span').attr('id')).addClass('active');
+                    }
+                });
+            }, 500);
         }
         function onError(contactError) {
             alert('onError!');
@@ -76,13 +89,13 @@
 
         // find all contacts with 'Bob' in any name field
        
-          //  var options = new ContactFindOptions();
-          ////  options.filter = "";
-          //  options.multiple = true;
-          //  options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
-          //  //options.hasPhoneNumber = true;
-          //  var fields = ['displayName'];
-          //  navigator.contacts.find(fields, onSuccess, onError, options);
+            var options = new ContactFindOptions();
+          //  options.filter = "";
+            options.multiple = true;
+            options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
+            //options.hasPhoneNumber = true;
+            var fields = ['displayName'];
+            navigator.contacts.find(fields, onSuccess, onError, options);
         
         
     });
