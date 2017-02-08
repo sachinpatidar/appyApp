@@ -66,7 +66,7 @@
     }
 
     $scope.changeLanguage = function (lang) {
-        if (lang != undefined) {
+      if (lang != undefined) {
             var trans = '';
             switch (lang) {
                 case 1:
@@ -101,24 +101,18 @@
                     }
             }
             console.log(trans);
-            $translate.use(trans);
-
-            //    alert("sdfsad");
-            //     $translate.use(lang);
-            console.log('called');
-            localStorage.setItem('languageSelected', lang);
-
-
-        }
-        $ionicLoading.show();
-        setTimeout(function () {
+            $translate.use(trans);      
+            $ionicLoading.show();
+   setTimeout(function () {
             localStorage.setItem('languageSelected', lang);
             $scope.language = localStorage.getItem('languageSelected');
-            $scope.apply;
+            $state.go('personalDetail');
             $ionicLoading.hide();
         }, 2000);
-          
-    }
+
+        }
+ 
+}
 
 
     
