@@ -10,15 +10,9 @@
                 <div class="list formReg infoInner">
                     <form name="loginForm" ng-submit="authenticateUser(data)">
                         <div class="list formLogin">
-
-
                             <p>
-                                <a ng-click="openPopup('partial_UserPhoneNumbers.html','Address Book')">{{"txt_choose_contact"|translate}}
-</a>
+                                <a ng-click="openPopup('partial_UserPhoneNumbers.html','Address Book')">{{"txt_choose_contact"|translate}}</a>
                             </p><p>--------{{"txt_or"|translate}}--------</p>
-
-
-
                             <label>
                                 <div class="list optNums">
                                     <div class="row">
@@ -36,22 +30,13 @@
                                             </label>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </label>
-
-
-
                         </div>
-
-
                         <div class="secOpt arrowsDown">
                             <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
                                 <option value="">--Select Message--</option>
                                 <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
-
-
                             </select>
                             <!--<select ng-options="item.mid as item.smsdetails for item in detailSomeone track by item.mid" ng-model="data.mid" ></select>-->
                         </div>

@@ -14,9 +14,9 @@
                     if ($(this).val() != '') {
                         $('#' + $(this).next('span').attr('id')).addClass('active');
                     }
-                }); 
+                });
             }, 500);
-            
+
         }
     })
     httpServices.get("GetLanguages").then(function (response) {
@@ -26,8 +26,8 @@
             $scope.selectedlanguage = localStorage.getItem('languageSelected');
             // $state.go('dashboard');
         }
-    })   
-    
+    })
+
     httpServices.get("GetMaxMessageLimit/" + localStorage.getItem('eauid')).then(function (response) {
         console.log(response);
         if (response.data.GetMaxMessageLimitResult.length > 0) {
@@ -36,11 +36,11 @@
         }
     })
     $scope.updatePassword = function (data) {
-        
+
         console.log(data);
         var a = {
             oldpwd: data.currentPassword, newpwd: data.newPassword, user: localStorage.getItem('email')
-            
+
         }
         httpServices.post("UpdatePassword", a).then(function (response) {
             console.log(response);
@@ -49,7 +49,7 @@
             }
         })
     }
-    
+
     $scope.updateMaxMessage = function (data) {
 
         console.log(data);
@@ -68,53 +68,61 @@
     $scope.changeLanguage = function (lang) {
         $ionicLoading.show();
         if (lang != undefined) {
+         //   alert(lang + " Type of :: " + typeof (lang));
             var trans = '';
             switch (lang) {
-                case 1:
+                case "1":
                     {
                         trans = 'en';
                         break;
                     };
-                case 2:
+                case "2":
                     {
                         trans = 'fr';
                         break;
                     };
-                case 3:
+                case "3":
                     {
                         trans = 'ru';
                         break;
                     }
-                case 4:
+                case "4":
                     {
                         trans = 'iw';
                         break;
                     }
-                case 5:
+                case "5":
                     {
                         trans = 'ar';
                         break;
                     }
-                case 6:
+                case "6":
                     {
                         trans = 'fe';
                         break;
                     }
             }
             console.log(trans);
-            $translate.use(trans);      
+            $translate.use(trans);
 
-        setTimeout(function () {
             localStorage.setItem('languageSelected', lang);
-            $scope.language = localStorage.getItem('languageSelected');
-            $state.go('personalDetail');
-            $ionicLoading.hide();
-        }, 2000);
 
+            var m = {
+                UserID: localStorage.getItem('eauid'), lang: httpServices.getLanguages()
+
+            }
+            httpServices.post("UpdateLanguage", m).then(function (response) {
+                console.log(response);
+                if (response.data == "success") {
+                    $ionicLoading.hide();
+                    $scope.language = localStorage.getItem('languageSelected');
+                    $state.go('personalDetail');
+                }
+            })
         }
- 
+
     }
 
 
-    
+
 });

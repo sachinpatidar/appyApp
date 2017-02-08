@@ -17,7 +17,7 @@
        
             var a = {
                 name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "R",
-                type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelected'), DType: "A", user: $stateParams.email, pwd: $stateParams.password,
+                type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelectedText'), DType: "A", user: $stateParams.email, pwd: $stateParams.password,
                 Messages: "5", CountryCode: $stateParams.countryCode,
                 GCMId: localStorage.getItem("GCMID")
         }

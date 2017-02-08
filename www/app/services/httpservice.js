@@ -32,6 +32,28 @@
       return q.promise;
   }
 
+  this.getLanguages = function () {
+      var languageText = '';
+      var langlist= [
+      {"LId":"1","Language":"English"},
+      {"LId":"2","Language":"French"},
+      {"LId":"3","Language":"Russian"},
+      {"LId":"4","Language":"Chinese"},
+      {"LId":"5","Language":"Arabic"},
+      {"LId":"6","Language":"Hebrew"},]
+
+
+      $(langlist).each(function (i, v) {
+          if (parseInt(v.LId) == parseInt(localStorage.getItem('languageSelected'))) {
+              localStorage.setItem('languageSelectedText', v.Language);
+              languageText = localStorage.getItem('languageSelectedText');
+              return;
+          }
+      });
+      return languageText;
+
+  }
+
   this.getCountry = function () {
 
       var country = [{ "countryName": "Afghanistan", "countryCode": "+93" },
