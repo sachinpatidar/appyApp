@@ -35,7 +35,7 @@
                         </div>
                         <div class="secOpt arrowsDown">
                             <select ng-model="data.mid" ng-change="getSmsDetail(data.mid)">
-                                <option value="">--Select Message--</option>
+                                <option value="">{{'txt_someOne_selectMsg'|translate}}  </option>
                                 <option ng-repeat="data in detailSomeone" value={{data.mid}}>{{data.smsdetails}}</option>
                             </select>
                             <!--<select ng-options="item.mid as item.smsdetails for item in detailSomeone track by item.mid" ng-model="data.mid" ></select>-->
@@ -66,7 +66,7 @@
 
                 <div class="title title-center header-item" style="left: 63px; right: 63px;text-align:center;">
                     <label>
-                        <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">{{"txt_send"|translate}}</button>
+                        <button class="btn-update" ng-click="makeSomeoneAppy(data,msgDetail)">{{"txt_send_msg"|translate}}</button>
                     </label>
                 </div>
             </div>

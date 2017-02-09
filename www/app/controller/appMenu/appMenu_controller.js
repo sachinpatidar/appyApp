@@ -70,7 +70,9 @@
     $scope.Alrtcls = function () { Alepop.close(); }
     $scope.showAlert = function () {
         callAlert();
+
         $scope.txtAlert = "Thanks for your interaction";
+
     
     }
 

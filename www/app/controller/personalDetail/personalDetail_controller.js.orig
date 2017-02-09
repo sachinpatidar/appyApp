@@ -66,9 +66,13 @@
     }
 
     $scope.changeLanguage = function (lang) {
+<<<<<<< HEAD
         $ionicLoading.show();
         if (lang != undefined) {
          //   alert(lang + " Type of :: " + typeof (lang));
+=======
+      if (lang != undefined) {
+>>>>>>> 8f540bd4e727deabaa403d12c9673bee3a178776
             var trans = '';
             switch (lang) {
                 case "1":
@@ -88,7 +92,7 @@
                     }
                 case "4":
                     {
-                        trans = 'zh';
+                        trans = 'iw';
                         break;
                     }
                 case "5":
@@ -98,13 +102,19 @@
                     }
                 case "6":
                     {
-                        trans = 'he';
+                        trans = 'fe';
                         break;
                     }
             }
             console.log(trans);
+<<<<<<< HEAD
             $translate.use(trans);
 
+=======
+            $translate.use(trans);      
+            $ionicLoading.show();
+   setTimeout(function () {
+>>>>>>> 8f540bd4e727deabaa403d12c9673bee3a178776
             localStorage.setItem('languageSelected', lang);
 
             var m = {
@@ -120,8 +130,13 @@
                 }
             })
         }
+<<<<<<< HEAD
 
     }
+=======
+ 
+}
+>>>>>>> 8f540bd4e727deabaa403d12c9673bee3a178776
 
 
 
