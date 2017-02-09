@@ -1,9 +1,9 @@
-﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, ionicToast) {
+﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, ionicToast, $ionicPopup) {
     //  $scope.images = ["img/classprofile.png"];
 
 
 
-
+    var Alepop = '';
     //  $scope.images = ["img/classprofile.png"];
     var a = [];
     var b = [];
@@ -26,47 +26,66 @@
         var catsub = [];
         var check = false;
 
-            a.map((i, j) => {
-                console.log(i.category + " " + cat);
-                if (i.category === cat) {
-                    //    for (var i = 0; i < b.length;)
-                    b.map((k, l) => {
+        a.map((i, j) => {
+            console.log(i.category + " " + cat);
+            if (i.category === cat) {
+                //    for (var i = 0; i < b.length;)
+                b.map((k, l) => {
 
-                        if (k.scateid === i.scateid) {
-                            check = true;
-                        }
-                    })
-                    // setTimeout(function () {
-                    catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check });
-                    //}, 40)
-
-                    check = false;
-                }
-                else {
-                    $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
-                    id = i.cateid;
-                    cat = i.category;
-                    check = false;
-                    b.map((k, l) => {
-                        if (k.scateid === i.scateid) {
-                            check = true;
-                        }
-                    })
-                    catsub = [];
-                    catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check })
-                }
-
-            });
-            $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
-            $scope.selectAllSub = function (val, $index) {
-                console.log(val, $index);
-                $scope.val[$index].subcategory.map((i, j) => {
-                    i.enableSub = val;
+                    if (k.scateid === i.scateid) {
+                        check = true;
+                    }
                 })
+                // setTimeout(function () {
+                catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check });
+                //}, 40)
+
+                check = false;
             }
-        
+            else {
+                $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
+                id = i.cateid;
+                cat = i.category;
+                check = false;
+                b.map((k, l) => {
+                    if (k.scateid === i.scateid) {
+                        check = true;
+                    }
+                })
+                catsub = [];
+                catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check })
+            }
+
+        });
+        $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
+        $scope.selectAllSub = function (val, $index) {
+            console.log(val, $index);
+            $scope.val[$index].subcategory.map((i, j) => {
+                i.enableSub = val;
+            })
+        }
+
         console.log($scope.val);
     });
+    $scope.Alrtcls = function () { Alepop.close(); }
+    $scope.showAlert = function () {
+        callAlert();
+        $scope.txtAlert = "Thanks for your interaction";
+    
+    }
+
+
+    function callAlert() {
+        Alepop = $ionicPopup.alert({
+            templateUrl: 'views/partial_Alert.html',
+            scope: $scope,
+        });
+
+        $('.popup-buttons').hide();
+        $('.popup-head').hide();
+        $('.popup').addClass('InfoAlert');
+    }
+
     $scope.submitMenuOptions = function () {
         var stringg = '';
         $scope.val.map((i, j) => {
@@ -78,7 +97,6 @@
                     stringg += k.scateid + ',';
                     console.log(stringg);
                 }
-
             })
         })
 
@@ -92,7 +110,9 @@
             console.log(response);
             if (response.data == "success") {
                 //   $state.go('dashboard');
-                ionicToast.show('Info updated successfully', 'top', false, 2500);
+                $scope.txtAlert = "Thanks you, Your order is on the way";
+                callAlert();
+              //  ionicToast.show('Info updated successfully', 'top', false, 2500);
             }
 
 
