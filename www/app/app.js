@@ -3,10 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module', 'ngCordovaOauth', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
+angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module','notificationScreen.module', 'ngCordovaOauth', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
 , 'AboutUs.module', 'HowtouseAppy.module', 'MakeSomeoneAppy.module', 'ionic-toast', 'toolTechniques.module', 'ContactUs.module', 'AddOwnAppyMessage.module', 'verifyUserOtp.module'])
 
-.run(function ($ionicPlatform, $state, $translate) {
+.run(function ($ionicPlatform, $state, $translate, $rootScope) {
     $ionicPlatform.ready(function () {
         if (localStorage.getItem('value') == 'showAgreement') {
             
@@ -116,6 +116,14 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         });
         cordova.plugins.notification.local.on("click", function (notification) {
           
+        });
+        cordova.plugins.notification.local.on("trigger", function (notification) {
+            $rootScope.txtAlert = notification.text;
+
+            $state.go('notificationScreen')
+
+
+
         });
 
         if (window.cordova && window.cordova.plugins.Keyboard) {

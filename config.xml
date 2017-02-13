@@ -54,6 +54,7 @@
     <plugin name="cordova-plugin-inappbrowser" spec="~1.6.1" />
     <plugin name="cordova-plugin-googleplus" spec="~5.1.1">
         <variable name="REVERSED_CLIENT_ID" value="770132169628-g8251eqp2aueg5g14srod6ub7dvm9i5o.apps.googleusercontent.com" />
+  <!-- for ios  <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.377805451034-i6q0isbcoktqbh610h9h25j6f8gm2tr7" />-->
     </plugin>
     <plugin name="cordova-plugin-sms" spec="~1.0.5" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="https://github.com/katzer/cordova-plugin-local-notifications" />
