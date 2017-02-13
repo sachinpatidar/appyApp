@@ -6,8 +6,71 @@
 angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module', 'ngCordovaOauth', 'ngCordova', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
 , 'AboutUs.module', 'HowtouseAppy.module', 'MakeSomeoneAppy.module', 'ionic-toast', 'toolTechniques.module', 'ContactUs.module', 'AddOwnAppyMessage.module', 'verifyUserOtp.module'])
 
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, $state, $translate) {
     $ionicPlatform.ready(function () {
+        if (localStorage.getItem('value') == 'showAgreement') {
+            
+        var trans = '';
+        switch (parseInt(localStorage.getItem('languageSelected'))) {
+
+            case 1:
+                {
+                    trans = 'en';
+                    break;
+                };
+            case 2:
+                {
+                    trans = 'fr';
+                    break;
+                };
+            case 3:
+                {
+                    trans = 'ru';
+                    break;
+                }
+            case 4:
+                {
+                    trans = 'zh';
+                    break;
+                }
+            case 5:
+                {
+                    trans = 'ar';
+                    break;
+                }
+            case 6:
+                {
+                    trans = 'he';
+                    break;
+                }
+        }
+
+        console.log(trans);
+        $translate.use(trans);
+
+    }
+
+        var now = new Date().getTime();
+
+        var ar = [];
+        try {
+            for (var i = 1; i < 10; i++) {
+                ar.push({
+                    id: i,
+                    text: "Notification " + i,
+                    at: new Date(now + i * 300000),
+
+                })
+            }
+
+           
+            cordova.plugins.notification.local.schedule(ar);
+
+        }
+        catch (e) {
+            alert(JSON.stringify(e));
+
+        }
 
         var push = PushNotification.init({
             android: {
@@ -82,7 +145,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
         });
         cordova.plugins.notification.local.on("click", function (notification) {
-
+            
         });
 
         if (window.cordova && window.cordova.plugins.Keyboard) {

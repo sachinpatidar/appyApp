@@ -1002,3 +1002,7 @@ ion-md-input {
     margin: 0 5px;
     font-size: 16px;
 }
+.notification-page{border: solid;
+    border-color: white;
+    background-color: grey;
+    margin: 12px;}

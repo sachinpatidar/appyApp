@@ -1,5 +1,5 @@
 ﻿angular.module('HowtouseAppy.module.controller', []).controller('HowtouseAppy.controller',
-    function ($scope,httpServices, $ionicLoading, $ionicHistory, $state) {
+    function ($scope, httpServices, $ionicLoading, $ionicHistory, $state) {
         //  $scope.images = ["img/classprofile.png"];
 
         httpServices.get("GetPublicPagesinfo/" + '"How to use Appy"' + "/" + localStorage.getItem('languageSelected')).then(function (response) {

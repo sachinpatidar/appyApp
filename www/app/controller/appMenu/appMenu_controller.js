@@ -16,6 +16,7 @@
     });
     httpServices.get("GetCategorySubCategory/" + localStorage.getItem('languageSelected')).then(function (response) {
         // console.log(response);
+        console.log(response);
         if (response.data.GetCatSubCatResult.length > 0) {
             a = response.data.GetCatSubCatResult;
             // $state.go('dashboard');
@@ -70,6 +71,7 @@
     $scope.Alrtcls = function () { Alepop.close(); }
     $scope.showAlert = function () {
         callAlert();
+       // callAlert();
 
         $scope.txtAlert = "Thanks for your interaction";
 
@@ -114,7 +116,6 @@
                 //   $state.go('dashboard');
                 $scope.txtAlert = "Thanks you, Your order is on the way";
                 callAlert();
-              //  ionicToast.show('Info updated successfully', 'top', false, 2500);
             }
 
 

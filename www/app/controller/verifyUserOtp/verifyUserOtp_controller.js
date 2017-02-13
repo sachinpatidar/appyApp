@@ -28,7 +28,7 @@
             }
         }
         $scope.ResendCode = function () {
-
+            sendOtp();
         }
         $scope.changeNumber = function () {
 
