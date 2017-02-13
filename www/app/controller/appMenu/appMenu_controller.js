@@ -23,7 +23,9 @@
                 var id = a[0].cateid;
                 var catsub = [];
                 var check = false;
-
+                var enableCat = false;
+                var countTrue = 0;
+                var cnt = 0;
                 a.map((i, j) => {
                     console.log(i.category + " " + cat);
                     if (i.category === cat) {
@@ -32,8 +34,10 @@
 
                             if (k.scateid === i.scateid) {
                                 check = true;
+                                countTrue++;
                             }
                         })
+                        cnt++;
                         // setTimeout(function () {
                         catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check });
                         //}, 40)
@@ -41,21 +45,31 @@
                         check = false;
                     }
                     else {
-                        $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
+                        if (cnt == countTrue) {
+                            $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
+                        }
+                        else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
                         id = i.cateid;
                         cat = i.category;
                         check = false;
+                        cnt = 0;
+                        countTrue = 0;
                         b.map((k, l) => {
                             if (k.scateid === i.scateid) {
                                 check = true;
+                                countTrue++;
                             }
                         })
+                        cnt++;
                         catsub = [];
                         catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check })
                     }
 
                 });
-                $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false });
+                if (cnt == countTrue) {
+                    $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
+                } else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
+                
                 $scope.selectAllSub = function (val, $index) {
                     console.log(val, $index);
                     $scope.val[$index].subcategory.map((i, j) => {
