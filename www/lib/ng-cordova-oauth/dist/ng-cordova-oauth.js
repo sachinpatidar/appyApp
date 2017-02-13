@@ -27,7 +27,7 @@
           var browserRef = window.cordova.InAppBrowser.open('https://api.500px.com/v1/api/js-sdk/authorize?sdk_key=' + sdkKey + '&callback=' + redirect_uri, '_blank', 'toolbar=no,zoom=no,location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var accessToken = (event.url).split("#token:")[1].split(',')[0];
+              accessToken = (event.url).split("#token:")[1].split(',')[0];
                 deferred.resolve({error: false, success: true, access_token: accessToken, callback: redirect_uri});
             } else {
               deferred.reject({success: false, callback: redirect_uri, error: true, access_token: null});
@@ -75,7 +75,8 @@
           browserRef.addEventListener("loadstart", function(event) {
             if((event.url).indexOf('http://localhost/callback') === 0) {
               var requestToken = (event.url).split("code=")[1];
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: adfsServer + "/adfs/oauth2/token", data: "client_id=" + clientId + "&code=" + requestToken + "&redirect_uri=http://localhost/callback&grant_type=authorization_code"  })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: adfsServer + "/adfs/oauth2/token", data: "client_id=" + clientId + "&code=" + requestToken + "&redirect_uri=http://localhost/callback&grant_type=authorization_code"  })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -133,8 +134,9 @@
             if((event.url).indexOf('http://localhost/callback') === 0) {
               var requestToken = (event.url).split("code=")[1];
               console.log(requestToken);
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://login.microsoftonline.com/" + tenantId + "/oauth2/token", data:
+              $http({method: "post", url: "https://login.microsoftonline.com/" + tenantId + "/oauth2/token", data:
                 "client_id=" + clientId +
                 "&code=" + requestToken +
                 "&redirect_uri=http://localhost/callback&" +
@@ -200,9 +202,9 @@
           var browserRef = window.cordova.InAppBrowser.open('https://app.box.com/api/oauth2/authorize/?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&state=' + appState + '&response_type=code', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
-
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://app.box.com/api/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
+              requestToken = (event.url).split("code=")[1];
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://app.box.com/api/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -264,8 +266,8 @@
           browserRef.addEventListener("loadstart", function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
               var requestToken = (event.url).split("code=")[1];
-
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://cloud.digitalocean.com/v1/oauth/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://cloud.digitalocean.com/v1/oauth/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -339,10 +341,9 @@
             if ((event.url).indexOf(redirect_uri) === 0) {
               var callBackCode = (event.url).split("code=")[1];
               var code = callBackCode.split("&")[0];
-
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({
                 method: "post",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 url: ACCESS_TOKEN_URL,
                 data: "client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&client_secret=" + clientSecret + "&code=" + code
               })
@@ -524,7 +525,7 @@
               redirect_uri = options.redirect_uri;
             }
           }
-          var flowUrl = "https://www.facebook.com/v2.6/dialog/oauth?client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&response_type=token&scope=" + appScope.join(",");
+          var flowUrl = "https://www.facebook.com/v2.0/dialog/oauth?client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&response_type=token&scope=" + appScope.join(",");
           if(options !== undefined && options.hasOwnProperty("auth_type")) {
             flowUrl += "&auth_type=" + options.auth_type;
           }
@@ -596,7 +597,8 @@
           browserRef.addEventListener("loadstart", function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
               var requestToken = (event.url).split("code=")[1];
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://ident.familysearch.org/cis-web/oauth2/v3/token", data: "client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code&code=" + requestToken })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://ident.familysearch.org/cis-web/oauth2/v3/token", data: "client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -725,8 +727,10 @@
           var browserRef = window.cordova.InAppBrowser.open('https://github.com/login/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(","), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded', 'accept': 'application/json'}, url: "https://github.com/login/oauth/access_token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + requestToken })
+              requestToken = (event.url).split("code=")[1];
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http.defaults.headers.post.accept = 'application/json';
+              $http({method: "post", url: "https://github.com/login/oauth/access_token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -776,7 +780,41 @@
      */
     function oauthGoogle(clientId, appScope, options) {
       var deferred = $q.defer();
-      deferred.reject("Google no longer supports authentication requests from the web view.  More information can be found at https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html");
+      if(window.cordova) {
+        if($cordovaOauthUtility.isInAppBrowserInstalled()) {
+          var redirect_uri = "http://localhost/callback";
+          if(options !== undefined) {
+            if(options.hasOwnProperty("redirect_uri")) {
+              redirect_uri = options.redirect_uri;
+            }
+          }
+          var browserRef = window.cordova.InAppBrowser.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(" ") + '&approval_prompt=force&response_type=token id_token', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
+          browserRef.addEventListener("loadstart", function(event) {
+            if((event.url).indexOf(redirect_uri) === 0) {
+              browserRef.removeEventListener("exit",function(event){});
+              browserRef.close();
+              var callbackResponse = (event.url).split("#")[1];
+              var responseParameters = (callbackResponse).split("&");
+              var parameterMap = [];
+              for(var i = 0; i < responseParameters.length; i++) {
+                parameterMap[responseParameters[i].split("=")[0]] = responseParameters[i].split("=")[1];
+              }
+              if(parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
+                deferred.resolve({ access_token: parameterMap.access_token, token_type: parameterMap.token_type, expires_in: parameterMap.expires_in, id_token: parameterMap.id_token });
+              } else {
+                deferred.reject("Problem authenticating");
+              }
+            }
+          });
+          browserRef.addEventListener('exit', function(event) {
+            deferred.reject("The sign in flow was canceled");
+          });
+        } else {
+          deferred.reject("Could not find InAppBrowser plugin");
+        }
+      } else {
+        deferred.reject("Cannot authenticate via a web browser");
+      }
       return deferred.promise;
     }
   }
@@ -873,7 +911,6 @@
         if($cordovaOauthUtility.isInAppBrowserInstalled()) {
           var redirect_uri = "http://localhost/callback";
           var response_type = "token";
-          var instagramUrl = 'https://www.instagram.com/';
           if(options !== undefined) {
             if(options.hasOwnProperty("redirect_uri")) {
               redirect_uri = options.redirect_uri;
@@ -885,11 +922,10 @@
 
           var scope = '';
           if (appScope && appScope.length > 0) {
-            scope = '&scope=' + appScope.join('+');
+            scope = '&scope' + appScope.join('+');
           }
 
-          var url='https://api.instagram.com/oauth/authorize/?client_id=' + clientId + scope + '&response_type=' + response_type + '&redirect_uri=' + redirect_uri;
-          var browserRef = window.cordova.InAppBrowser.open(url, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
+          var browserRef = window.cordova.InAppBrowser.open('https://api.instagram.com/oauth/authorize/?client_id=' + clientId + '&redirect_uri=' + redirect_uri + scope + '&response_type='+response_type, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
                 browserRef.removeEventListener("exit",function(event){});
@@ -903,11 +939,7 @@
                 } else {
                   deferred.reject("Problem authenticating");
                 }
-            } else if ((event.url)===instagramUrl) {
-                browserRef.executeScript({
-                    code: "window.location = '"+url+"';"
-                });
-             }
+            }
           });
           browserRef.addEventListener('exit', function(event) {
               deferred.reject("The sign in flow was canceled");
@@ -960,7 +992,8 @@
             if((event.url).indexOf(redirect_uri) === 0) {
               var requestToken = (event.url).split("code=")[1];
 
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://jawbone.com/auth/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=authorization_code&code=" + requestToken })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://jawbone.com/auth/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=authorization_code&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })
@@ -1036,9 +1069,7 @@
     'oauth.pocket',
     'oauth.mercadolibre',
     'oauth.xing',
-    'oauth.netatmo',
-    'oauth.trakttv',
-    'oauth.yahoo'])
+    'oauth.netatmo'])
     .factory("$cordovaOauth", cordovaOauth);
 
   function cordovaOauth(
@@ -1047,7 +1078,7 @@
     $ngCordovaTwitter, $ngCordovaMeetup, $ngCordovaSalesforce, $ngCordovaStrava, $ngCordovaWithings, $ngCordovaFoursquare, $ngCordovaMagento,
     $ngCordovaVkontakte, $ngCordovaOdnoklassniki, $ngCordovaImgur, $ngCordovaSpotify, $ngCordovaUber, $ngCordovaWindowslive, $ngCordovaYammer,
     $ngCordovaVenmo, $ngCordovaStripe, $ngCordovaRally, $ngCordovaFamilySearch, $ngCordovaEnvato, $ngCordovaWeibo, $ngCordovaJawbone, $ngCordovaUntappd,
-    $ngCordovaDribble, $ngCordovaPocket, $ngCordovaMercadolibre, $ngCordovaXing, $ngCordovaNetatmo, $ngCordovaTraktTv, $ngCordovaYahoo) {
+    $ngCordovaDribble, $ngCordovaPocket, $ngCordovaMercadolibre, $ngCordovaXing, $ngCordovaNetatmo) {
 
     return {
       azureAD: $ngCordovaAzureAD.signin,
@@ -1088,9 +1119,7 @@
       pocket: $ngCordovaPocket.signin,
       mercadolibre: $ngCordovaMercadolibre.signin,
       xing: $ngCordovaXing.signin,
-      netatmo: $ngCordovaNetatmo.signin,
-      trakttv: $ngCordovaTraktTv.signin,
-      yahoo: $ngCordovaYahoo.signin
+      netatmo: $ngCordovaNetatmo.signin
     };
   }
 
@@ -1134,9 +1163,7 @@
     '$ngCordovaPocket',
     '$ngCordovaMercadolibre',
     '$ngCordovaXing',
-    '$ngCordovaNetatmo',
-    '$ngCordovaTraktTv',
-    '$ngCordovaYahoo'
+    '$ngCordovaNetatmo'
   ];
 })();
 
@@ -1634,6 +1661,7 @@
           }
 
           var data = "consumer_key=" + clientId + "&redirect_uri=" + encodeURIComponent(redirect_url);
+          console.log(data);
           $http({
             method: "post",
             url: "https://getpocket.com/v3/oauth/request",
@@ -1724,7 +1752,7 @@
             var browserRef = window.cordova.InAppBrowser.open('https://rally1.rallydev.com/login/oauth2/auth?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope + '&response_type=code', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
             browserRef.addEventListener('loadstart', function(event) {
               if((event.url).indexOf("http://localhost/callback") === 0) {
-                var requestToken = (event.url).split("code=")[1];
+                requestToken = (event.url).split("code=")[1];
                 $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
                 $http({method: "post", url: "https://rally1.rallydev.com/login/oauth2/auth", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                   .success(function(data) {
@@ -1788,7 +1816,7 @@
           var browserRef = window.cordova.InAppBrowser.open('https://ssl.reddit.com/api/v1/authorize' + (compact ? '.compact' : '') + '?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&duration=permanent&state=ngcordovaoauth&scope=' + appScope.join(",") + '&response_type=code', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http.defaults.headers.post.Authorization = 'Basic ' + btoa(clientId + ":" + clientSecret);
               $http({method: "post", url: "https://ssl.reddit.com/api/v1/access_token", data: "redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
@@ -1928,7 +1956,8 @@
           var browserRef = window.cordova.InAppBrowser.open('https://slack.com/oauth/authorize' + '?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&state=ngcordovaoauth&scope=' + appScope.join(","), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
+              console.log("Request token is " + requestToken);
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({method: "post", url: "https://slack.com/api/oauth.access", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                 .success(function(data) {
@@ -2068,7 +2097,7 @@
           var browserRef = window.cordova.InAppBrowser.open('https://www.strava.com/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(",") + '&response_type=code&approval_prompt=force', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({method: "post", url: "https://www.strava.com/oauth/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&code=" + requestToken })
               .success(function(data) {
@@ -2132,7 +2161,7 @@
           var browserRef = window.cordova.InAppBrowser.open('https://connect.stripe.com/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope + '&response_type=code', '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf("http://localhost/callback") === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({method: "post", url: "https://connect.stripe.com/oauth/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                 .success(function(data) {
@@ -2163,74 +2192,6 @@
   }
 
   stripe.$inject = ['$q', '$http', '$cordovaOauthUtility'];
-})();
-
-(function() {
-  'use strict';
-
-  angular.module('oauth.trakttv', ['oauth.utils'])
-    .factory('$ngCordovaTraktTv', trakttv);
-
-  function trakttv($q, $http, $cordovaOauthUtility) {
-    return { signin: oauthTraktTv };
-
-    /*
-     * Sign into the Trakt.tv service
-     *
-     * @param    string clientId
-     * @param    string clientSecret
-     * @param    string state
-     * @param    object options
-     * @return   promise
-     */
-    function oauthTraktTv(clientId, clientSecret, appScope, state, options) {
-      var deferred = $q.defer();
-      if(window.cordova) {
-        if($cordovaOauthUtility.isInAppBrowserInstalled()) {
-          var redirect_uri = "http://localhost/callback";
-          if(options !== undefined) {
-            if(options.hasOwnProperty("redirect_uri")) {
-              redirect_uri = options.redirect_uri;
-            }
-          }
-          var browserRef = window.cordova.InAppBrowser.open('https://trakt.tv/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&response_type=code&state=' + state, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
-          browserRef.addEventListener('loadstart', function(event) {
-            if((event.url).indexOf(redirect_uri) === 0) {
-              try {
-                var requestToken = (event.url).split("code=")[1].split("&")[0];
-                $http({method: "post", headers: {'Content-Type': 'application/json'}, url: "https://trakt.tv/oauth/token", data: {'code': requestToken, 'client_id': clientId, 'client_secret': clientSecret, 'redirect_uri': redirect_uri, 'grant_type': 'authorization_code'} })
-                  .success(function(data) {
-                    deferred.resolve(data);
-                  })
-                  .error(function(data, status) {
-                    deferred.reject("Problem authenticating");
-                  })
-                  .finally(function() {
-                    setTimeout(function() {
-                        browserRef.close();
-                    }, 10);
-                  });
-              }catch(e){
-                setTimeout(function() {
-                    browserRef.close();
-                }, 10);
-              }
-            }
-          });
-          browserRef.addEventListener('exit', function(event) {
-            deferred.reject("The sign in flow was canceled");
-          });
-        } else {
-          deferred.reject("Could not find InAppBrowser plugin");
-        }
-      } else {
-        deferred.reject("Cannot authenticate via a web browser");
-      }
-      return deferred.promise;
-    }
-  }
-
-  trakttv.$inject = ['$q', '$http', '$cordovaOauthUtility'];
 })();
 
 (function() {
@@ -2657,7 +2618,7 @@
           var browserRef = window.cordova.InAppBrowser.open(flowUrl, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({method: "post", url: "https://api.weibo.com/oauth2/access_token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=authorization_code&code=" + requestToken + "&redirect_uri=" + redirect_uri})
               .success(function(data) {
@@ -2998,86 +2959,6 @@
 (function() {
   'use strict';
 
-  angular.module('oauth.yahoo', ['oauth.utils'])
-    .factory('$ngCordovaYahoo', yahoo);
-
-  function yahoo($q, $cordovaOauthUtility) {
-    return { signin: oauthYahoo };
-
-    /*
-     * Sign into the Yahoo service
-     *
-     * @param    string clientId
-     * @param    array appScope
-     * @param    object options
-     * @return   promise
-     */
-    function oauthYahoo(clientId, appScope, options) {
-      var deferred = $q.defer();
-      if(window.cordova) {
-        if($cordovaOauthUtility.isInAppBrowserInstalled()) {
-          var redirect_uri = "http://localhost/callback";
-
-          if(options !== undefined) {
-            if(options.hasOwnProperty("redirect_uri")) {
-              redirect_uri = options.redirect_uri;
-            }
-          }
-
-          var providerUrl = 'https://api.login.yahoo.com/oauth2/request_auth?client_id=' + clientId;
-          providerUrl += '&redirect_uri=' + redirect_uri;
-          providerUrl += '&response_type=token';
-          providerUrl += '&scope=' + appScope.join(" ");
-
-          var browserRef = window.cordova.InAppBrowser.open(
-              providerUrl, 
-              '_blank', 
-              'location=no,clearsessioncache=yes,clearcache=yes'
-          );
-
-          browserRef.addEventListener("loadstart", function(event) {
-            if((event.url).indexOf(redirect_uri) === 0) {
-              browserRef.removeEventListener("exit",function(event){});
-              browserRef.close();
-
-              var callbackResponse = (event.url).split("#")[1];
-              var responseParameters = (callbackResponse).split("&");
-              var parameterMap = {};
-              for(var i = 0; i < responseParameters.length; i++) {
-                parameterMap[responseParameters[i].split("=")[0]] = responseParameters[i].split("=")[1];
-              }
-
-              if(parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
-                deferred.resolve({ 
-                  access_token: parameterMap.access_token, 
-                  token_type: parameterMap.token_type, 
-                  expires_in: parameterMap.expires_in, 
-                  id_token: parameterMap.id_token 
-                });
-              } else {
-                deferred.reject("Problem authenticating");
-              }
-            }
-          });
-          browserRef.addEventListener('exit', function(event) {
-            deferred.reject("The sign in flow was canceled");
-          });
-        } else {
-          deferred.reject("Could not find InAppBrowser plugin");
-        }
-      } else {
-        deferred.reject("Cannot authenticate via a web browser");
-      }
-      return deferred.promise;
-    }
-  }
-
-  yahoo.$inject = ['$q', '$cordovaOauthUtility'];
-})();
-
-(function() {
-  'use strict';
-
   angular.module('oauth.yammer', ['oauth.utils'])
     .factory('$ngCordovaYammer', yammer);
 
@@ -3194,7 +3075,6 @@
  *    Jawbone
  *    Untappd
  *    Xing
- *    Trakt.tv
  */
 
 angular.module("ngCordovaOauth", [

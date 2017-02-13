@@ -31,7 +31,41 @@
       });
       return q.promise;
   }
+this.facebookService = function (data) {
+   
+      var q = $q.defer();
+      $ionicLoading.show();
+      $http.get("https://graph.facebook.com/me?fields=id,name,gender,location,timezone,relationship_status,email&access_token=" + data).then(function (result) {
+          $ionicLoading.hide();
+          q.resolve(result);
+      }, function (error) {
+          q.reject(error);
+          alert(JSON.stringify(error + " URL ------> " + url + urlres));
+          $ionicLoading.hide();
+      });
+      return q.promise;
+}
+this.getLanguages = function () {
+    var languageText = '';
+    var langlist = [
+    { "LId": "1", "Language": "English" },
+    { "LId": "2", "Language": "French" },
+    { "LId": "3", "Language": "Russian" },
+    { "LId": "4", "Language": "Chinese" },
+    { "LId": "5", "Language": "Arabic" },
+    { "LId": "6", "Language": "Hebrew" }, ]
 
+
+    $(langlist).each(function (i, v) {
+        if (parseInt(v.LId) == parseInt(localStorage.getItem('languageSelected'))) {
+            localStorage.setItem('languageSelectedText', v.Language);
+            languageText = localStorage.getItem('languageSelectedText');
+            return;
+        }
+    });
+    return languageText;
+
+}
   this.getCountry = function () {
 
       var country = [{ "countryName": "Afghanistan", "countryCode": "+93" },

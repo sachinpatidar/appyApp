@@ -4,5 +4,9 @@
         url: '/loginRegister',
         templateUrl: 'views/loginRegister.html',
         controller: 'loginRegister.controller',
+    }).state('notificationScreen', {
+        url: '/notificationScreen',
+        templateUrl: 'views/notificationScreen.html',
+        controller:'loginRegister.controller'
     })
 });

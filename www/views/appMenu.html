@@ -1,18 +1,23 @@
-﻿<ion-view view-title='<span class="view-title">{{"app_name"|translate}}</span>
-    <span class="subTitle">{{"slogen"|translate}}</span><p>{{"menu_appy"|translate}}
-  <span>{{"category_screen_msg"|translate}}</span>
-</p>'>
+﻿<ion-view view-title=''>
+    <ion-nav-title>
+        <span class="view-title">{{"app_name"|translate}} </span>	<span class="subTitle">{{"slogen"|translate}}</span><p>
+            {{"category_screen_msg"|translate}}
+        </p>
+        <a class="button button-full pOwnappy" ng-click="showAlert()">  </a>
+
+    </ion-nav-title>
+
     <ion-content class="has-subheader has-header cntLarge">
 
-
+         
         <div class="cntArea">
             <div class="appMenuList">
                 <ion-list ng-repeat="s in val">
-           
-                    <ion-checkbox  class="checkBox" ng-model="s.enableCat" ng-change="selectAllSub(s.enableCat,$index)">{{s.category}}</ion-checkbox>
-                   <!-- <ion-checkbox ng-if="$index==0" ng-model="filter.red" class="checkBox">{{s.category}}</ion-checkbox>-->
+
+                    <ion-checkbox class="checkBox" ng-model="s.enableCat" ng-change="selectAllSub(s.enableCat,$index)">{{s.category}}</ion-checkbox>
+                    <!-- <ion-checkbox ng-if="$index==0" ng-model="filter.red" class="checkBox">{{s.category}}</ion-checkbox>-->
                     <ion-list class="subCheck" ng-repeat="sub in s.subcategory">
-              
+
                         <ion-checkbox class="checkBox" ng-model="sub.enableSub">{{sub.subcategory}}</ion-checkbox>
 
                     </ion-list>
@@ -33,6 +38,6 @@
         <div class="buttons" ng-click="doSomething()">
             <button class="button">Right Button</button>
         </div>-->
-        <div class="title" ng-click="submitMenuOptions()">Go Get IT</div>
+        <div class="title" ng-click="submitMenuOptions()">{{"appymnu_submit"|translate}}</div>
     </ion-footer-bar>
 </ion-view>

@@ -66,9 +66,10 @@
     }
 
     $scope.changeLanguage = function (lang) {
+        $ionicLoading.show();
       if (lang != undefined) {
             var trans = '';
-            switch (lang) {
+            switch (parseInt(lang)) {
                 case 1:
                     {
                         trans = 'en';
@@ -86,7 +87,7 @@
                     }
                 case 4:
                     {
-                        trans = 'iw';
+                        trans = 'zh';
                         break;
                     }
                 case 5:
@@ -96,23 +97,28 @@
                     }
                 case 6:
                     {
-                        trans = 'fe';
+                        trans = 'he';
                         break;
                     }
             }
             console.log(trans);
-            $translate.use(trans);      
-            $ionicLoading.show();
-   setTimeout(function () {
+            $translate.use(trans);
             localStorage.setItem('languageSelected', lang);
-            $scope.language = localStorage.getItem('languageSelected');
-            $state.go('personalDetail');
-            $ionicLoading.hide();
-        }, 2000);
+            var m = {
+                UserID: localStorage.getItem('eauid'), lang: httpServices.getLanguages()
 
+            }
+            httpServices.post("UpdateLanguage", m).then(function (response) {
+                console.log(response);
+                if (response.data == "success") {
+                    $ionicLoading.hide();
+                    $scope.language = localStorage.getItem('languageSelected');
+                    $state.go('personalDetail');
+                }
+            })
         }
- 
-}
+
+    }
 
 
     

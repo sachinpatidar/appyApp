@@ -1,10 +1,10 @@
 {
   "name": "ng-cordova-oauth",
   "main": "dist/ng-cordova-oauth.js",
-  "version": "0.3.0",
+  "version": "0.2.6",
   "homepage": "https://github.com/nraboy/ng-cordova-oauth",
   "authors": [
-    "Nic Raboy <https://www.nraboy.com>"
+    "Nic Raboy <http://www.nraboy.com>"
   ],
   "description": "AngularJS oauth library for use with Apache Cordova projects",
   "moduleType": [
@@ -28,14 +28,14 @@
     "test",
     "tests"
   ],
-  "_release": "0.3.0",
+  "_release": "0.2.6",
   "_resolution": {
     "type": "version",
-    "tag": "0.3.0",
-    "commit": "555b5caafbe0b7a552c6dc418e3353f6615f24da"
+    "tag": "0.2.6",
+    "commit": "f4a114027fb70f0b1f996d399a01fae9f9267304"
   },
   "_source": "https://github.com/nraboy/ng-cordova-oauth.git",
-  "_target": "^0.3.0",
+  "_target": "^0.2.6",
   "_originalSource": "ng-cordova-oauth",
   "_direct": true
 }

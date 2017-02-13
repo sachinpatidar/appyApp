@@ -417,4 +417,25 @@ ion-md-input input:focus ~ .md-highlight {
 .cntArea.ownAppy.Tool.arrowsDown::after {    right: 30px;}
 .col.col-10.MSA.arrowsDown::after{right:0px !important;}
 .addOwnpayylbls {    margin: -21px 0 0 0 !important;}
-
+.InfoAlert{       background-image: url(../img/bg_popup.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* height: 52px; */
+    text-align: center;
+    vertical-align: middle;
+    padding: 2% 0;
+    color: white;
+    border-radius: 6px !important;
+    font-size: 15px;}
+.Alrtcls {
+    float: right;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    margin: 0 5px;
+    font-size: 16px;
+}
+.notification-page{border: solid;
+    border-color: white;
+    background-color: grey;
+    margin: 12px;}

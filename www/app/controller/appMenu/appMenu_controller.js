@@ -1,4 +1,4 @@
-﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, ionicToast) {
+﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices,$ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast) {
     //  $scope.images = ["img/classprofile.png"];
 
 
@@ -16,6 +16,7 @@
     });
     httpServices.get("GetCategorySubCategory/" + localStorage.getItem('languageSelected')).then(function (response) {
         // console.log(response);
+        console.log(response);
         if (response.data.GetCatSubCatResult.length > 0) {
             a = response.data.GetCatSubCatResult;
             // $state.go('dashboard');
@@ -67,6 +68,27 @@
         
         console.log($scope.val);
     });
+    $scope.Alrtcls = function () { Alepop.close(); }
+    $scope.showAlert = function () {
+        callAlert();
+       // callAlert();
+
+        $scope.txtAlert = "Thanks for your interaction";
+
+
+    }
+
+
+    function callAlert() {
+        Alepop = $ionicPopup.alert({
+            templateUrl: 'views/partial_Alert.html',
+            scope: $scope,
+        });
+
+        $('.popup-buttons').hide();
+        $('.popup-head').hide();
+        $('.popup').addClass('InfoAlert');
+    }
     $scope.submitMenuOptions = function () {
         var stringg = '';
         $scope.val.map((i, j) => {
@@ -92,7 +114,8 @@
             console.log(response);
             if (response.data == "success") {
                 //   $state.go('dashboard');
-                ionicToast.show('Info updated successfully', 'top', false, 2500);
+                $scope.txtAlert = "Thanks you, Your order is on the way";
+                callAlert();
             }
 
 

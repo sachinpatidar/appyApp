@@ -30,7 +30,8 @@
           var browserRef = window.cordova.InAppBrowser.open('https://slack.com/oauth/authorize' + '?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&state=ngcordovaoauth&scope=' + appScope.join(","), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
-              var requestToken = (event.url).split("code=")[1];
+              requestToken = (event.url).split("code=")[1];
+              console.log("Request token is " + requestToken);
               $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
               $http({method: "post", url: "https://slack.com/api/oauth.access", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code" + "&code=" + requestToken })
                 .success(function(data) {
