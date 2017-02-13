@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module', 'ngCordovaOauth', 'ngCordova', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
+angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module', 'ngCordovaOauth', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
 , 'AboutUs.module', 'HowtouseAppy.module', 'MakeSomeoneAppy.module', 'ionic-toast', 'toolTechniques.module', 'ContactUs.module', 'AddOwnAppyMessage.module', 'verifyUserOtp.module'])
 
 .run(function ($ionicPlatform, $state, $translate) {
