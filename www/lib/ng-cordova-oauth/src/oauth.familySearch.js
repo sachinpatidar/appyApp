@@ -28,7 +28,8 @@
           browserRef.addEventListener("loadstart", function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
               var requestToken = (event.url).split("code=")[1];
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://ident.familysearch.org/cis-web/oauth2/v3/token", data: "client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code&code=" + requestToken })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://ident.familysearch.org/cis-web/oauth2/v3/token", data: "client_id=" + clientId + "&redirect_uri=" + redirect_uri + "&grant_type=authorization_code&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })

@@ -61,6 +61,7 @@ Each web service API acts independently in this library.  However, when configur
     $cordovaOauth.azureAD(string clientId, string tenantId, string resourceURL);
     $cordovaOauth.dropbox(string appKey, object options);
     $cordovaOauth.digitalOcean(string clientId, string clientSecret, object options);
+    $cordovaOauth.google(string clientId, array appScope, object options);
     $cordovaOauth.github(string clientId, string clientSecret, array appScope, object options);
     $cordovaOauth.facebook(string clientId, array appScope, object options);
     $cordovaOauth.linkedin(string clientId, string clientSecret, array appScope, string state);
@@ -93,7 +94,6 @@ Each web service API acts independently in this library.  However, when configur
     $cordovaOauth.xing(string clientId, string clientSecret, object options);
     $cordovaOauth.fiveHundredsPx(string sdkKey, object options);
     $cordovaOauth.netatmo(object options);
-    $cordovaOauth.trakttv(string clientId, string clientSecret, string state);
 
 Each API call returns a promise.  The success callback will provide a response object and the error
 callback will return a string.
@@ -113,14 +113,6 @@ As of Apache Cordova 5.0.0, the [whitelist plugin](https://www.thepolyglotdevelo
 ### Important Note About Testing
 
 This library will **NOT** work with a web browser, ionic serve, ionic live-reload, or ionic view.  It **MUST** be used via installing to a device or simulator.
-
-### Important Note About Google
-
-Google, as of October 2016, has started blocking requests from web views commonly found in hybrid applications.  For this reason, support for Google has been removed from this library.
-
-More information can be found at:
-
-[https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)
 
 ## Content-Security-Policy
 
@@ -182,15 +174,13 @@ $cordovaOauth.$inject = [
 ];
 ```
 
-## Support
+## Have a question or found a bug (compliments work too)?
 
-This project is maintained by **Nic Raboy** and **Matheus Rocha**.  This plugin is and will always be open source.  That said, support is not.  If you'd like to **purchase** paid support for this library, please contact either of us on Twitter.
+This project is maintained by **Nic Raboy** and **Matheus Rocha**.
 
-Nic Raboy on Twitter - [@nraboy](https://www.twitter.com/nraboy)
+Tweet Nic Raboy on Twitter - [@nraboy](https://www.twitter.com/nraboy)
 
-Matheus Rocha on Twitter - [@matheusrocha](https://www.twitter.com/matheusrocha)
-
-The issue tracker is to be used for bug reporting only.  We will not help you build your application, diagnose your problems, or teach you how to use the various oauth providers through the issue tracker.  Free support can be found in the forums or on Stack Overflow.
+Tweet Matheus Rocha on Twitter - [@matheusrocha](https://www.twitter.com/matheusrocha)
 
 
 ## Resources

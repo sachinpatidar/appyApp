@@ -54,7 +54,6 @@
  *    Jawbone
  *    Untappd
  *    Xing
- *    Trakt.tv
  */
 
 angular.module("ngCordovaOauth", [

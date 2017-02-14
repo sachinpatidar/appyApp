@@ -32,7 +32,8 @@
             if((event.url).indexOf(redirect_uri) === 0) {
               var requestToken = (event.url).split("code=")[1];
 
-              $http({method: "post", headers: {'Content-Type': 'application/x-www-form-urlencoded'}, url: "https://jawbone.com/auth/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=authorization_code&code=" + requestToken })
+              $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+              $http({method: "post", url: "https://jawbone.com/auth/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=authorization_code&code=" + requestToken })
                 .success(function(data) {
                   deferred.resolve(data);
                 })

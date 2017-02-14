@@ -26,11 +26,17 @@
             $state.go('loginRegister');
         }
         else {
+            //    alert("sdfsad");
+            //     $translate.use(lang);
+            console.log('called');
+          //  localStorage.setItem('languageSelected', lang);
+
             $state.go('dashboard');
         }
 
     }
     $scope.changeLanguage = function (lang) {
+       
         if (localStorage.getItem('value') == 'showAgreement') {
          //  alert(lang + " Type of :: "+ typeof(lang));
             if (lang != undefined) {
@@ -53,7 +59,7 @@
                         }
                     case "4":
                         {
-                            trans = 'iw';
+                            trans = 'zh';
                             break;
                         }
                     case "5":
@@ -63,7 +69,7 @@
                         }
                     case "6":
                         {
-                            trans = 'fe';
+                            trans = 'he';
                             break;
                         }
                 }

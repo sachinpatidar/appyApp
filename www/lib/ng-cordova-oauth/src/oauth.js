@@ -42,9 +42,7 @@
     'oauth.pocket',
     'oauth.mercadolibre',
     'oauth.xing',
-    'oauth.netatmo',
-    'oauth.trakttv',
-    'oauth.yahoo'])
+    'oauth.netatmo'])
     .factory("$cordovaOauth", cordovaOauth);
 
   function cordovaOauth(
@@ -53,7 +51,7 @@
     $ngCordovaTwitter, $ngCordovaMeetup, $ngCordovaSalesforce, $ngCordovaStrava, $ngCordovaWithings, $ngCordovaFoursquare, $ngCordovaMagento,
     $ngCordovaVkontakte, $ngCordovaOdnoklassniki, $ngCordovaImgur, $ngCordovaSpotify, $ngCordovaUber, $ngCordovaWindowslive, $ngCordovaYammer,
     $ngCordovaVenmo, $ngCordovaStripe, $ngCordovaRally, $ngCordovaFamilySearch, $ngCordovaEnvato, $ngCordovaWeibo, $ngCordovaJawbone, $ngCordovaUntappd,
-    $ngCordovaDribble, $ngCordovaPocket, $ngCordovaMercadolibre, $ngCordovaXing, $ngCordovaNetatmo, $ngCordovaTraktTv, $ngCordovaYahoo) {
+    $ngCordovaDribble, $ngCordovaPocket, $ngCordovaMercadolibre, $ngCordovaXing, $ngCordovaNetatmo) {
 
     return {
       azureAD: $ngCordovaAzureAD.signin,
@@ -94,9 +92,7 @@
       pocket: $ngCordovaPocket.signin,
       mercadolibre: $ngCordovaMercadolibre.signin,
       xing: $ngCordovaXing.signin,
-      netatmo: $ngCordovaNetatmo.signin,
-      trakttv: $ngCordovaTraktTv.signin,
-      yahoo: $ngCordovaYahoo.signin
+      netatmo: $ngCordovaNetatmo.signin
     };
   }
 
@@ -140,8 +136,6 @@
     '$ngCordovaPocket',
     '$ngCordovaMercadolibre',
     '$ngCordovaXing',
-    '$ngCordovaNetatmo',
-    '$ngCordovaTraktTv',
-    '$ngCordovaYahoo'
+    '$ngCordovaNetatmo'
   ];
 })();

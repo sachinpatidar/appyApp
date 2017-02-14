@@ -11,7 +11,6 @@
           myPopup = $ionicPopup.show({
             templateUrl: 'views/partial_country.html',
             title: 'select country',
-
             scope: $scope,
 
         });

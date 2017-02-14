@@ -88,7 +88,7 @@
                     }
                 case "4":
                     {
-                        trans = 'iw';
+                        trans = 'zh';
                         break;
                     }
                 case "5":
@@ -98,7 +98,7 @@
                     }
                 case "6":
                     {
-                        trans = 'fe';
+                        trans = 'he';
                         break;
                     }
             }
