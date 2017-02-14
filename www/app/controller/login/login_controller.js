@@ -9,8 +9,16 @@
                 localStorage.setItem('email', response.data.GetUserResult[0].email);
                 localStorage.setItem('eauid', response.data.GetUserResult[0].eauid);
                 localStorage.setItem('password', data.password);
-              //  localStorage.setItem('languageSelected', 1);
-                $state.go('dashboard');
+              //  httpServices.post('UpdateGCMId', {
+              //      "eauid": response.data.GetUserResult[0].eauid,
+              //      "gcmid": localStorage.getItem('GCMID')
+              //  }).then(function (res) {
+              //      alert(JSON.stringify(res));
+              //      $state.go('dashboard');
+
+              //  }, function (er) { })
+              ////  localStorage.setItem('languageSelected', 1);
+               
             }
             else {
                 ionicToast.show('please enter valid email and password', 'top', false, 2500);
@@ -44,11 +52,14 @@
         alert('called');
       
         $cordovaOauth.twitter("ToeIguHX2euUTLoPVvTqmpAXb", "ONaap2o25ZnoE90JTcETcu8Xky0UtYgZE6DjRuUUrKYKdpj2yZ").then(function (result) {
-            console.log(JSON.stringify(result));
+            alert('success');
+            alert(JSON.stringify(result));
         }, function (error) {
+            alert('fail')
+            alert(JSON.stringify(error));
             console.log(JSON.stringify(error));
         });
-            alert(JSON.stringify($cordovaOauth.twitter));
+          
     }
     $scope.googleplusLogin = function () {
 

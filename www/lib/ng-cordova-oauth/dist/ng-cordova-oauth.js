@@ -2230,7 +2230,10 @@
               oauth_timestamp: Math.round((new Date()).getTime() / 1000.0),
               oauth_version: "1.0"
             };
-            var signatureObj = $cordovaOauthUtility.createSignature("POST", "https://api.twitter.com/oauth/request_token", oauthObject,  { oauth_callback: redirect_uri }, clientSecret);
+           // alert('signatureobj');
+            var signatureObj = $cordovaOauthUtility.createSignature("POST", "https://api.twitter.com/oauth/request_token", oauthObject, { oauth_callback: redirect_uri }, clientSecret);
+         //   alert('signatureobj');
+           // alert(JSON.stringify(signatureObj));
             $http({
               method: "post",
               url: "https://api.twitter.com/oauth/request_token",
@@ -3060,7 +3063,7 @@
  *    Magento
  *    vkontakte
  *    Odnoklassniki
- *    ADFS
+ *    ADFS//
  *    Imgur
  *    Spotify
  *    Uber
@@ -3134,6 +3137,7 @@ angular.module("ngCordovaOauth", [
      * @return   object
      */
     function createSignature(method, endPoint, headerParameters, bodyParameters, secretKey, tokenSecret) {
+        
       if(typeof jsSHA !== "undefined") {
         var headerAndBodyParameters = angular.copy(headerParameters);
         var bodyParameterKeys = Object.keys(bodyParameters);
@@ -3152,15 +3156,27 @@ angular.module("ngCordovaOauth", [
             signatureBaseString += encodeURIComponent(headerAndBodyParameterKeys[i] + "=" + headerAndBodyParameters[headerAndBodyParameterKeys[i]] + "&");
           }
         }
+      //  alert(signatureBaseString);
+            try {
+                var oauthSignatureObject = new jsSHA(signatureBaseString, "TEXT");
+            } catch (e) { alert(e) }
+        //alert('abc');
+        //alert(JSON.stringify(oauthSignatureObject));
 
-        var oauthSignatureObject = new jsSHA(signatureBaseString, "TEXT");
 
         var encodedTokenSecret = '';
+        //alert(' alert(tokenSecret)');
+      //  alert(oauthSignatureObject);
+        //alert(' alert(tokenSecret)');
         if (tokenSecret) {
-          encodedTokenSecret = encodeURIComponent(tokenSecret);
+            encodedTokenSecret = encodeURIComponent(tokenSecret);
+
         }
+     //   alert();
+      //  alert(JSON.stringify(headerParameters))
 
         headerParameters.oauth_signature = encodeURIComponent(oauthSignatureObject.getHMAC(encodeURIComponent(secretKey) + "&" + encodedTokenSecret, "TEXT", "SHA-1", "B64"));
+        //alert(JSON.stringify(headerParameters.oauth_signature))
         var headerParameterKeys = Object.keys(headerParameters);
         var authorizationHeader = 'OAuth ';
 
