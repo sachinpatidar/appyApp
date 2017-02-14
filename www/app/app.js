@@ -50,27 +50,27 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
     }
 
-        var now = new Date().getTime();
+        //var now = new Date().getTime();
 
-        var ar = [];
-        try {
-            for (var i = 1; i < 10; i++) {
-                ar.push({
-                    id: i,
-                    text: "Notification " + i,
-                    at: new Date(now + i * 300000),
+        //var ar = [];
+        //try {
+        //    for (var i = 1; i < 10; i++) {
+        //        ar.push({
+        //            id: i,
+        //            text: "Notification " + i,
+        //            at: new Date(now + i * 300000),
 
-                })
-            }
+        //        })
+        //    }
 
            
-            cordova.plugins.notification.local.schedule(ar);
+        //    cordova.plugins.notification.local.schedule(ar);
 
-        }
-        catch (e) {
-            alert(JSON.stringify(e));
+        //}
+        //catch (e) {
+        //    alert(JSON.stringify(e));
 
-        }
+        //}
 
         var push = PushNotification.init({
             android: {
@@ -106,38 +106,38 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         });
 
 
+       
+     //   var now = new Date().getTime(),
+     //_5_sec_from_now = new Date(now + 5 * 1000);
+     //   try {
+     //       cordova.plugins.notification.local.schedule([{
+     //           id: 1,
+     //           text: "audi message",
+     //           at: new Date(now + 5 * 1000),
+     //           every: 'minute',
+     //           led: "FF0000",
+     //           sound: null
+     //       }, {
+     //           id: 2,
+     //           text: "car message",
+     //           at: new Date(now + 10 * 1000),
+     //           every: 'minute',
+     //           led: "FF0000",
+     //           sound: null
+     //       }, {
 
-        var now = new Date().getTime(),
-     _5_sec_from_now = new Date(now + 5 * 1000);
-        try {
-            cordova.plugins.notification.local.schedule([{
-                id: 1,
-                text: "audi message",
-                at: new Date(now + 5 * 1000),
-                every: 'minute',
-                led: "FF0000",
-                sound: null
-            }, {
-                id: 2,
-                text: "car message",
-                at: new Date(now + 10 * 1000),
-                every: 'minute',
-                led: "FF0000",
-                sound: null
-            }, {
+     //           id: 3,
+     //           text: "sports message",
+     //           at: new Date(now + 15 * 1000),
+     //           every: 'minute',
+     //           led: "FF0000",
+     //           sound: null
+     //       }]);
 
-                id: 3,
-                text: "sports message",
-                at: new Date(now + 15 * 1000),
-                every: 'minute',
-                led: "FF0000",
-                sound: null
-            }]);
+     //   }
+     //   catch (e) {
 
-        }
-        catch (e) {
-
-        }
+     //   }
         cordova.plugins.notification.local.on("trigger", function (notification) {
 
         });

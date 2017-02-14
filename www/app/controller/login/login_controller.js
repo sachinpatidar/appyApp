@@ -1,8 +1,8 @@
 ﻿angular.module('login.module.controller', []).controller('login.controller', function ($scope,$cordovaOauth, $state, httpServices, $rootScope, $ionicHistory,ionicToast,$q) {
-    $scope.authenticateUser = function (data) { 
-        
-            
-   
+
+   // alert(JSON.stringify( localStorage.getItem("GCMID")));
+
+    $scope.authenticateUser = function (data) {
         httpServices.get("GetUser/" + data.email + "/" + data.password).then(function (response) {
            
             if (response.data.GetUserResult.length > 0) {
@@ -35,7 +35,7 @@
     }
     $scope.loginFacebook = function () {
        
-        $cordovaOauth.facebook('137744153404879', ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function (result) {
+        $cordovaOauth.facebook('137744153404879', ["email",  "user_website", "user_location", "user_relationships"]).then(function (result) {
             
             httpServices.facebookService(result.access_token).then(function (res) {
                
@@ -123,7 +123,7 @@
         var a = {
             name: name, email: email, registeremail: email, mobile: email, remarks: "R",
             type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelected'), DType: "A", user: email, pwd: '123456789',
-            Messages: "5", CountryCode: '+91',
+            Messages: "5", CountryCode: '+972',
             GCMId: localStorage.getItem("GCMID")
         }
      
