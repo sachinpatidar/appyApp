@@ -9,6 +9,7 @@
                 localStorage.setItem('email', response.data.GetUserResult[0].email);
                 localStorage.setItem('eauid', response.data.GetUserResult[0].eauid);
                 localStorage.setItem('password', data.password);
+                $state.go('dashboard');
               //  httpServices.post('UpdateGCMId', {
               //      "eauid": response.data.GetUserResult[0].eauid,
               //      "gcmid": localStorage.getItem('GCMID')
