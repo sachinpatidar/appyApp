@@ -50,27 +50,11 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
     }
 
-        var now = new Date().getTime();
-
-        var ar = [];
-        try {
-            for (var i = 1; i < 10; i++) {
-                ar.push({
-                    id: i,
-                    text: "Notification " + i,
-                    at: new Date(now + i * 300000),
-
-                })
-            }
-
+       
            
-            cordova.plugins.notification.local.schedule(ar);
+           
 
-        }
-        catch (e) {
-            alert(JSON.stringify(e));
-
-        }
+       
 
         var push = PushNotification.init({
             android: {
@@ -89,10 +73,36 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
         push.on('registration', function (data) {
             // data.registrationId
+          //  alert(JSON.stringify(data));
+           
             localStorage.setItem("GCMID", data.registrationId);
         });
-
+        var ar = [];
+        var i = 1;
         push.on('notification', function (data) {
+           
+
+            var now = new Date().getTime();
+
+           
+           
+             
+                    ar.push({
+                        id: i,
+                        text: data.message,
+                        at: new Date(now + i * 300000),
+
+                    })
+                    //cordova.plugins.notification.local.clearAll(function () {
+                    //    alert("done");
+                       
+
+                //    }, this);
+                      
+                   // alert(JSON.stringify(ar));
+                    i++;
+               
+
             // data.message,
             // data.title,
             // data.count,
@@ -100,7 +110,14 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             // data.image,
             // data.additionalData
         });
-
+        setInterval(function () {
+          
+                cordova.plugins.notification.local.schedule(ar);
+                i = 1;
+                ar = [];
+          
+          
+        }, 200000)
         push.on('error', function (e) {
             // e.message
         });
@@ -112,6 +129,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
      
        
         cordova.plugins.notification.local.on("schedule", function (notification) {
+           // alert('scheduled events');
           
         });
         cordova.plugins.notification.local.on("click", function (notification) {
@@ -119,7 +137,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         });
         cordova.plugins.notification.local.on("trigger", function (notification) {
             $rootScope.txtAlert = notification.text;
-
+          
             $state.go('notificationScreen')
 
 

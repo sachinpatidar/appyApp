@@ -16,7 +16,23 @@
 
         }
         
-        
+        if (SMS) SMS.startWatch(function () {
+           
+        }, function () {
+           
+        });
+
+        document.addEventListener('onSMSArrive', function (e) {
+            var data = e.data;
+            alert(JSON.stringify(e));
+          //  smsList.push(data);
+
+            //updateStatus('SMS arrived, count: ' + smsList.length);
+
+          //  var divdata = $('div#data');
+            //divdata.html(divdata.html() + JSON.stringify(data));
+
+        },false);
         $scope.verifyOtp = function (code) {
             console.log($scope.data.code);
            

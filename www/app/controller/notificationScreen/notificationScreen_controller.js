@@ -3,7 +3,7 @@
         //  $scope.images = ["img/classprofile.png"];
 
        
-            Alepop = $ionicPopup.alert({
+Alepop = $ionicPopup.alert({
                 templateUrl: 'views/partial_Alert.html',
                 scope: $scope,
             });
