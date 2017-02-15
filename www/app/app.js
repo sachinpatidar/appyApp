@@ -99,7 +99,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
                 //    }, this);
                       
-                   // alert(JSON.stringify(ar));
+                  //  alert(JSON.stringify(ar));
                     i++;
                
 
@@ -110,7 +110,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             // data.image,
             // data.additionalData
         });
-        setInterval(function () {
+        setTimeout(function () {
           
                 cordova.plugins.notification.local.schedule(ar);
                 i = 1;
@@ -121,14 +121,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         push.on('error', function (e) {
             // e.message
         });
-
-
-
-       
-      
-     
-       
-        cordova.plugins.notification.local.on("schedule", function (notification) {
+   cordova.plugins.notification.local.on("schedule", function (notification) {
            // alert('scheduled events');
           
         });
