@@ -7,7 +7,7 @@
         localStorage.removeItem('email');
         localStorage.removeItem('eauid');
         localStorage.removeItem('password');
-        localStorage.removeItem("GCMID");
+       
         localStorage.removeItem("value");
         localStorage.removeItem('languageSelected');
         $state.go('loginRegister');
