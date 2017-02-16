@@ -1006,3 +1006,7 @@ ion-md-input {
     border-color: white;
     background-color: grey;
     margin: 12px;}
+.title.title-center.header-item {
+    left: 0 !important;
+    right: 0 !important;
+}

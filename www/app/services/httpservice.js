@@ -12,7 +12,7 @@
           $ionicLoading.hide();
       }, function (error) {
           q.reject(error);
-          alert(JSON.stringify(error + " URL ------> " + url + urlres));
+          alert("Please check network Connection");
           $ionicLoading.hide();
       })
       return q.promise;
@@ -26,7 +26,7 @@
           q.resolve(result);
       }, function (error) {
           q.reject(error);
-          alert(JSON.stringify(error + " URL ------> " + url + urlres));
+          alert("Please check network Connection");
           $ionicLoading.hide();
       });
       return q.promise;
@@ -49,11 +49,11 @@ this.getLanguages = function () {
     var languageText = '';
     var langlist = [
     { "LId": "1", "Language": "English" },
-    { "LId": "2", "Language": "French" },
-    { "LId": "3", "Language": "Russian" },
-    { "LId": "4", "Language": "Chinese" },
-    { "LId": "5", "Language": "Arabic" },
-    { "LId": "6", "Language": "Hebrew" }, ]
+    { "LId": "2", "Language": "français" },
+    { "LId": "3", "Language": "русский" },
+    { "LId": "4", "Language": "中文" },
+    { "LId": "5", "Language": "عربى" },
+    { "LId": "6", "Language": "עִברִית" }, ]
 
 
     $(langlist).each(function (i, v) {
