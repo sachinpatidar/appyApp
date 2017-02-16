@@ -38,36 +38,36 @@
     $scope.changeLanguage = function (lang) {
        
         if (localStorage.getItem('value') == 'showAgreement') {
-          //  alert(lang);
+         //  alert(lang + " Type of :: "+ typeof(lang));
             if (lang != undefined) {
                 var trans = '';
                 switch (lang) {
-                    case 1:
+                    case "1":
                         {
                             trans = 'en';
                             break;
                         };
-                    case 2:
+                    case "2":
                         {
                             trans = 'fr';
                             break;
                         };
-                    case 3:
+                    case "3":
                         {
                             trans = 'ru';
                             break;
                         }
-                    case 4:
+                    case "4":
                         {
                             trans = 'zh';
                             break;
                         }
-                    case 5:
+                    case "5":
                         {
                             trans = 'ar';
                             break;
                         }
-                    case 6:
+                    case "6":
                         {
                             trans = 'he';
                             break;

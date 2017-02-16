@@ -14,9 +14,9 @@
                     if ($(this).val() != '') {
                         $('#' + $(this).next('span').attr('id')).addClass('active');
                     }
-                }); 
+                });
             }, 500);
-            
+
         }
     })
     httpServices.get("GetLanguages").then(function (response) {
@@ -26,8 +26,8 @@
             $scope.selectedlanguage = localStorage.getItem('languageSelected');
             // $state.go('dashboard');
         }
-    })   
-    
+    })
+
     httpServices.get("GetMaxMessageLimit/" + localStorage.getItem('eauid')).then(function (response) {
         console.log(response);
         if (response.data.GetMaxMessageLimitResult.length > 0) {
@@ -36,11 +36,11 @@
         }
     })
     $scope.updatePassword = function (data) {
-        
+
         console.log(data);
         var a = {
             oldpwd: data.currentPassword, newpwd: data.newPassword, user: localStorage.getItem('email')
-            
+
         }
         httpServices.post("UpdatePassword", a).then(function (response) {
             console.log(response);
@@ -49,7 +49,7 @@
             }
         })
     }
-    
+
     $scope.updateMaxMessage = function (data) {
 
         console.log(data);
@@ -67,35 +67,36 @@
 
     $scope.changeLanguage = function (lang) {
         $ionicLoading.show();
-      if (lang != undefined) {
+        if (lang != undefined) {
+         //   alert(lang + " Type of :: " + typeof (lang));
             var trans = '';
-            switch (parseInt(lang)) {
-                case 1:
+            switch (lang) {
+                case "1":
                     {
                         trans = 'en';
                         break;
                     };
-                case 2:
+                case "2":
                     {
                         trans = 'fr';
                         break;
                     };
-                case 3:
+                case "3":
                     {
                         trans = 'ru';
                         break;
                     }
-                case 4:
+                case "4":
                     {
                         trans = 'zh';
                         break;
                     }
-                case 5:
+                case "5":
                     {
                         trans = 'ar';
                         break;
                     }
-                case 6:
+                case "6":
                     {
                         trans = 'he';
                         break;
@@ -103,7 +104,9 @@
             }
             console.log(trans);
             $translate.use(trans);
+
             localStorage.setItem('languageSelected', lang);
+
             var m = {
                 UserID: localStorage.getItem('eauid'), lang: httpServices.getLanguages()
 
@@ -121,5 +124,5 @@
     }
 
 
-    
+
 });

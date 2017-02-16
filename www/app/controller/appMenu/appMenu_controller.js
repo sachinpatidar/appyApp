@@ -3,7 +3,7 @@
 
 
 
-
+    var Alepop = '';
     //  $scope.images = ["img/classprofile.png"];
     var a = [];
     var b = [];
@@ -90,7 +90,7 @@
 
         $scope.txtAlert = "Thanks for your interaction";
 
-
+    
     }
 
 
@@ -104,6 +104,7 @@
         $('.popup-head').hide();
         $('.popup').addClass('InfoAlert');
     }
+
     $scope.submitMenuOptions = function () {
         var stringg = '';
         $scope.val.map((i, j) => {
@@ -115,7 +116,6 @@
                     stringg += k.scateid + ',';
                     console.log(stringg);
                 }
-
             })
         })
 
