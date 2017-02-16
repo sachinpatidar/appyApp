@@ -1,6 +1,11 @@
 ﻿<div>
+
+   
+
     <input type="text" ng-model="selectPhoneNumber" class="Pcountrys" placeholder="{{'txt_choose_contact' | translate}}" />
-    <ul class="pcunty">
-        <li ng-repeat="s in contacts |filter: selectPhoneNumber | orderBy : 'displayName'" ng-click="selectedContact(s.phoneNumbers)">{{s.displayName}}</li>
-    </ul>
+    <div class="show-list">
+        <ul class="list">
+            <li class="item" ng-repeat="s in contacts |filter: selectPhoneNumber | orderBy : 'displayName'" ng-click="selectedContact(s)">{{s.displayName}}</li>
+        </ul>
+    </div>
 </div>

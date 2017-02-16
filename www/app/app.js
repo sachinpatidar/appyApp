@@ -8,6 +8,20 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
 .run(function ($ionicPlatform, $state, $translate, $rootScope) {
     $ionicPlatform.ready(function () {
+
+        document.addEventListener("offline", onOffline, false);
+
+        function onOffline() {
+       
+            $state.go("error-page");
+        }
+        function onOnline() {
+
+            $state.go("dashboard");
+        }
+        document.addEventListener("online", onOnline, false);
+
+
         if (localStorage.getItem('value') == 'showAgreement') {
             
         var trans = '';

@@ -14,7 +14,13 @@
              myPopup = $ionicPopup.show({
                 templateUrl: 'views/'+view,
                 title: title,
+                buttons: [{
+                    text: '<i class="icon ion-close-circled"></i>',
+                    type: 'popclose',
+                    onTap: function (e) {
 
+                    }
+                }],
                 scope: $scope,
 
             });
@@ -24,13 +30,16 @@
             if (response.data.GetMessagesResult.length > 0) {
                 $scope.detailSomeone = response.data.GetMessagesResult;
                 // $state.go('dashboard');
+            } else {
+                ionicToast.show(response.data, 'top', false, 2500);
             }
         }, function (error) {
-            ionicToast.show('Please check your network connection', 'top', false, 2500);
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
+            }
+
         }
-
-
-   )
+        );
         $scope.getSmsDetail = function (id1) {
            // var id = id1;
             console.log($scope.detailSomeone);
@@ -67,11 +76,14 @@
 
         function onSuccess(contacts) {
            
-          
+           // alert(JSON.stringify(contacts));
             $scope.contacts = contacts;
         };
         $scope.selectedContact = function (number) {
-            $scope.data.phoneNo = number[0].value;
+           
+            $scope.data.phoneNo = number.phoneNumbers[0].value;
+            $scope.displayNameheader = number.displayName;
+           
 
             myPopup.close();
             setTimeout(function () {
@@ -88,14 +100,17 @@
         };
 
         // find all contacts with 'Bob' in any name field
-       
+        document.addEventListener('deviceready', function () {
             var options = new ContactFindOptions();
-          //  options.filter = "";
+            //  options.filter = "";
             options.multiple = true;
             options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
             //options.hasPhoneNumber = true;
             var fields = ['displayName'];
             navigator.contacts.find(fields, onSuccess, onError, options);
-        
+
+
+
+        }, false)
         
     });

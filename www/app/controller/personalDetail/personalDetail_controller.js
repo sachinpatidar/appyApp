@@ -17,7 +17,15 @@
                 });
             }, 500);
 
-        }
+        } else {
+                ionicToast.show(response.data, 'top', false, 2500);
+            }
+        }, function (error) {
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
+            }
+       
+    
     })
     httpServices.get("GetLanguages").then(function (response) {
         console.log(response);
@@ -26,7 +34,16 @@
             $scope.selectedlanguage = localStorage.getItem('languageSelected');
             // $state.go('dashboard');
         }
-    })
+        else {
+            ionicToast.show(response.data, 'top', false, 2500);
+        }
+    }, function (error) {
+        if (error.status == "-1") {
+            ionicToast.show('something went wrong', 'top', false, 2500);
+        }
+
+    }
+        );
 
     httpServices.get("GetMaxMessageLimit/" + localStorage.getItem('eauid')).then(function (response) {
         console.log(response);
@@ -34,7 +51,16 @@
             $scope.messageDetail = response.data.GetMaxMessageLimitResult[0].Messagescount;
             // $state.go('dashboard');Messagescount
         }
-    })
+        else {
+            ionicToast.show(response.data, 'top', false, 2500);
+        }
+    }, function (error) {
+        if (error.status == "-1") {
+            ionicToast.show('something went wrong', 'top', false, 2500);
+        }
+
+    }
+        );
     $scope.updatePassword = function (data) {
 
         console.log(data);
@@ -118,7 +144,16 @@
                     $scope.language = localStorage.getItem('languageSelected');
                     $state.go('personalDetail');
                 }
-            })
+                else {
+                    ionicToast.show(response.data, 'top', false, 2500);
+                }
+            }, function (error) {
+                if (error.status == "-1") {
+                    ionicToast.show('something went wrong', 'top', false, 2500);
+                }
+
+            }
+        );
         }
 
     }
