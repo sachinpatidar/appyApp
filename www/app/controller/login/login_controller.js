@@ -12,9 +12,7 @@
 
            //     alert("UDI" + response.data.GetUserResult[0].eauid + "  " +localStorage.getItem("GCMID"));
 
-                httpServices.post("UpdateGCMId", { eauid: response.data.GetUserResult[0].eauid, gcmid: localStorage.getItem("GCMID") } ).then(function (response) {
-                    console.log(response);
-                });
+                updateGCMID(response.data.GetUserResult[0].eauid);
 
                 $state.go('dashboard');
               //  httpServices.post('UpdateGCMId', {
@@ -39,6 +37,13 @@
             )
 
         
+    }
+    function updateGCMID(Id) {
+
+        httpServices.post("UpdateGCMId", {
+            "eauid": Id,
+            "gcmid": localStorage.getItem("GCMID")
+        }).then(function (su) { console.log(su) }, function (er) { console.log(er) })
     }
     $scope.loginFacebook = function () {
        
