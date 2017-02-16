@@ -78,9 +78,9 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             localStorage.setItem("GCMID", data.registrationId);
         });
         var ar = [];
-        var i = 1;
+        var i = 0;
         push.on('notification', function (data) {
-           
+         //   alert(JSON.stringify(data));
 
             var now = new Date().getTime();
 
@@ -89,7 +89,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
              
             cordova.plugins.notification.local.schedule({
                 id: i,
-                text: data.message,
+                text: data.additionalData.message1,
                 at: new Date(now + i * 300000),
 
             });
@@ -112,7 +112,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         setInterval(function () {
           
               
-                i = 1;
+                i = 0;
               
           
         }, 300000)
@@ -123,8 +123,8 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
 
     cordova.plugins.notification.local.on("schedule", function (notification) {
-         //   alert('scheduled events');
-          
+        //   alert('scheduled events');
+          // alert(JSON.stringify(notification));
         });
         cordova.plugins.notification.local.on("click", function (notification) {
           
