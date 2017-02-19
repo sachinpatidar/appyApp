@@ -6,12 +6,15 @@
             if (response.data.GetToolsTechsResult.length > 0) {
                 $scope.techniques = response.data.GetToolsTechsResult;
                 // $state.go('dashboard');
+            } else {
+                ionicToast.show(response.data, 'top', false, 2500);
             }
         }, function (error) {
-            ionicToast.show('Login failed', 'top', false, 2500);
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
+            }
+
         }
-
-
-    )
+        );
 
     });

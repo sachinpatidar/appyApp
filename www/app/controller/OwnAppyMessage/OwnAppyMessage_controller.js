@@ -9,7 +9,16 @@
                 $scope.UserMessages = response.data.GetUserMessageResult;
                 // $state.go('dashboard');
             }
-        });
+            else {
+                ionicToast.show(response.data, 'top', false, 2500);
+            }
+        }, function (error) {
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
+            }
+
+        }
+        );
       
         $scope.enableDisable = function (data,msgId) {
             var a = {
@@ -25,11 +34,16 @@
                     $state.go('OwnAppyMessage');
                 }
 
-
+                else {
+                    ionicToast.show(response.data, 'top', false, 2500);
+                }
             }, function (error) {
-                ionicToast.show('Login failed', 'top', false, 2500);
+                if (error.status == "-1") {
+                    ionicToast.show('something went wrong', 'top', false, 2500);
+                }
 
-            })
+            }
+        );
 
 
         }
@@ -62,11 +76,15 @@
             }
 
 
+                else {
+                    ionicToast.show(response.data, 'top', false, 2500);
+                }
             }, function (error) {
-                ionicToast.show('Login failed', 'top', false, 2500);
+                if (error.status == "-1") {
+                    ionicToast.show('something went wrong', 'top', false, 2500);
+                }
 
-            });
-
-
+            }
+        );
         }
     });

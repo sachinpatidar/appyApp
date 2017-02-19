@@ -8,5 +8,15 @@
                 $scope.HowtoPageContent = response.data.GetPublicPagesinfoResult[0].PageContent;
                 // $state.go('dashboard');Messagescount
             }
-        });
+            else {
+                ionicToast.show(response.data, 'top', false, 2500);
+            }
+        }, function (error) {
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
+            }
+       
+        }
+        );
+       
     });

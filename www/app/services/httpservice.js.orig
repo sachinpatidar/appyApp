@@ -12,6 +12,10 @@
           $ionicLoading.hide();
       }, function (error) {
           q.reject(error);
+<<<<<<< HEAD
+          alert("Please check network Connection");
+=======
+>>>>>>> 3f2f866aa279370b29bc36e08b8dcaf8856ee265
           $ionicLoading.hide();
       })
       return q.promise;
@@ -26,7 +30,11 @@
           q.resolve(result);
       }, function (error) {
           q.reject(error);
+<<<<<<< HEAD
+          alert("Please check network Connection");
+=======
       //    alert(JSON.stringify(error));
+>>>>>>> 3f2f866aa279370b29bc36e08b8dcaf8856ee265
           $ionicLoading.hide();
       });
       return q.promise;
