@@ -50,12 +50,6 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
     }
 
-       
-           
-           
-
-       
-
         var push = PushNotification.init({
             android: {
                 senderID: "370585387255"
