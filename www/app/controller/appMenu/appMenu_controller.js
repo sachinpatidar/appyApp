@@ -1,4 +1,4 @@
-﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices,$ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast) {
+﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast) {
     //  $scope.images = ["img/classprofile.png"];
 
 
@@ -16,7 +16,66 @@
                 console.log(response);
                 if (response.data.GetCatSubCatResult.length > 0) {
                     a = response.data.GetCatSubCatResult;
-                    // $state.go('dashboard');
+                    $scope.val = [];
+                    var cat = a[0].category;
+                    var id = a[0].cateid;
+                    var catsub = [];
+                    var check = false;
+                    var enableCat = false;
+                    var countTrue = 0;
+                    var cnt = 0;
+                    a.map((i, j) => {
+                        console.log(i.category + " " + cat);
+                        if (i.category === cat) {
+                            //    for (var i = 0; i < b.length;)
+                            b.map((k, l) => {
+
+                                if (k.scateid === i.scateid) {
+                                    check = true;
+                                    countTrue++;
+                                }
+                            })
+                            cnt++;
+                            // setTimeout(function () {
+                            catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check });
+                            //}, 40)
+
+                            check = false;
+                        }
+                        else {
+                            if (cnt == countTrue) {
+                                $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
+                            }
+                            else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
+                            id = i.cateid;
+                            cat = i.category;
+                            check = false;
+                            cnt = 0;
+                            countTrue = 0;
+                            b.map((k, l) => {
+                                if (k.scateid === i.scateid) {
+                                    check = true;
+                                    countTrue++;
+                                }
+                            })
+                            cnt++;
+                            catsub = [];
+                            catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check })
+                        }
+
+                    });
+                    if (cnt == countTrue) {
+                        $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
+                    } else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
+
+                    $scope.selectAllSub = function (val, $index) {
+                        console.log(val, $index);
+                        $scope.val[$index].subcategory.map((i, j) => {
+                            i.enableSub = val;
+                        })
+                    }
+
+                    console.log($scope.val);
                 } else {
                     ionicToast.show(response.data, 'top', false, 2500);
                 }
@@ -24,80 +83,23 @@
                 if (error.status == "-1") {
                     ionicToast.show('something went wrong', 'top', false, 2500);
                 }
-     
-                $scope.val = [];
-                var cat = a[0].category;
-                var id = a[0].cateid;
-                var catsub = [];
-                var check = false;
-                var enableCat = false;
-                var countTrue = 0;
-                var cnt = 0;
-                a.map((i, j) => {
-                    console.log(i.category + " " + cat);
-                    if (i.category === cat) {
-                        //    for (var i = 0; i < b.length;)
-                        b.map((k, l) => {
 
-                            if (k.scateid === i.scateid) {
-                                check = true;
-                                countTrue++;
-                            }
-                        })
-                        cnt++;
-                        // setTimeout(function () {
-                        catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check });
-                        //}, 40)
 
-                        check = false;
-                    }
-                    else {
-                        if (cnt == countTrue) {
-                            $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
-                        }
-                        else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
-                        id = i.cateid;
-                        cat = i.category;
-                        check = false;
-                        cnt = 0;
-                        countTrue = 0;
-                        b.map((k, l) => {
-                            if (k.scateid === i.scateid) {
-                                check = true;
-                                countTrue++;
-                            }
-                        })
-                        cnt++;
-                        catsub = [];
-                        catsub.push({ "scateid": i.scateid, "subcategory": i.subcategory, enableSub: check })
-                    }
-
-                });
-                if (cnt == countTrue) {
-                    $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: true });
-                } else { $scope.val.push({ category: cat, subcategory: catsub, categoryId: id, enableCat: false }); }
-                
-                $scope.selectAllSub = function (val, $index) {
-                    console.log(val, $index);
-                    $scope.val[$index].subcategory.map((i, j) => {
-                        i.enableSub = val;
-                    })
-                }
-
-                console.log($scope.val);
             });
+
+
             // $state.go('dashboard');
         }
     });
-   
+
     $scope.Alrtcls = function () { Alepop.close(); }
     $scope.showAlert = function () {
         callAlert();
-       // callAlert();
+        // callAlert();
 
         $scope.txtAlert = "Thanks for your interaction";
 
-    
+
     }
 
 

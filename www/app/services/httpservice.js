@@ -1,7 +1,7 @@
 ﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state', function ($q, $http, $ionicLoading, $rootScope, $state) {
 
    
-    var url = 'http://websvc.waytoappy.com/customerAP.svc/'; //http://localhost:55448
+    var url = 'http://localhost:55448/customerAP.svc/'; //http://websvc.waytoappy.com
 
   this.get=function(urlres){
       var q = $q.defer();
@@ -64,8 +64,30 @@ this.getLanguages = function () {
         }
     });
     return languageText;
-
 }
+
+this.getLanguagesID = function () {
+    var languageID = '';
+    var langlist = [
+    { "LId": "1", "Language": "English" },
+    { "LId": "2", "Language": "français" },
+    { "LId": "3", "Language": "русский" },
+    { "LId": "4", "Language": "中文" },
+    { "LId": "5", "Language": "عربى" },
+    { "LId": "6", "Language": "עִברִית" }, ]
+
+
+    $(langlist).each(function (i, v) {
+        if (v.Language == localStorage.getItem('languageSelectedText')) {
+            localStorage.setItem('languageSelected', v.LId);
+            languageID = localStorage.getItem('languageSelected');
+            return;
+        }
+    });
+    return languageID;
+}
+
+
   this.getCountry = function () {
 
       var country = [{ "countryName": "Afghanistan", "countryCode": "+93" },

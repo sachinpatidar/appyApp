@@ -9,11 +9,12 @@
                 localStorage.setItem('email', response.data.GetUserResult[0].email);
                 localStorage.setItem('eauid',response.data.GetUserResult[0].eauid );
                 localStorage.setItem('password', data.password);
-
+                localStorage.setItem('languageSelectedText', data.Language);
+                httpServices.getLanguagesID();
            //     alert("UDI" + response.data.GetUserResult[0].eauid + "  " +localStorage.getItem("GCMID"));
-
-                updateGCMID(response.data.GetUserResult[0].eauid);
-
+                if (localStorage.getItem("GCMID") != null) {
+                    updateGCMID(response.data.GetUserResult[0].eauid);
+                }
                 $state.go('dashboard');
               //  httpServices.post('UpdateGCMId', {
               //      "eauid": response.data.GetUserResult[0].eauid,
