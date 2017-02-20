@@ -17,7 +17,14 @@
                 if (response.data.GetCatSubCatResult.length > 0) {
                     a = response.data.GetCatSubCatResult;
                     // $state.go('dashboard');
+                } else {
+                    ionicToast.show(response.data, 'top', false, 2500);
                 }
+            }, function (error) {
+                if (error.status == "-1") {
+                    ionicToast.show('something went wrong', 'top', false, 2500);
+                }
+     
                 $scope.val = [];
                 var cat = a[0].category;
                 var id = a[0].cateid;
@@ -131,12 +138,15 @@
                 //   $state.go('dashboard');
                 $scope.txtAlert = "Thanks you, Your order is on the way";
                 callAlert();
+            } else {
+                ionicToast.show(response.data, 'top', false, 2500);
+            }
+        }, function (error) {
+            if (error.status == "-1") {
+                ionicToast.show('something went wrong', 'top', false, 2500);
             }
 
-
-        }, function (error) {
-            ionicToast.show('Login failed', 'top', false, 2500);
-
-        })
+        }
+        );
     }
 })

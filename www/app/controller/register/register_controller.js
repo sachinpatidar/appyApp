@@ -48,6 +48,13 @@
             templateUrl: 'views/partial_country.html',
             title: 'select Country',
             scope: $scope,
+            buttons: [{
+                text: '<i class="icon ion-close-circled"></i>',
+                type: 'popclose',
+                onTap: function (e) {
+
+                }
+            }],
         });
     }
 

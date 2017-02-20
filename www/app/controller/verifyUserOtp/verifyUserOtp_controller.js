@@ -12,7 +12,7 @@
                 console.log(JSON.stringify(response));
                 $scope.otp = response.data.SendOTPResult;
                 console.log($scope.otp);
-            });
+            })
 
         }
         

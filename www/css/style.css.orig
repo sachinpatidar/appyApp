@@ -1006,6 +1006,11 @@ ion-md-input {
     border-color: white;
     background-color: grey;
     margin: 12px;}
+<<<<<<< HEAD
+.title.title-center.header-item {
+    left: 0 !important;
+    right: 0 !important;
+=======
 .popclose {
 text-align: right;
 position: absolute;
@@ -1024,4 +1029,5 @@ background-color: transparent !important;
 }.popup-body {
    
     overflow:hidden;
+>>>>>>> 3f2f866aa279370b29bc36e08b8dcaf8856ee265
 }

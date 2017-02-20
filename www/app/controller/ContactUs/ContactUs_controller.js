@@ -12,6 +12,13 @@
             templateUrl: 'views/partial_country.html',
             title: 'select country',
             scope: $scope,
+            buttons: [{
+                text: '<i class="icon ion-close-circled"></i>',
+                type: 'popclose',
+                onTap: function (e) {
+
+                }
+            }],
 
         });
     }
@@ -61,7 +68,10 @@
                 $("input[type='email']").val('');
                 $("input[type='tel']").val('');
                 $scope.data.countryCode = "+1";
+            } else {
+                ionicToast.show(response.data, 'top', false, 2500);
             }
+        
 
 
         }, function (error) {
