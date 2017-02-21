@@ -10,3 +10,7 @@ to run app please install following Plugins
 # cordova-plugin-splashscreen
 # cordova-plugin-whitelist
 # cordova plugin add phonegap-plugin-push@1.8.2 --variable SENDER_ID="370585387255"
+# from master:
+cordova plugin add https://github.com/katzer/cordova-plugin-local-notifications.git
+cordova build
+
