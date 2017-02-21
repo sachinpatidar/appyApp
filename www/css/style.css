@@ -875,7 +875,7 @@ ion-md-input {
 
 .pappymnu {
     position: absolute;
-    top: 0px;
+    top: -5px;
     right: -12px;
     background-image: url(../img/ic_info.png) !important;
     background-repeat: no-repeat;
@@ -884,7 +884,7 @@ ion-md-input {
     background-position: center center;
     z-index: 999 !important;
     width: 25%;
-    height: 45px;
+    height: 42px;
 }
 
 .cntLarge.overflow-scroll {
@@ -950,6 +950,12 @@ ion-md-input {
     font-size: 13px;
     color: #271b1b !important;
 }
+.addOwnpayy .input-label.active {
+    transform: translate3d(0, -58px, 0) !important;
+    font-size: 13px;
+    color: #271b1b !important;
+}
+
 
 .plogpg {
     padding: 25% 0;
@@ -1025,3 +1031,4 @@ background-color: transparent !important;
    
     overflow:hidden;
 }
+.title.title-center.header-item{left:0 !important;right:0 !important;}

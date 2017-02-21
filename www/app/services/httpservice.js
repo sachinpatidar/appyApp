@@ -1,7 +1,7 @@
-﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state', function ($q, $http, $ionicLoading, $rootScope, $state) {
+﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state','$translate', function ($q, $http, $ionicLoading, $rootScope, $state, $translate) {
 
    
-    var url = 'http://localhost:55448/customerAP.svc/'; //http://websvc.waytoappy.com
+    var url = 'http://websvc.waytoappy.com/customerAP.svc/'; //http://localhost:55448
 
   this.get=function(urlres){
       var q = $q.defer();
@@ -81,6 +81,43 @@ this.getLanguagesID = function () {
         if (v.Language == localStorage.getItem('languageSelectedText')) {
             localStorage.setItem('languageSelected', v.LId);
             languageID = localStorage.getItem('languageSelected');
+            if (languageID != undefined) {
+                //   alert(lang + " Type of :: " + typeof (lang));
+                var trans = '';
+                switch (languageID) {
+                    case "1":
+                        {
+                            trans = 'en';
+                            break;
+                        };
+                    case "2":
+                        {
+                            trans = 'fr';
+                            break;
+                        };
+                    case "3":
+                        {
+                            trans = 'ru';
+                            break;
+                        }
+                    case "4":
+                        {
+                            trans = 'zh';
+                            break;
+                        }
+                    case "5":
+                        {
+                            trans = 'ar';
+                            break;
+                        }
+                    case "6":
+                        {
+                            trans = 'he';
+                            break;
+                        }
+                }
+                $translate.use(trans);
+            }
             return;
         }
     });
