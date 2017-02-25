@@ -58,7 +58,7 @@
 
             console.log(data);
             var a = {
-                message: msg, mid: data.mid, mobile: data.phoneNo
+                message: msg.replace(/<\/?[^>]+(>|$)/g, ""), mid: data.mid, mobile: data.countryCode.replace("+","") +data.phoneNo
 
             }
             httpServices.post("SendUserMessage", a).then(function (response) {

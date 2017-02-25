@@ -1,4 +1,4 @@
-﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state','$translate', function ($q, $http, $ionicLoading, $rootScope, $state, $translate) {
+﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state', function ($q, $http, $ionicLoading, $rootScope, $state) {
 
    
     var url = 'http://websvc.waytoappy.com/customerAP.svc/'; //http://localhost:55448
@@ -12,6 +12,10 @@
           $ionicLoading.hide();
       }, function (error) {
           q.reject(error);
+<<<<<<< HEAD
+          alert("Please check network Connection");
+=======
+>>>>>>> 3f2f866aa279370b29bc36e08b8dcaf8856ee265
           $ionicLoading.hide();
       })
       return q.promise;
@@ -26,7 +30,11 @@
           q.resolve(result);
       }, function (error) {
           q.reject(error);
+<<<<<<< HEAD
+          alert("Please check network Connection");
+=======
       //    alert(JSON.stringify(error));
+>>>>>>> 3f2f866aa279370b29bc36e08b8dcaf8856ee265
           $ionicLoading.hide();
       });
       return q.promise;
@@ -64,67 +72,8 @@ this.getLanguages = function () {
         }
     });
     return languageText;
+
 }
-
-this.getLanguagesID = function () {
-    var languageID = '';
-    var langlist = [
-    { "LId": "1", "Language": "English" },
-    { "LId": "2", "Language": "français" },
-    { "LId": "3", "Language": "русский" },
-    { "LId": "4", "Language": "中文" },
-    { "LId": "5", "Language": "عربى" },
-    { "LId": "6", "Language": "עִברִית" }, ]
-
-
-    $(langlist).each(function (i, v) {
-        if (v.Language == localStorage.getItem('languageSelectedText')) {
-            localStorage.setItem('languageSelected', v.LId);
-            languageID = localStorage.getItem('languageSelected');
-            if (languageID != undefined) {
-                //   alert(lang + " Type of :: " + typeof (lang));
-                var trans = '';
-                switch (languageID) {
-                    case "1":
-                        {
-                            trans = 'en';
-                            break;
-                        };
-                    case "2":
-                        {
-                            trans = 'fr';
-                            break;
-                        };
-                    case "3":
-                        {
-                            trans = 'ru';
-                            break;
-                        }
-                    case "4":
-                        {
-                            trans = 'zh';
-                            break;
-                        }
-                    case "5":
-                        {
-                            trans = 'ar';
-                            break;
-                        }
-                    case "6":
-                        {
-                            trans = 'he';
-                            break;
-                        }
-                }
-                $translate.use(trans);
-            }
-            return;
-        }
-    });
-    return languageID;
-}
-
-
   this.getCountry = function () {
 
       var country = [{ "countryName": "Afghanistan", "countryCode": "+93" },

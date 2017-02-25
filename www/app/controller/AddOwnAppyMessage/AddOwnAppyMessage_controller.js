@@ -53,7 +53,7 @@
             }
             httpServices.post("UpdatePrivateMessage", a).then(function (response) {
                 console.log(response);
-                if (response.data == "success") {
+                if (response.data == "Success") {
                     $state.go('OwnAppyMessage');
                 }
 

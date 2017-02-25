@@ -96,9 +96,10 @@
             return;
         }   
             console.log(data);
+            setTimeout(function () {
             $state.go('verifyUserOtp', { yourName: data.yourName, email: data.email, countryCode: data.countryCode, phoneNo: data.phoneNo, password: data.password });
    
-
+ }, 1000);
 
     }
 
