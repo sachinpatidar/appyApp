@@ -9,7 +9,7 @@
     var b = [];
     httpServices.get("GetUserCategorySubCategory/" + localStorage.getItem('email') + "/" + localStorage.getItem('password') + "/" + localStorage.getItem('languageSelected')).then(function (response1) {
         //  console.log(response);
-        if (response1.data.GetUserCatSubCatResult.length > 0) {
+      //  if (response1.data.GetUserCatSubCatResult.length > 0) {
             b = response1.data.GetUserCatSubCatResult;
             httpServices.get("GetCategorySubCategory/" + localStorage.getItem('languageSelected')).then(function (response) {
                 // console.log(response);
@@ -89,7 +89,7 @@
 
 
             // $state.go('dashboard');
-        }
+    //    }
     });
 
     $scope.Alrtcls = function () { Alepop.close(); }
