@@ -7,20 +7,22 @@
         var phNo = $stateParams.phoneNo;
         sendOtp();
         function sendOtp() {
+      
           //  $scope.otp = '123456';
-            httpServices.get("SendOTP/" + $scope.data.phoneNo).then(function (response) {
-                console.log(JSON.stringify(response));
-                $scope.otp = response.data.SendOTPResult;
+          //  httpServices.get("SendOTP/" + $stateParams.countryCode.replace("+","")+ $scope.data.phoneNo).then(function (response) {
+            httpServices.post("SendOTP_sms", { mobile: $stateParams.countryCode.replace("+", "") + $scope.data.phoneNo }).then(function (response) {
+               console.log(JSON.stringify(response));
+                $scope.otp = response.data;
                 console.log($scope.otp);
             })
 
         }
         
-        if (SMS) SMS.startWatch(function () {
+        //if (SMS) SMS.startWatch(function () {
            
-        }, function () {
+        //}, function () {
            
-        });
+        //});
 
         document.addEventListener('onSMSArrive', function (e) {
             var data = e.data;
