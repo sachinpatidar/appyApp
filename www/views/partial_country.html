@@ -1,0 +1,10 @@
+﻿<div>
+    <input type="text" ng-model="selectCountry" class="Pcountrys" placeholder="choose country..." />
+   
+    <div class="show-list">
+        <ul class="list">
+
+    <li class="item" ng-repeat="s in country |filter: selectCountry | orderBy : 'countryName'" ng-click="selectedCountry(s.countryName,s.countryCode)">({{s.countryCode}})&nbsp;&nbsp;&nbsp;{{s.countryName}}</li>
+</ul>
+    </div> 
+</div>

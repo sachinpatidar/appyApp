@@ -1,0 +1,42 @@
+
+ 
+
+ <ion-view  view-title=''>
+    <ion-nav-title >
+        <span class="view-title">{{"app_name"|translate}} </span>	<span class="subTitle">{{"slogen"|translate}}</span><p>
+            {{"menu_appy_messages"|translate}}
+        </p> <a class="button button-full pOwnappy" ui-sref="AddOwnAppyMessage({eauid:'null',sub:'null',text:'null',msgId:'null'})">  </a>
+    </ion-nav-title> 
+
+    <ion-content class="has-subheader has-header cntLarge">
+        <div class="appMenuList">
+
+            <ul class="list">
+
+                <li class="item" ng-repeat="msg in UserMessages">
+                    <div>{{msg.sub}}</div>
+                    <div>{{msg.desc}}</div>
+
+                    <label class="toggle toggle-assertive pcheckwol">
+
+                        <input type="checkbox" ng-model="msg.enable" ng-change="enableDisable(msg.enable,msg.msgid)">
+
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+
+                    <div class="leftbtns"><button type="button" class="edbtns" ui-sref="AddOwnAppyMessage({eauid:'{{msg.eid}}',sub:'{{msg.sub}}',text:'{{msg.desc}}',msgId:'{{msg.msgid}}'})"><i class="icon ion-compose"></i></button> </div>
+
+                    <div class="rightbtns"><button type="button" class="edbtns" ng-click="DeleteOwnAppyMessage({{msg.msgid}},{{msg.eid}})"><i class="icon ion-trash-a"></i></button></div>
+
+
+                </li>
+
+            </ul>
+        </div>
+
+    </ion-content>
+
+
+</ion-view>

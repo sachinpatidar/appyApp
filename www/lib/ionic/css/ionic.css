@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -3504,7 +3504,7 @@ ion-infinite-scroll {
 
 /* If you change these, change platform.scss as well */
 .has-header {
-  top: 44px; }
+  top: 90px; }
 
 .no-header {
   top: 0; }
@@ -3571,7 +3571,7 @@ ion-infinite-scroll {
  * --------------------------------------------------
  */
 p {
-  margin: 0 0 10px; }
+  margin: 18px 0 10px; }
 
 small {
   font-size: 85%; }
@@ -3950,14 +3950,14 @@ a.subdued {
     .bar.bar-calm.bar-footer {
       background-image: linear-gradient(180deg, #0a9dc7, #0a9dc7 50%, transparent 50%); }
   .bar.bar-assertive {
-    border-color: #e42112;
-    background-color: #ef473a;
-    background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%);
+    border-color: #5a5454;
+    background-color: #5a5454;
+    background-image: linear-gradient(0deg, #5a5454, #5a5454 50%, transparent 50%);
     color: #fff; }
     .bar.bar-assertive .title {
       color: #fff; }
     .bar.bar-assertive.bar-footer {
-      background-image: linear-gradient(180deg, #e42112, #e42112 50%, transparent 50%); }
+      background-image: linear-gradient(180deg, #5a5454, #5a5454 50%, transparent 50%); }
   .bar.bar-balanced {
     border-color: #28a54c;
     background-color: #33cd5f;
@@ -4090,8 +4090,8 @@ a.subdued {
   font-size: 24px; }
 
 .platform-android .bar .title {
-  font-size: 19px;
-  line-height: 44px; }
+  font-size: 16px;
+  line-height: 40px; }
 
 .bar-light .button {
   border-color: #ddd;
@@ -7984,8 +7984,8 @@ input:checked + .checkbox-icon:before {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   position: absolute;
-  top: 33%;
-  left: 25%;
+  top: 25%;
+  left: 15%;
   display: table;
   width: 14px;
   height: 6px;
@@ -8677,8 +8677,9 @@ progress {
         color: #fff; }
   .button.button-positive {
     border-color: transparent;
-    background-color: #387ef5;
-    color: #fff; }
+    /*background-color: #387ef5;*/
+    background-color: transparent;
+    color: #0b8ba0; }
     .button.button-positive:hover {
       color: #fff;
       text-decoration: none; }

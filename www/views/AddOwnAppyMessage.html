@@ -1,0 +1,48 @@
+ 
+﻿<ion-view view-title=''>
+    <ion-nav-title>
+        <span class="view-title">{{"app_name"|translate}}</span>	<span class="subTitle">{{"slogen"|translate}}</span><p>
+         
+        {{"adheadms_name"|translate}}
+        </p>
+
+    </ion-nav-title>
+    <ion-content class="has-subheader has-header cntLarge addOwnpayy ">
+
+        <div class="cntArea">
+            <div class="cntOpt cntPage">
+                <div class="list formReg">
+                    <label>
+
+                        <ion-md-input class="messageArea" type="text" placeholder="{{'txt_msg_subject'|translate}}" ng-model="data.MessageSubject"></ion-md-input>
+
+                    </label>
+                    <label>
+                        <!--<ion-md-input class="yourName" type="text" placeholder="Message Detail" ng-model="data.MessageDetail"></ion-md-input>-->
+
+                        <ion-md-input class="messageArea" type="text" style="height:100px" placeholder="{{'txt_msg_detail'|translate}}" ng-model="data.MessageDetail"></ion-md-input>
+                        <!-- <input class="yourName" type="text" placeholder="Name"> -->
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-assertive">
+        <!--<div class="buttons">
+            <button class="button">Left Button</button>
+        </div>
+        <h1 class="title">Title!</h1>
+        <div class="buttons" ng-click="doSomething()">
+            <button class="button">Right Button</button>
+        </div>-->
+        <div class="title" ng-click="AddOwnAppyMessages(data)">{{"txt_submit"|translate}}</div>
+    </ion-footer-bar>
+    <!--<ion-footer-bar align-title="center" class="bar-assertive">
+        <button class="title" ng-click="">Submit</button>
+        </ion-footer-bar>-->
+</ion-view>
