@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         var ar = [];
         var i = 0;
         push.on('notification', function (data) {
-         //  alert(JSON.stringify(data));
+          alert(JSON.stringify(data));
 
             var now = new Date().getTime();
 
