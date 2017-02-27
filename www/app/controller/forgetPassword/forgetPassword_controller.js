@@ -1,4 +1,4 @@
-﻿angular.module('forgetPassword.module.controller', []).controller('forgetPassword.controller', function ($scope, $ionicPopup,httpServices, $ionicLoading, $state) {
+﻿angular.module('forgetPassword.module.controller', []).controller('forgetPassword.controller', function ($scope, $ionicPopup,httpServices, $ionicLoading, $state,ionicToast) {
     //  $scope.images = ["img/classprofile.png"];
     $scope.data = {};
 
@@ -9,6 +9,34 @@
         $scope.data.countryCode = code;
         myPopup.close();
     }
+var regIsNumber = function (fData) {
+var reg = new RegExp("^[-]?[0-9]+[\.]?[0-9]+$");
+    return reg.test(fData)
+ }
+$scope.submitForget=function(data){
+
+      console.log(data);
+      var typedata='email';
+if(regIsNumber(data.phoneNo))
+{
+typedata='phone';
+
+}
+
+        var a = {
+            type:typedata, value: data.phoneNo
+
+        }
+        httpServices.post("ForgotPassword", a).then(function (response) {
+            console.log(response);
+           
+               // $state.go('personalDetail');
+  ionicToast.show(response.data, 'top', false, 2500);
+            
+        })
+}
+
+
     $scope.openPopup = function () {
         myPopup = $ionicPopup.show({
             templateUrl: 'views/partial_country.html',
