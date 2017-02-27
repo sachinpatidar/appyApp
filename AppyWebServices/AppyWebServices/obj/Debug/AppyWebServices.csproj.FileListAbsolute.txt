@@ -1,9 +1,3 @@
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.csprojResolveAssemblyReference.cache
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll.config
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.pdb
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.dll
-D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.pdb
 E:\Pramod\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll.config
 E:\Pramod\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll
 E:\Pramod\AppyWebServices\AppyWebServices\bin\AppyWebServices.pdb
@@ -23,3 +17,12 @@ C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Deb
 C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.dll
 C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.pdb
 D:\backupFiles\MyWork\Appy\iosAppy_Mainproject\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.csprojResolveAssemblyReference.cache
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll.config
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\AppyWebServices.pdb
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\Plivo.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\RestSharp.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\RestSharp.xml
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.csprojResolveAssemblyReference.cache
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\obj\Debug\AppyWebServices.pdb

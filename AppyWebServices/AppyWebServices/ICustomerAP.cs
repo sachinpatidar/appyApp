@@ -13,8 +13,6 @@ namespace AppyWebServices
     [ServiceContract]
     public interface ICustomerAP
     {
-
-
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomer/{username}/{password}")]
         List<GetCustomer> GetCustomer(string username, string password);
@@ -76,8 +74,8 @@ namespace AppyWebServices
 
         [OperationContract]
         //attribute for returning JSON format
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "ForgotPassword/{type}/{value}")]
-        string ForgotPassword(string type, string value);
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "ForgotPassword/{type}/{value}/{countryCode}")]
+        string ForgotPassword(string type, string value, string countryCode);
 
         [OperationContract]
 

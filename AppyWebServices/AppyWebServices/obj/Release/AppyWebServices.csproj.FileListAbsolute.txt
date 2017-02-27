@@ -22,3 +22,6 @@ C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\bin\Res
 C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Release\AppyWebServices.csprojResolveAssemblyReference.cache
 C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Release\AppyWebServices.dll
 C:\Users\sachi\Downloads\appywebservices\AppyWebServices\AppyWebServices\obj\Release\AppyWebServices.pdb
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\Plivo.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\RestSharp.dll
+D:\backupFiles\MyWork\Appy\AppyWebServices\AppyWebServices\bin\RestSharp.xml

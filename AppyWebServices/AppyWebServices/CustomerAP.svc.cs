@@ -71,15 +71,15 @@ namespace AppyWebServices
                 }
                 else if (rows == -2)
                 {
-                    return "User Exists";
+                    return "User already exists";
                 }
                 else if (rows == -3)
                 {
-                    return "Email Exists";
+                    return "Email already exists";
                 }
                 else if (rows == -6)
                 {
-                    return "Mobile Exists";
+                    return "Mobile number already exists";
                 }
 
                 else
@@ -149,7 +149,7 @@ namespace AppyWebServices
                         }
 
                     }
-                    return "success";
+                    return "You are successfully registered";
                 }
             }
             catch (Exception ex)
@@ -846,7 +846,7 @@ namespace AppyWebServices
             }
         }
 
-        public string ForgotPassword(string type, string value)
+        public string ForgotPassword(string type, string value, string countryCode)
         {
             try
             {
@@ -874,61 +874,50 @@ namespace AppyWebServices
                 {
                     return "Email/Mobile Not Exist";
                 }
-                else
+
+                if (type.ToLower() == "email")
                 {
 
-
                     MailMessage mailMessage = new MailMessage();
-                    //creating an instance of the MailMessage class 
+
                     mailMessage.From = "Appy<Appy@visioninfotechonline.com>";// "noreply@redsteth.com";
-                    //senders email address 
+                                                                             //senders email address 
                     mailMessage.To = value; //txtEmail.Text.Trim();
-                    //recipient's email address 
-                    //mailMessage.Cc = txtEmail.Text.Trim();
-                    //email address of the Cc recipient 
-                    //mailMessage.Bcc = "redsteth2010@gmail.com";//pwd : rsteth#3579
-                    //email address of the Bcc recipient 
-                    mailMessage.Subject = "Your Appy password";//objSubscription.pSubject;// "Subscription Request Received";// + Session["NewGenId"].ToString();
-                    //subject of the email message 
+                                            //recipient's email address 
+                                            //mailMessage.Cc = txtEmail.Text.Trim();
+                                            //email address of the Cc recipient 
+                                            //mailMessage.Bcc = "redsteth2010@gmail.com";//pwd : rsteth#3579
+                                            //email address of the Bcc recipient 
+                    mailMessage.Subject = "Your Appy password";
                     mailMessage.BodyFormat = MailFormat.Html;
                     //message text format. Can be text or html 
-                    mailMessage.Body = "You have requested to send the password.<br /> Your password is:" + Password;// +Footer;//"<HTML><HEAD><TITLE></TITLE></HEAD><BODY><h5>Dear " + objSubscription.pName + "<br>Sender Id: " + /*Session["jName"].ToString() +*/"<br>CustomerId: " +/*Session["jName"].ToString() +*/ "<br>Mobile: " + /*Session["jName"].ToString() +*/ "<br>Email Id: " +/*Session["jName"].ToString() +*/ "<br>Subscription Date: " + /*Session["jName"].ToString() +*/ "<br>UserName: " + /*Session["jName"].ToString() +*/"<br>Password: " +/*Session["jName"].ToString() +*/ "</h5></BODY></HTML>";
-
+                    mailMessage.Body = "You have requested to send the password.<br /> Your password is:" + Password;
                     //message body 
                     mailMessage.Priority = MailPriority.High;
-                    //email priority. Can be low, normal or high 
-
-
                     mailMessage.Fields.Add("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate", "1"); //basic authentication
                     mailMessage.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendusername", "Appy@visioninfotechonline.com"); //set your username here
                     mailMessage.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendpassword", "Xivb615&");  //set your password here //medicoz#3579
 
                     SmtpMail.SmtpServer = "mail.visioninfotechonline.com";//"74.63.254.213";// "mail.dawaiwale.com";// "174.36.220.176";// "69.65.43.156";//"70.87.29.14";// "mail.medicozlemon.com";//"smtp.medicozlemon.com";// "mail.redsteth.com";// "69.65.43.156";
-                    //mail server used to send this email. modify this line based on your mail server 
+                                                                          //mail server used to send this email. modify this line based on your mail server 
 
 
-                    try
-                    {
-                        if (type.ToLower() == "email")
-                        {
-                            SmtpMail.Send(mailMessage);
-                        }
-                        else
-                        {
-                            SendSMS(value, "You have requested to send the password. Your password is:" + Password);
-                        }
-                        //Response.Write("Mail sent");
-                        //Valid = true;
-                    }
-
-                    catch
-                    {
-                    }
-
-
-
-                    return "success";
+                    SmtpMail.Send(mailMessage);
+                    return "Password sent on given email Address";
                 }
+                else
+                {
+                    SendSMS(countryCode + value, "You have requested to send the password. Your password is: " + Password);
+                    return "Password sent on mobile inbox";
+                }
+                //Response.Write("Mail sent");
+                //Valid = true;
+
+
+
+
+                return "success";
+
             }
             catch (Exception ex)
             {
@@ -1453,7 +1442,7 @@ namespace AppyWebServices
             //string strHTML = objStreamReader.ReadToEnd(); ;
 
             RestAPI plivo = new RestAPI("MAZTNLMDDJN2EXYTRHNJ", "ZDk4MDIzZjJjODZkYzU4MGE2NGE2ZWNkMjkxMWQx");
-            IRestResponse<MessageResponse> resp = plivo.send_message(new Dictionary<string, string>() 
+            IRestResponse<MessageResponse> resp = plivo.send_message(new Dictionary<string, string>()
                 {
                     { "src", "+18053165443" },
                     { "dst",  "+"+strRecip},
