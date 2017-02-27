@@ -28,7 +28,7 @@
                     $state.go('login');
                 }
                 else {
-                    ionicToast.show('Register failed', 'top', false, 2500);
+                    ionicToast.show(response.data.RegisterAppyResult, 'top', false, 2500);
                 }
             
             }, function (error) {

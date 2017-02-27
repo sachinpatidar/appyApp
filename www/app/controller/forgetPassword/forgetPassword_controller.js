@@ -1,4 +1,4 @@
-﻿angular.module('forgetPassword.module.controller', []).controller('forgetPassword.controller', function ($scope, $ionicPopup,httpServices, $ionicLoading, $state,ionicToast) {
+﻿angular.module('forgetPassword.module.controller', []).controller('forgetPassword.controller', function ($scope, $ionicPopup, httpServices, $ionicLoading, $state, ionicToast) {
     //  $scope.images = ["img/classprofile.png"];
     $scope.data = {};
 
@@ -9,33 +9,24 @@
         $scope.data.countryCode = code;
         myPopup.close();
     }
-var regIsNumber = function (fData) {
-var reg = new RegExp("^[-]?[0-9]+[\.]?[0-9]+$");
-    return reg.test(fData)
- }
-$scope.submitForget=function(data){
-
-      console.log(data);
-      var typedata='email';
-if(regIsNumber(data.phoneNo))
-{
-typedata='phone';
-
-}
-
-        var a = {
-            type:typedata, value: data.phoneNo
-
+    var regIsNumber = function (fData) {
+        var reg = new RegExp("^[-]?[0-9]+[\.]?[0-9]+$");
+        return reg.test(fData)
+    }
+    $scope.submitForget = function (data) {
+        console.log(data);
+        var typedata = 'email';
+        if (regIsNumber(data.phoneNo)) {
+            typedata = 'phone';
+          
         }
-        httpServices.post("ForgotPassword", a).then(function (response) {
+        httpServices.get("ForgotPassword/" + typedata + "/" + data.phoneNo+"/"+data.countryCode.replace("+", "")).then(function (response) {
+            //httpServices.post("ForgotPassword", a).then(function (response) {
             console.log(response);
-           
-               // $state.go('personalDetail');
-  ionicToast.show(response.data, 'top', false, 2500);
-            
-        })
-}
-
+            // $state.go('personalDetail');
+            ionicToast.show(response.data.ForgotPasswordResult, 'top', false, 2500);
+        });
+    }
 
     $scope.openPopup = function () {
         myPopup = $ionicPopup.show({

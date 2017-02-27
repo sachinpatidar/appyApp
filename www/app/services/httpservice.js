@@ -1,7 +1,8 @@
 ﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state','$translate', function ($q, $http, $ionicLoading, $rootScope, $state, $translate) {
 
    
-    var url = 'http://websvc.waytoappy.com/customerAP.svc/'; //http://localhost:55448
+    //var url = 'http://websvc.waytoappy.com/customerAP.svc/';
+    var url = 'http://localhost:55448/customerAP.svc/';
 
   this.get=function(urlres){
       var q = $q.defer();
@@ -53,7 +54,7 @@ this.getLanguages = function () {
     { "LId": "3", "Language": "русский" },
     { "LId": "4", "Language": "中文" },
     { "LId": "5", "Language": "عربى" },
-    { "LId": "6", "Language": "עִברִית" }, ]
+    { "LId": "6", "Language": "עברית" }, ]
 
 
     $(langlist).each(function (i, v) {
@@ -74,7 +75,7 @@ this.getLanguagesID = function () {
     { "LId": "3", "Language": "русский" },
     { "LId": "4", "Language": "中文" },
     { "LId": "5", "Language": "عربى" },
-    { "LId": "6", "Language": "עִברִית" }, ]
+    { "LId": "6", "Language": "עברית" }, ]
 
 
     $(langlist).each(function (i, v) {
