@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module','notificationScreen.module', 'ngCordovaOauth', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
+angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.module', 'notificationScreen.module', 'ngCordovaOauth', 'pascalprecht.translate', 'http.service.module', 'register.module', 'loginRegister.module', 'ionMdInput', 'forgetPassword.module', 'appMenu.module', 'personalDetail.module', 'translator.module', 'OwnAppyMessage.module'
 , 'AboutUs.module', 'HowtouseAppy.module', 'MakeSomeoneAppy.module', 'ionic-toast', 'toolTechniques.module', 'ContactUs.module', 'AddOwnAppyMessage.module', 'verifyUserOtp.module'])
 
 .run(function ($ionicPlatform, $state, $translate, $rootScope) {
@@ -12,7 +12,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         document.addEventListener("offline", onOffline, false);
 
         function onOffline() {
-       
+
             $state.go("error-page");
         }
         function onOnline() {
@@ -23,46 +23,46 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
 
         if (localStorage.getItem('value') == 'showAgreement') {
-            
-        var trans = '';
-        switch (parseInt(localStorage.getItem('languageSelected'))) {
 
-            case 1:
-                {
-                    trans = 'en';
-                    break;
-                };
-            case 2:
-                {
-                    trans = 'fr';
-                    break;
-                };
-            case 3:
-                {
-                    trans = 'ru';
-                    break;
-                }
-            case 4:
-                {
-                    trans = 'zh';
-                    break;
-                }
-            case 5:
-                {
-                    trans = 'ar';
-                    break;
-                }
-            case 6:
-                {
-                    trans = 'he';
-                    break;
-                }
+            var trans = '';
+            switch (parseInt(localStorage.getItem('languageSelected'))) {
+
+                case 1:
+                    {
+                        trans = 'en';
+                        break;
+                    };
+                case 2:
+                    {
+                        trans = 'fr';
+                        break;
+                    };
+                case 3:
+                    {
+                        trans = 'ru';
+                        break;
+                    }
+                case 4:
+                    {
+                        trans = 'zh';
+                        break;
+                    }
+                case 5:
+                    {
+                        trans = 'ar';
+                        break;
+                    }
+                case 6:
+                    {
+                        trans = 'he';
+                        break;
+                    }
+            }
+
+            console.log(trans);
+            $translate.use(trans);
+
         }
-
-        console.log(trans);
-        $translate.use(trans);
-
-    }
 
         var push = PushNotification.init({
             android: {
@@ -81,34 +81,34 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
         push.on('registration', function (data) {
             // data.registrationId
-        //    alert(JSON.stringify(data));
-           
+            //    alert(JSON.stringify(data));
+
             localStorage.setItem("GCMID", data.registrationId);
         });
         var ar = [];
         var i = 0;
         push.on('notification', function (data) {
-       //   alert(JSON.stringify(data));
+            //   alert(JSON.stringify(data));
 
             var now = new Date().getTime();
 
-           
-           
-             
+
+
+
             cordova.plugins.notification.local.schedule({
                 id: i,
                 text: data.additionalData.message1,
                 at: new Date(now + i * 3000000),
 
             });
-                    //cordova.plugins.notification.local.clearAll(function () {
-                    //    alert("done");
-                       
+            //cordova.plugins.notification.local.clearAll(function () {
+            //    alert("done");
 
-                //    }, this);
-                  
-                    i++;
-               
+
+            //    }, this);
+
+            i++;
+
 
             // data.message,
             // data.title,
@@ -117,43 +117,31 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             // data.image,
             // data.additionalData
         });
-        setInterval(function () {
-          
-              
-                i = 0;
-              
-          
-        }, 3000000)
-        push.on('error', function (e) {
-            // e.message
-        });
+        setInterval(function () { i = 0; }, 3000000)
+        push.on('error', function (e) { });
 
 
+        cordova.plugins.backgroundMode.setEnabled(true);
+       // alert(cordova.plugins.backgroundMode.isActive());
 
-    cordova.plugins.notification.local.on("schedule", function (notification) {
-        //   alert('scheduled events');
-          // alert(JSON.stringify(notification));
+        cordova.plugins.notification.local.on("schedule", function (notification) {
+            //   alert('scheduled events');
+            // alert(JSON.stringify(notification));
         });
         cordova.plugins.notification.local.on("click", function (notification) {
-          
+
         });
         cordova.plugins.notification.local.on("trigger", function (notification) {
             $rootScope.txtAlert = notification.text;
-          
+
             $state.go('notificationScreen')
 
 
 
         });
 
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-            // Don't remove this line unless you know what you are doing. It stops the viewport
-            // from snapping when text inputs are focused. Ionic handles this internally for
-            // a much nicer keyboard experience.
+        if (window.cordova && window.cordova.plugins.Keyboard) { 
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true); 
             cordova.plugins.Keyboard.disableScroll(true);
         }
         if (window.StatusBar) {
@@ -169,18 +157,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         $ionicConfigProvider.scrolling.jsScrolling(true);
     }
 
-    //   $translateProvider.translations('en', {
-    //       TITLE: 'Welcome!',
-    //       MESSAGE: 'This app supports your lanaguage!'
-    //   })
-    //.translations('sv', {
-    //    TITLE: 'Välkommen!',
-    //    MESSAGE: 'Denna app stöder ditt språk!'
-    //});
-
-    //.translations('en', {
-    //    app_name:'Way to Appy', slogen:'Dream your life, Live your dreams', facebook_app_id:'1247779388575027', navigation_drawer_open:'Open navigation drawer', navigation_drawer_close:'Close navigation drawer', action_settings:'Settings', title_activity_edit_profile:'EditProfileActivity', ShartAppHtml:'Appy Text', eula_title:'Agreement', eula_accept:'Accept', eula_refuse:'Decline', txt_Chooselang:'Choose Language', txt_Selectlang:'Select Preferred Language', sMaxTotalSizeOfFilesDlgMsg:'Enter number of messages you want to receive per day', sMaxTotalSizeOfFiles:'Massage Limit', txt_select_lang:'Select Language', txt_or:'OR', txt_continue:'Continue', txt_login:'Login', txt_register:'Register', txt_email:'Email Address', txt_pass:'Password', txt_remember:'Remember Me', txt_sign_in:'SIGN IN', txt_sign_up:'SIGN UP', txt_forgot_pass:'FORGOT PASSWORD?', txt_enter_email:'Enter email.', txt_enter_pass:'Enter password.',txt_name:'Name', txt_phone:'Phone Number', txt_confirm_pass:'Confirm Password', txt_terms:'Terms and Condition', txt_read_terms:'Read Terms', txt_enter_name:'Enter name.', txt_enter_valid_email:'Enter valid email.', txt_enter_phone:'Enter phone number.', txt_enter_pass_not_matched:'Password and confirm password not matched.', txt_registration_failed:'Error! Registration failed. Please try again.', txt_already_registered:'Error! Your are already registered. Please try forget password.', menu_appy:'Appy Menu', category_screen_msg:'What would you like?', category_done_msg:'GO GET IT', error_network:'Error! Please check your network and try again.',menu_profile:'My Profile', txt_personal_info:'Personal Info', txt_current_pass:'Current Password', txt_new_pass:'New Password', txt_appy_msg_per_day:'Max appy messages per day', txt_language:'Language', txt_update:'Update', enter_current_password:'Enter current password.', enter_new_password:'Enter new password.', msg_update_profile_success:'Profile updated successfully.', msg_update_profile_fail:'Error! Update profile failed.', menu_appy_messages:'My own Appy messages', title_add_msg:'Add Message', txt_msg_subject:'Message Subject', txt_msg_detail:'Message Detail', txt_submit:'Submit', enter_msg_subject:'Enter subject', enter_msg_detail:'Enter Detail', msg_add_msg_success:'Message added successfully.', msg_msg_enabled:'Message enabled', msg_msg_disabled:'Message disabled', menu_make_someone_appy:'Make someone Appy', txt_choose_contact:'Choose a contact', txt_send_msg:'Send Message', msg_msg_send_success:'Message send successfully.', menu_how_to_use_appy:'Using Appy', menu_more_tools_and_techniques:'More tools and techniques', menu_about_us:'About Us', menu_contact_us:'Contact Us', txt_subject:'Subject', enter_subject:'Enter subject', enter_message:'Enter your message'⁠⁠⁠⁠
-    //})
+   
     $translateProvider.translations('en', {
         txt_someOne_selectMsg: 'Select Message', txt_update_maxMesg: 'Max messages', adheadms_name: 'Add Message', appymnu_submit: 'GO GET IT', app_name: 'Way to Appy', slogen: 'Dream your life, Live your dreams', facebook_app_id: '1247779388575027', navigation_drawer_open: 'Open navigation drawer', navigation_drawer_close: 'Close navigation drawer', action_settings: 'Settings', title_activity_edit_profile: 'EditProfileActivity', ShartAppHtml: 'Appy Text', eula_title: 'Agreement', eula_accept: 'Accept', eula_refuse: 'Decline', txt_Chooselang: 'Choose Language', txt_Selectlang: 'Select Preferred Language', sMaxTotalSizeOfFilesDlgMsg: 'Enter number of messages you want to receive per day', sMaxTotalSizeOfFiles: 'Massage Limit', txt_select_lang: 'Select Language', txt_or: 'OR', txt_continue: 'Continue', txt_login: 'Login', txt_register: 'Register', txt_email: 'Email Address', txt_pass: 'Password', txt_remember: 'Remember Me', txt_sign_in: 'SIGN IN', txt_sign_up: 'SIGN UP', txt_forgot_pass: 'FORGOT PASSWORD?', txt_enter_email: 'Enter email.', txt_enter_pass: 'Enter password.', txt_name: 'Name', txt_phone: 'Phone Number', txt_confirm_pass: 'Confirm Password', txt_terms: 'Terms of service', txt_read_terms: 'Read Terms', txt_enter_name: 'Enter name.', txt_enter_valid_email: 'Enter valid email.', txt_enter_phone: 'Enter phone number.', txt_enter_pass_not_matched: 'Password and confirm password not matched.', txt_registration_failed: 'Error! Registration failed. Please try again.', txt_already_registered: 'Error! Your are already registered. Please try forget password.', category_screen_msg: 'What would you like to order?', category_done_msg: 'GO GET IT', error_network: 'Error! Please check your network and try again.', menu_profile: 'My Profile', txt_personal_info: 'Personal Info', txt_current_pass: 'Current Password', txt_new_pass: 'New Password', txt_appy_msg_per_day: 'Max appy messages per day', txt_language: 'Language', txt_update: 'Update', enter_current_password: 'Enter current password.', enter_new_password: 'Enter new password.', msg_update_profile_success: 'Profile updated successfully.', msg_update_profile_fail: 'Error! Update profile failed.', menu_appy_messages: 'My own Appy messages', title_add_msg: 'Add Message', txt_msg_subject: 'Message Subject', txt_msg_detail: 'Message Detail', txt_submit: 'Submit', enter_msg_subject: 'Enter subject', enter_msg_detail: 'Enter Detail', msg_add_msg_success: 'Message added successfully.', msg_msg_enabled: 'Message enabled', msg_msg_disabled: 'Message disabled', menu_make_someone_appy: 'Make someone Appy', txt_choose_contact: 'Choose a contact', txt_send_msg: 'Send Message', msg_msg_send_success: 'Message send successfully.', menu_how_to_use_appy: 'Using Appy', menu_more_tools_and_techniques: 'More tools and techniques', menu_about_us: 'About Us', menu_contact_us: 'Contact Us', txt_subject: 'Subject', enter_subject: 'Enter subject', enter_message: 'Enter your message'
     })

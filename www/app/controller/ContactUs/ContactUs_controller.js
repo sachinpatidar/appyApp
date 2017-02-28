@@ -8,10 +8,11 @@
         myPopup.close();
     }
     $scope.openPopup = function () {
-          myPopup = $ionicPopup.show({
+        myPopup = $ionicPopup.show({
             templateUrl: 'views/partial_country.html',
             title: 'select country',
             scope: $scope,
+
             buttons: [{
                 text: '<i class="icon ion-close-circled"></i>',
                 type: 'popclose',
@@ -21,10 +22,13 @@
             }],
 
         });
+        setTimeout(function () {
+            $('.popup').css('width', '90% !important');
+        }, 5000);
     }
-    
+
     $scope.contactDetails = function (data) {
-       // alert(JSON.stringify(data.Name));
+        // alert(JSON.stringify(data.Name));
 
 
         if (data.Name == '' || data.Name == undefined) {
@@ -71,7 +75,7 @@
             } else {
                 ionicToast.show(response.data, 'top', false, 2500);
             }
-        
+
 
 
         }, function (error) {

@@ -1032,3 +1032,15 @@ background-color: transparent !important;
     overflow:hidden;
 }
 .title.title-center.header-item{left:0 !important;right:0 !important;}
+.popup-container .popup{width:90% !important;}
+li.dropdown ul {display : none;}
+.item.dropdown {     background-image: url(../img/toggle-expand.png);
+    background-repeat: no-repeat;
+    background-position: 4px 18px;
+    background-size: 6%;
+    padding-left: 25px; }
+li.dropdown ul li.item {
+  padding: 4px 0px;
+    border-color: rgba(72, 66, 66, 0);
+    border-bottom-style: solid;
+}

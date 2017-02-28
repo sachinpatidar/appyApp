@@ -2,6 +2,10 @@
     function ($scope, httpServices, $ionicLoading, $ionicHistory, $state) {
         //  $scope.images = ["img/classprofile.png"];
 
+        if (localStorage.getItem('eauid') == null) {
+            $state.go('login');
+        }
+
         httpServices.get("GetPublicPagesinfo/" + "About Us" + "/" + localStorage.getItem('languageSelected')).then(function (response) {
             console.log(JSON.stringify(response));
             if (response.data.GetPublicPagesinfoResult.length > 0) {

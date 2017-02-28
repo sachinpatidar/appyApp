@@ -1,5 +1,9 @@
 ﻿angular.module('personalDetail.module.controller', []).controller('personalDetail.controller', function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, $translate) {
     //  $scope.images = ["img/classprofile.png"];
+ //   alert(localStorage.getItem('eauid') + "  " + typeof (localStorage.removeItem('eauid')));
+    if (localStorage.getItem('eauid') == null) {
+        $state.go('login');
+    }
     setTimeout(function () {
         $scope.language = localStorage.getItem('languageSelected');
     }, 200);

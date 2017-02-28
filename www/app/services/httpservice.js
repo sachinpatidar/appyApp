@@ -1,8 +1,8 @@
 ﻿angular.module('http.service.module', []).service('httpServices', ['$q', '$http', '$ionicLoading', '$rootScope', '$state','$translate', function ($q, $http, $ionicLoading, $rootScope, $state, $translate) {
 
    
-    //var url = 'http://websvc.waytoappy.com/customerAP.svc/';
-    var url = 'http://localhost:55448/customerAP.svc/';
+   var url = 'http://websvc.waytoappy.com/customerAP.svc/';
+    // var url = 'http://localhost:55448/customerAP.svc/';
 
   this.get=function(urlres){
       var q = $q.defer();

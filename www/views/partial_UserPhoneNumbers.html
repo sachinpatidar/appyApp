@@ -1,11 +1,19 @@
 ﻿<div>
 
-   
+
 
     <input type="text" ng-model="selectPhoneNumber" class="Pcountrys" placeholder="{{'txt_choose_contact' | translate}}" />
     <div class="show-list">
         <ul class="list">
-            <li class="item" ng-repeat="s in contacts |filter: selectPhoneNumber | orderBy : 'displayName'" ng-click="selectedContact(s)">{{s.displayName}}</li>
+            <li class="item dropdown" ng-repeat="s in contacts |filter: selectPhoneNumber | orderBy : 'displayName'">
+                <label ng-click="selectedContact(s)">{{s.displayName}}</label>
+                <ul class="chldlist">
+                    <li class="item" ng-repeat="p in s.phoneNumbers" ng-click="selectedContact(p)">
+                        {{p.value}}
+                    </li>
+                </ul>
+
+            </li>
         </ul>
     </div>
 </div>

@@ -23,7 +23,13 @@
                 }],
                 scope: $scope,
 
-            });
+             });
+             setTimeout(function () {
+                 $('li.dropdown').click(function () {
+                     $('.dropdown ul').hide();
+                     $(this).children('ul').show();
+                 });
+             }, 2000);
         }
         httpServices.get("GetMessages/" + localStorage.getItem('languageSelected')).then(function (response) {
             console.log(response);
@@ -76,24 +82,29 @@
 
         function onSuccess(contacts) {
            
-           // alert(JSON.stringify(contacts));
-            $scope.contacts = contacts;
+          // alert(JSON.stringify(contacts));
+           $scope.contacts = contacts;
+
+         
         };
         $scope.selectedContact = function (number) {
            
-            $scope.data.phoneNo = number.phoneNumbers[0].value;
-            $scope.displayNameheader = number.displayName;
-           
+          //  alert(JSON.stringify(number));
+ 
+             //   $scope.data.phoneNo = number.phoneNumbers[0].value;
+            $scope.data.phoneNo = number.value.replace("+91", "").replace("+1", "").replace("+972", "");
+               $scope.displayNameheader = number.displayName;
+                myPopup.close();
+                setTimeout(function () {
 
-            myPopup.close();
-            setTimeout(function () {
-
-                $('.md-input').each(function () {
-                    if ($(this).val() != '') {
-                        $('#' + $(this).next('span').attr('id')).addClass('active');
-                    }
-                });
-            }, 500);
+                    $('.md-input').each(function () {
+                        if ($(this).val() != '') {
+                            $('#' + $(this).next('span').attr('id')).addClass('active');
+                        }
+                    });
+                }, 500);
+          
+       
         }
         function onError(contactError) {
             alert('onError!');
@@ -104,11 +115,10 @@
             var options = new ContactFindOptions();
             //  options.filter = "";
             options.multiple = true;
-            options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name];
-            //options.hasPhoneNumber = true;
+            options.desiredFields = [navigator.contacts.fieldType.phoneNumbers, navigator.contacts.fieldType.name,navigator.contacts.fieldType.id];
+           options.hasPhoneNumber = true;
             var fields = ['displayName'];
             navigator.contacts.find(fields, onSuccess, onError, options);
-
 
 
         }, false)

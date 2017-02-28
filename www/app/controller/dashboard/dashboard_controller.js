@@ -1,8 +1,16 @@
 ﻿angular.module('dashboard.module.controller', []).controller('dashboard.controller', function ($scope,$ionicHistory, $ionicLoading, $ionicHistory, $state) {
     //  $scope.images = ["img/classprofile.png"];
+
     $ionicHistory.clearCache();
     $ionicHistory.clearHistory();
     $ionicHistory.removeBackView();
+    if (localStorage.getItem('value') == null) {
+        $state.go('translator');
+    }
+    else if (localStorage.getItem('eauid') == null) {
+        $state.go('login');
+    }
+
     $scope.logout = function () {
         localStorage.removeItem('email');
         localStorage.removeItem('eauid');

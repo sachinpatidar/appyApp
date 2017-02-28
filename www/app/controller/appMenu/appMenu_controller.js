@@ -1,7 +1,10 @@
 ﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast) {
     //  $scope.images = ["img/classprofile.png"];
 
-
+    if (localStorage.getItem('eauid') == null)
+    {
+        $state.go('login');
+    }
 
     var Alepop = '';
     //  $scope.images = ["img/classprofile.png"];
@@ -97,7 +100,7 @@
         callAlert();
         // callAlert();
 
-        $scope.txtAlert = "Thanks for your interaction";
+        $scope.txtAlert = "Thank for your interaction";
 
 
     }
@@ -138,7 +141,7 @@
             console.log(response);
             if (response.data == "success") {
                 //   $state.go('dashboard');
-                $scope.txtAlert = "Thanks you, Your order is on the way";
+                $scope.txtAlert = "Thank you. Your order is on the way";
                 callAlert();
             } else {
                 ionicToast.show(response.data, 'top', false, 2500);
