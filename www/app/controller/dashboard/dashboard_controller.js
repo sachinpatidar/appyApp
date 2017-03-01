@@ -10,8 +10,17 @@
     else if (localStorage.getItem('eauid') == null) {
         $state.go('login');
     }    
-    
-    if ($scope.txtAlert != undefined ) {
+   // alert($rootScope.txtAlert)
+    //if ($rootScope.txtAlert != undefined) {
+    //    Alepop = $ionicPopup.alert({
+    //        templateUrl: 'views/partial_Alert.html',
+    //        scope: $scope,
+    //    });
+    //    $('.popup-buttons').hide();
+    //    $('.popup-head').hide();
+    //    $('.popup').addClass('InfoAlert');
+    //}
+    $rootScope.callNotification = function () {
         Alepop = $ionicPopup.alert({
             templateUrl: 'views/partial_Alert.html',
             scope: $scope,
