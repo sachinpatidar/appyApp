@@ -1,6 +1,6 @@
-﻿angular.module('dashboard.module.controller', []).controller('dashboard.controller', function ($scope,$ionicHistory, $ionicLoading, $ionicHistory, $state) {
+﻿angular.module('dashboard.module.controller', []).controller('dashboard.controller', function ($scope, $ionicHistory, $ionicLoading, $ionicHistory, $state, $rootScope, $ionicPopup) {
     //  $scope.images = ["img/classprofile.png"];
-
+    var Alepop = '';
     $ionicHistory.clearCache();
     $ionicHistory.clearHistory();
     $ionicHistory.removeBackView();
@@ -9,7 +9,19 @@
     }
     else if (localStorage.getItem('eauid') == null) {
         $state.go('login');
+    }    
+    
+    if ($scope.txtAlert != undefined ) {
+        Alepop = $ionicPopup.alert({
+            templateUrl: 'views/partial_Alert.html',
+            scope: $scope,
+        });
+        $('.popup-buttons').hide();
+        $('.popup-head').hide();
+        $('.popup').addClass('InfoAlert');
     }
+    $rootScope.Alrtcls = function () { Alepop.close(); }
+
 
     $scope.logout = function () {
         localStorage.removeItem('email');

@@ -99,7 +99,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
                 id: i,
                 text: data.additionalData.message1,
                 at: new Date(now + i * 3000000),
-
+                icon: "http://waytoappy.com/admin/img/icon.png",
             });
             //cordova.plugins.notification.local.clearAll(function () {
             //    alert("done");
@@ -121,8 +121,8 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         push.on('error', function (e) { });
 
 
-        cordova.plugins.backgroundMode.setEnabled(true);
-       // alert(cordova.plugins.backgroundMode.isActive());
+ 
+          
 
         cordova.plugins.notification.local.on("schedule", function (notification) {
             //   alert('scheduled events');
@@ -133,12 +133,24 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         });
         cordova.plugins.notification.local.on("trigger", function (notification) {
             $rootScope.txtAlert = notification.text;
+            //Alepop = $ionicPopup.alert({
+            //    templateUrl: 'views/partial_Alert.html',
+            //    scope: notification.text,
+            //});
 
-            $state.go('notificationScreen')
+            //$('.popup-buttons').hide();
+            //$('.popup-head').hide();
+            //$('.popup').addClass('InfoAlert');
 
 
 
-        });
+            //$rootScope.Alrtcls = function () { Alepop.close(); }
+           //  $state.go('notificationScreen');
+            $state.go('dashboard');
+       });
+
+
+
 
         if (window.cordova && window.cordova.plugins.Keyboard) { 
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true); 

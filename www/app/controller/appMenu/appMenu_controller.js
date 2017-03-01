@@ -1,4 +1,4 @@
-﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast) {
+﻿angular.module('appMenu.module.controller', []).controller('appMenu.controller', function ($scope, httpServices, $ionicPopup, $ionicLoading, $ionicHistory, $state, ionicToast, $rootScope) {
     //  $scope.images = ["img/classprofile.png"];
 
     if (localStorage.getItem('eauid') == null)
@@ -98,12 +98,9 @@
     $scope.Alrtcls = function () { Alepop.close(); }
     $scope.showAlert = function () {
         callAlert();
-        // callAlert();
-
         $scope.txtAlert = "Thank for your interaction";
-
-
     }
+
 
 
     function callAlert() {
@@ -120,7 +117,7 @@
     $scope.submitMenuOptions = function () {
         var stringg = '';
         $scope.val.map((i, j) => {
-
+             
             i.subcategory.map((k, l) => {
                 //console.log(k);
                 if (k.enableSub) {
