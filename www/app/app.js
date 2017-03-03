@@ -81,18 +81,18 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
         push.on('registration', function (data) {
             // data.registrationId
-            //    alert(JSON.stringify(data));
+            //   alert(JSON.stringify(data));
 
             localStorage.setItem("GCMID", data.registrationId);
         });
         var ar = [];
         var i = 0;
         push.on('notification', function (data) {
-            //   alert(JSON.stringify(data));
+        //  alert(JSON.stringify(data));
             var now = new Date().getTime();
             cordova.plugins.notification.local.schedule({
                 id: i,
-                text: data.additionalData.message1,
+                text: data.additionalData.message1[i].firstName,
                 at: new Date(now + i * 30000),
                 icon: "http://waytoappy.com/admin/img/icon.png",
             });
@@ -103,7 +103,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             // data.message,
             // data.title,
             // data.count,
-            // data.sound,
+          data.sound
             // data.image,
             // data.additionalData
         });
