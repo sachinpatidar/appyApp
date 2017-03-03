@@ -89,27 +89,17 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         var i = 0;
         push.on('notification', function (data) {
             //   alert(JSON.stringify(data));
-
             var now = new Date().getTime();
-
-
-
-
             cordova.plugins.notification.local.schedule({
                 id: i,
                 text: data.additionalData.message1,
-                at: new Date(now + i * 3000000),
+                at: new Date(now + i * 30000),
                 icon: "http://waytoappy.com/admin/img/icon.png",
             });
             //cordova.plugins.notification.local.clearAll(function () {
-            //    alert("done");
-
-
+            //    alert("done"); 3000000
             //    }, this);
-
             i++;
-
-
             // data.message,
             // data.title,
             // data.count,
@@ -117,36 +107,20 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             // data.image,
             // data.additionalData
         });
-        setInterval(function () { i = 0; }, 3000000)
+        setInterval(function () { i = 0; }, 30000)
         push.on('error', function (e) { });
-
-
-
-
 
         cordova.plugins.notification.local.on("schedule", function (notification) {
             //   alert('scheduled events');
             // alert(JSON.stringify(notification));
         });
         cordova.plugins.notification.local.on("click", function (notification) {
-            $rootScope.txtAlert = notification.text; $state.go('dashboard');
+            $rootScope.txtAlert = notification.text;
+            $state.go('dashboard');
             $rootScope.callNotification()
         });
         cordova.plugins.notification.local.on("trigger", function (notification) {
-            $rootScope.txtAlert = notification.text;
-            //Alepop = $ionicPopup.alert({
-            //    templateUrl: 'views/partial_Alert.html',
-            //    scope: notification.text,
-            //});
-
-            //$('.popup-buttons').hide();
-            //$('.popup-head').hide();
-            //$('.popup').addClass('InfoAlert');
-
-
-
-            //$rootScope.Alrtcls = function () { Alepop.close(); }
-            //  $state.go('notificationScreen');
+            $rootScope.txtAlert = notification.text;          
             $state.go('dashboard');
             $rootScope.callNotification()
         });

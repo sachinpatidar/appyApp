@@ -1,9 +1,9 @@
 ﻿angular.module('AboutUs.module.controller', []).controller('AboutUs.controller',
     function ($scope, httpServices, $ionicLoading, $ionicHistory, $state, $rootScope) {
         //  $scope.images = ["img/classprofile.png"];
-   //     $rootScope.txtAlert = "hi pawan";
-        //$state.go('dashboard');
-        //$rootScope.notification();
+     //$rootScope.txtAlert = "hi pawan";
+     // $state.go('dashboard');
+     //   $rootScope.callNotification();
        
         if (localStorage.getItem('eauid') == null) {
             $state.go('login');

@@ -1,6 +1,6 @@
 ﻿angular.module('dashboard.module.controller', []).controller('dashboard.controller', function ($scope, $ionicHistory, $ionicLoading, $ionicHistory, $state, $rootScope, $ionicPopup) {
     //  $scope.images = ["img/classprofile.png"];
-    var Alepop = '';
+  
     $ionicHistory.clearCache();
     $ionicHistory.clearHistory();
     $ionicHistory.removeBackView();
@@ -21,15 +21,16 @@
     //    $('.popup').addClass('InfoAlert');
     //}
     $rootScope.callNotification = function () {
-        Alepop = $ionicPopup.alert({
+         var Alepop = $ionicPopup.alert({
             templateUrl: 'views/partial_Alert.html',
-            scope: $scope,
+            scope: $rootScope,
         });
-        $('.popup-buttons').hide();
+       $('.popup-buttons').hide();
         $('.popup-head').hide();
         $('.popup').addClass('InfoAlert');
+  $rootScope.Alrtcls = function () {Alepop.close(); }
     }
-    $rootScope.Alrtcls = function () { Alepop.close(); }
+  
 
 
     $scope.logout = function () {
@@ -56,11 +57,9 @@
             console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true 
             console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false) 
         }
-
         var onError = function (msg) {
             console.log("Sharing failed with message: " + msg);
         }
-
         window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
     }
 
