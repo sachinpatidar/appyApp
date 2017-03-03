@@ -39,7 +39,29 @@
             console.log($scope.data.code);
            
             if ($scope.data.code == $scope.otp) {
-                $state.go('register', { yourName: $stateParams.yourName, email: $stateParams.email, countryCode: $stateParams.countryCode, phoneNo: $scope.data.phoneNo, password: $stateParams.password });
+
+               // $state.go('register', { yourName: $stateParams.yourName, email: $stateParams.email, countryCode: $stateParams.countryCode, phoneNo: $scope.data.phoneNo, password: $stateParams.password });
+
+                var a = {
+                    name: $stateParams.yourName, email: $stateParams.email, registeremail: $stateParams.email, mobile: $stateParams.phoneNo, remarks: "R",
+                    type: "R", promocode: "4655", country: "ind", city: "ind", Language: localStorage.getItem('languageSelectedText'), DType: "A", user: $stateParams.email, pwd: $stateParams.password,
+                    Messages: "5", CountryCode: $stateParams.countryCode,
+                    GCMId:' '
+                }
+
+                httpServices.post("RegisterAppy", a).then(function (response) {
+                    console.log(response);
+                    if (response.data == "You are successfully registered") {
+                        $state.go('login');
+                    }
+                    else {
+                        ionicToast.show(response.data, 'top', false, 2500);
+                    }
+
+                }, function (error) {
+                    ionicToast.show('Login failed', 'top', false, 2500);
+
+                });
             }
             else {
                 ionicToast.show('please enter correct otp', 'top', false, 2500);

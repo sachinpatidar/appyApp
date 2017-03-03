@@ -993,7 +993,7 @@ ion-md-input {
 .InfoAlert{       background-image: url(../img/bg_popup.png);
     background-position: center center;
     background-repeat: no-repeat;
-    /* height: 52px; */
+     height: 65px; 
     text-align: center;
     vertical-align: middle;
     padding: 2% 0;
@@ -1003,10 +1003,11 @@ ion-md-input {
 .Alrtcls {
     float: right;
     position: absolute;
-    top: 4px;
-    right: 0;
+    top: 6px;
+    right: 4px;
+    z-index:99999999 !important;
     margin: 0 5px;
-    font-size: 16px;
+    font-size: 25px;
 }
 .notification-page{border: solid;
     border-color: white;
@@ -1032,7 +1033,8 @@ background-color: transparent !important;
     overflow:hidden;
 }
 .title.title-center.header-item{left:0 !important;right:0 !important;}
-.popup-container .popup{width:90% !important;}
+.popup-container .popup{    width: 90% !important;
+  }
 li.dropdown ul {display : none;}
 .item.dropdown {     background-image: url(../img/toggle-expand.png);
     background-repeat: no-repeat;
@@ -1044,3 +1046,4 @@ li.dropdown ul li.item {
     border-color: rgba(72, 66, 66, 0);
     border-bottom-style: solid;
 }
+.pustextalt{font-size:17px;}
