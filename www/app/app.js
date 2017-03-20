@@ -15,10 +15,10 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
             $state.go("error-page");
         }
-        function onOnline() {
+        //function onOnline() {
 
-            $state.go("dashboard");
-        }
+        //    $state.go("dashboard");
+        //}
         document.addEventListener("online", onOnline, false);
 
 
@@ -88,26 +88,35 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
         var ar = [];
         var i = 0;
         push.on('notification', function (data) {
-        //  alert(JSON.stringify(data));
+            //   alert(JSON.stringify(data));
             var now = new Date().getTime();
-            cordova.plugins.notification.local.schedule({
-                id: i,
-                text: data.additionalData.message1[i].firstName,
-                at: new Date(now + i * 30000),
-                icon: "http://waytoappy.com/admin/img/icon.png",
-            });
-            //cordova.plugins.notification.local.clearAll(function () {
-            //    alert("done"); 3000000
-            //    }, this);
+         //   alert(data.additionalData.message1.length);
+            for (var k = 0; k <= data.additionalData.message1.length; k++) {
+                cordova.plugins.notification.local.schedule({
+                    id:k,
+                    text: data.additionalData.message1[k].localmessage,
+                    at: new Date(now + k * 3000000),
+                    icon: "http://waytoappy.com/admin/img/icon.png",
+                });
+                //cordova.plugins.notification.local.clearAll(function () {
+                //    alert("done"); 3000000
+                //    }, this);
+
+            //    alert(data.additionalData.message1[k].localmessage);
+            }
+
+
             i++;
             // data.message,
             // data.title,
             // data.count,
-          data.sound
+            data.sound
             // data.image,
             // data.additionalData
+
+
         });
-        setInterval(function () { i = 0; }, 30000)
+        setInterval(function () { i = 0; }, 3000000)
         push.on('error', function (e) { });
 
         cordova.plugins.notification.local.on("schedule", function (notification) {
@@ -120,13 +129,10 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
             $rootScope.callNotification()
         });
         cordova.plugins.notification.local.on("trigger", function (notification) {
-            $rootScope.txtAlert = notification.text;          
+            $rootScope.txtAlert = notification.text;
             $state.go('dashboard');
             $rootScope.callNotification()
         });
-
-
-
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
