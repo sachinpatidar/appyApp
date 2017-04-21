@@ -8,7 +8,6 @@
       var q = $q.defer();
       $ionicLoading.show();
       $http.get(url+urlres).then(function (result) {
-         
           q.resolve(result);
           $ionicLoading.hide();
       }, function (error) {

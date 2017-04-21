@@ -14,13 +14,16 @@
                 <div class="list formReg">
                     <label>
 
-                        <ion-md-input class="messageArea" type="text" placeholder="{{'txt_msg_subject'|translate}}" ng-model="data.MessageSubject"></ion-md-input>
+                        <input class="messageArea" type="text" placeholder="{{'txt_msg_subject'|translate}}" ng-model="data.MessageSubject"></input>
 
                     </label>
                     <label>
                         <!--<ion-md-input class="yourName" type="text" placeholder="Message Detail" ng-model="data.MessageDetail"></ion-md-input>-->
 
-                        <ion-md-input class="messageArea" type="text" style="height:100px" placeholder="{{'txt_msg_detail'|translate}}" ng-model="data.MessageDetail"></ion-md-input>
+                          <!--  <md-textarea class="messageArea" type="" style="height:100px" placeholder="{{'txt_msg_detail'|translate}}"
+                                       ng-model="data.MessageDetail"></md-textarea>-->
+                    <textarea cols="4" rows="3" class="messageArea ownmsgArea" placeholder="{{'txt_msg_detail'|translate}}"
+                                       ng-model="data.MessageDetail"></textarea>
                         <!-- <input class="yourName" type="text" placeholder="Name"> -->
 
                     </label>

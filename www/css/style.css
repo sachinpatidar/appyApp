@@ -893,12 +893,12 @@ ion-md-input {
 }
 
 .edbtns {
-    background-color: transparent;
+     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
     position: absolute;
-    top: -15px;
-    right: 15px;
+    top: -17px;
+    right: 3px;
     color: #fff;
 }
 
@@ -909,7 +909,7 @@ ion-md-input {
 
 .leftbtns {
     position: absolute;
-    right: 20px;
+    right: 33px;
 }
 
 .pcheckwol {
@@ -1047,3 +1047,27 @@ li.dropdown ul li.item {
     border-bottom-style: solid;
 }
 .pustextalt{font-size:17px;}
+.button.button-positive {
+    color: #fff;
+    position: absolute;
+    top: -4px;
+    right: -10px;
+    font-size: 21px;
+}
+.popup-buttons {
+     min-height: 0; 
+}
+.button{
+    background-color: transparent;
+}
+
+.button.button-positive.activated, .button.activated {background-color:transparent !important;
+                                  border:none;
+}
+.messageArea.ownmsgArea{line-height:20px;}
+.msgsub {
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 2px 0 0 0;
+}

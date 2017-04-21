@@ -15,10 +15,10 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
             $state.go("error-page");
         }
-        //function onOnline() {
+        function onOnline() {
 
         //    $state.go("dashboard");
-        //}
+       }
         document.addEventListener("online", onOnline, false);
 
 
@@ -81,7 +81,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'dashboard.module', 'login.mod
 
         push.on('registration', function (data) {
             // data.registrationId
-            //   alert(JSON.stringify(data));
+              //  alert(JSON.stringify(data));
 
             localStorage.setItem("GCMID", data.registrationId);
         });

@@ -20,18 +20,25 @@
     //    $('.popup-head').hide();
     //    $('.popup').addClass('InfoAlert');
     //}
+    var Alepop = '';
     $rootScope.callNotification = function () {
-         var Alepop = $ionicPopup.alert({
+           Alepop = $ionicPopup.alert({
             templateUrl: 'views/partial_Alert.html',
             scope: $rootScope,
+            buttons: [
+  {
+      text: 'X',
+      type: 'button-positive',
+  }]
         });
-       $('.popup-buttons').hide();
+        //  $('.popup-buttons').hide();
+         //  $('button').html("X");
         $('.popup-head').hide();
         $('.popup').addClass('InfoAlert');
   $rootScope.Alrtcls = function () {Alepop.close(); }
     }
   
-
+  $rootScope.Alrtcls = function () {Alepop.close(); }
 
     $scope.logout = function () {
         localStorage.removeItem('email');

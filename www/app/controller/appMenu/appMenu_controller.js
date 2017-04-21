@@ -107,9 +107,14 @@
         Alepop = $ionicPopup.alert({
             templateUrl: 'views/partial_Alert.html',
             scope: $scope,
+            buttons: [
+{
+    text: 'X',
+    type: 'button-positive',
+}]
         });
 
-        $('.popup-buttons').hide();
+      //  $('.popup-buttons').hide();
         $('.popup-head').hide();
         $('.popup').addClass('InfoAlert');
     }
