@@ -24,4 +24,12 @@
        
         }
         );
+
+
+        $scope.calllinks = function (links) {
+
+            window.open('http://' + links, '_blank', 'location=yes');
+        }
+
+
     });
